@@ -883,18 +883,24 @@ function updateChapterLockBadges() {
     });
 }
 
-// Click Interceptor for all locked chapter links
+// Click Interceptor & Navigation for all chapter links
 document.addEventListener("click", (e) => {
     const link = e.target.closest("a[href*='chapter']");
     if (!link) return;
 
     const href = link.getAttribute("href") || "";
+    if (!href || href === "#" || href.startsWith("#")) return;
+
     const isLockedChapter = /chapter([2-9]|1[0-2])\.html$/i.test(href);
 
     if (isLockedChapter && !isNovelUnlocked()) {
         e.preventDefault();
         e.stopPropagation();
         promptNovelUnlock(href);
+    } else {
+        e.preventDefault();
+        if (typeof window.closeAllDrawers === 'function') window.closeAllDrawers();
+        window.location.assign(href);
     }
 }, true);
 
