@@ -1,3 +1,48 @@
+// Global Theme, Font & Text Size Functions
+window.applyTheme = function(themeName) {
+    if (!themeName) return;
+    const t = (themeName === 'default') ? 'dark' : themeName;
+    document.documentElement.setAttribute('data-theme', t);
+    if (document.body) document.body.setAttribute('data-theme', t);
+    localStorage.setItem('selectedTheme', t);
+    localStorage.setItem('parda_theme', t);
+};
+
+window.applyFont = function(fontName) {
+    if (!fontName) return;
+    document.documentElement.setAttribute('data-font', fontName);
+    if (document.body) document.body.setAttribute('data-font', fontName);
+    localStorage.setItem('selectedFont', fontName);
+    localStorage.setItem('parda_font', fontName);
+};
+
+window.applySize = function(sizeName) {
+    if (!sizeName) return;
+    document.documentElement.setAttribute('data-size', sizeName);
+    if (document.body) document.body.setAttribute('data-size', sizeName);
+    localStorage.setItem('selectedSize', sizeName);
+    localStorage.setItem('parda_size', sizeName);
+};
+
+function loadSavedHomeHighlights() {
+    try {
+        const saved = localStorage.getItem("user_highlights_" + window.location.pathname);
+        if (!saved) return;
+        const highlights = JSON.parse(saved);
+        if (!Array.isArray(highlights)) return;
+        const bodyElements = document.querySelectorAll('.hero-excerpt p, .about-content p, .section-subtitle, .quote-text, .m-desc');
+        highlights.forEach(textSnippet => {
+            if (!textSnippet || textSnippet.length < 3) return;
+            bodyElements.forEach(p => {
+                if (p.textContent.includes(textSnippet) && !p.querySelector(`mark.user-highlight[data-hl-text="${CSS.escape(textSnippet)}"]`)) {
+                    const regex = new RegExp(`(${textSnippet.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'g');
+                    p.innerHTML = p.innerHTML.replace(regex, `<mark class="user-highlight" data-hl-text="${textSnippet}" title="Click to remove highlight">$1</mark>`);
+                }
+            });
+        });
+    } catch(e) {}
+}
+
 // Bulletproof Global Drawer & Settings Toggles
 window.closeAllDrawers = function() {
     const panel = document.getElementById('settingsPanel');
