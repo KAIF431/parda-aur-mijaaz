@@ -56,20 +56,21 @@ function promptNovelUnlock(targetHref) {
     if (!lockModal) {
         lockModal = document.createElement("div");
         lockModal.id = "novelLockModal";
-        lockModal.className = "novel-lock-modal";
+        lockModal.className = "novel-lock-modal active";
+        lockModal.style.cssText = "position: fixed; inset: 0; background: rgba(12, 9, 7, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); display: flex; align-items: center; justify-content: center; z-index: 999999; padding: 1rem;";
         lockModal.innerHTML = `
-            <div class="novel-lock-card">
-                <div class="novel-lock-icon">🔒</div>
-                <div class="novel-lock-title">Chapters 02–12 Locked</div>
-                <div class="novel-lock-desc">
+            <div class="novel-lock-card" style="background: #16100c; border: 2px solid #e2b857; border-radius: 20px; padding: 2.5rem 1.8rem; width: 100%; max-width: 440px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.9), 0 0 30px rgba(226,184,87,0.3);">
+                <div class="novel-lock-icon" style="font-size: 3rem; margin-bottom: 0.8rem;">🔒</div>
+                <div class="novel-lock-title" style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #e2b857; margin-bottom: 0.4rem;">Chapters 02–12 Locked</div>
+                <div class="novel-lock-desc" style="font-family: 'Inter', sans-serif; font-size: 0.88rem; color: #a09585; margin-bottom: 1.5rem; line-height: 1.5;">
                     Chapter 01 is Free to read! Aage ke baaki chapters padhne ke liye Secret Access Password enter karein:
                 </div>
-                <form id="novelLockForm" class="novel-lock-form">
-                    <input type="password" id="novelLockInput" class="novel-lock-input" placeholder="Enter Secret Password" required autocomplete="off">
-                    <button type="submit" class="novel-lock-btn">Unlock All Chapters 🔓</button>
+                <form id="novelLockForm" class="novel-lock-form" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <input type="password" id="novelLockInput" class="novel-lock-input" placeholder="Enter Secret Password" required autocomplete="off" style="width: 100%; padding: 0.9rem 1.2rem; border-radius: 12px; border: 1px solid #3a2e22; background: #0c0907; color: #f4ede2; font-family: 'Inter', sans-serif; font-size: 0.95rem; text-align: center; letter-spacing: 2px; outline: none;">
+                    <button type="submit" class="novel-lock-btn" style="width: 100%; padding: 0.9rem; border-radius: 12px; border: none; background: #e2b857; color: #000000; font-family: 'Inter', sans-serif; font-weight: bold; font-size: 0.95rem; cursor: pointer;">Unlock All Chapters 🔓</button>
                 </form>
-                <div id="novelLockError" class="novel-lock-error">❌ Galat Password! Please enter valid password.</div>
-                <button type="button" onclick="closeLockModal()" style="background: none; border: none; color: var(--text-muted); margin-top: 1rem; cursor: pointer; font-size: 0.8rem; text-decoration: underline;">Cancel / Return</button>
+                <div id="novelLockError" class="novel-lock-error" style="color: #ff6b6b; font-size: 0.82rem; font-family: 'Inter', sans-serif; margin-top: 0.8rem; display: none;">❌ Galat Password! Please enter valid password.</div>
+                <button type="button" onclick="closeLockModal()" style="background: none; border: none; color: #a09585; margin-top: 1rem; cursor: pointer; font-size: 0.8rem; text-decoration: underline;">Cancel / Return</button>
             </div>
         `;
         document.body.appendChild(lockModal);
@@ -80,9 +81,9 @@ function promptNovelUnlock(targetHref) {
             const inputVal = document.getElementById("novelLockInput").value.trim();
             const errorMsg = document.getElementById("novelLockError");
 
-            if (inputVal === SECRET_NOVEL_PASSWORD) {
+            if (inputVal.toLowerCase() === SECRET_NOVEL_PASSWORD.toLowerCase() || inputVal === SECRET_NOVEL_PASSWORD) {
                 localStorage.setItem("novel_unlocked", "true");
-                lockModal.classList.remove("active");
+                lockModal.style.display = "none";
                 alert("🎉 Success! All Chapters are now Unlocked!");
                 updateChapterLockBadges();
                 
@@ -105,7 +106,7 @@ function promptNovelUnlock(targetHref) {
         lockModal.setAttribute("data-pending-url", targetHref);
     }
     
-    lockModal.classList.add("active");
+    lockModal.style.display = "flex";
     const inputField = document.getElementById("novelLockInput");
     if (inputField) {
         inputField.value = "";
@@ -116,7 +117,7 @@ function promptNovelUnlock(targetHref) {
 
 window.closeLockModal = function() {
     const lockModal = document.getElementById("novelLockModal");
-    if (lockModal) lockModal.classList.remove("active");
+    if (lockModal) lockModal.style.display = "none";
 };
 
 // Check direct URL access to Chapters 2 to 12
