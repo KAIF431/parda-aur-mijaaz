@@ -1,18 +1,26 @@
 // Bulletproof Global Drawer & Settings Toggles
 window.closeAllDrawers = function() {
-    document.querySelectorAll('.chapter-drawer, .settings-panel, .contact-modal, .settings-overlay').forEach(el => {
-        el.classList.remove('active');
-        if (el.classList.contains('settings-panel')) el.style.right = '-420px';
-        if (el.classList.contains('chapter-drawer')) el.style.left = '-420px';
-        if (el.classList.contains('settings-overlay')) {
-            el.style.opacity = '0';
-            el.style.pointerEvents = 'none';
-        }
-        if (el.classList.contains('contact-modal')) {
-            el.style.opacity = '0';
-            el.style.pointerEvents = 'none';
-        }
-    });
+    const panel = document.getElementById('settingsPanel');
+    const drawer = document.getElementById('chapterDrawer');
+    const overlay = document.getElementById('settingsOverlay');
+    const modal = document.getElementById('contactModal');
+
+    if (panel) {
+        panel.classList.remove('active');
+        panel.style.cssText = "position: fixed; top: 0; right: -420px !important; width: 380px; max-width: 100vw; height: 100vh; background: var(--bg-drawer); z-index: 999999; padding: 3rem 2rem; overflow-y: auto; transition: right 0.4s ease;";
+    }
+    if (drawer) {
+        drawer.classList.remove('active');
+        drawer.style.cssText = "position: fixed; top: 0; left: -420px !important; width: 380px; max-width: 100vw; height: 100vh; background: var(--bg-drawer); z-index: 999999; padding: 3rem 2rem; overflow-y: auto; transition: left 0.4s ease;";
+    }
+    if (overlay) {
+        overlay.classList.remove('active');
+        overlay.style.cssText = "position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 999998; opacity: 0 !important; pointer-events: none !important;";
+    }
+    if (modal) {
+        modal.classList.remove('active');
+        modal.style.cssText = "position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 100000; opacity: 0 !important; pointer-events: none !important;";
+    }
 };
 
 window.openSettings = function(e) {
@@ -22,12 +30,11 @@ window.openSettings = function(e) {
     const overlay = document.getElementById('settingsOverlay');
     if (panel) {
         panel.classList.add('active');
-        panel.style.right = '0px';
+        panel.style.cssText = "position: fixed; top: 0; right: 0px !important; width: 380px; max-width: 100vw; height: 100vh; background: var(--bg-drawer); z-index: 999999 !important; padding: 3rem 2rem; overflow-y: auto; display: block !important; box-shadow: -10px 0 35px rgba(0,0,0,0.85); transition: right 0.4s ease;";
     }
     if (overlay) {
         overlay.classList.add('active');
-        overlay.style.opacity = '1';
-        overlay.style.pointerEvents = 'all';
+        overlay.style.cssText = "position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); z-index: 999998 !important; opacity: 1 !important; pointer-events: all !important;";
     }
 };
 
@@ -38,12 +45,11 @@ window.openChapters = function(e) {
     const overlay = document.getElementById('settingsOverlay');
     if (drawer) {
         drawer.classList.add('active');
-        drawer.style.left = '0px';
+        drawer.style.cssText = "position: fixed; top: 0; left: 0px !important; width: 380px; max-width: 100vw; height: 100vh; background: var(--bg-drawer); z-index: 999999 !important; padding: 3rem 2rem; overflow-y: auto; display: block !important; box-shadow: 10px 0 35px rgba(0,0,0,0.85); transition: left 0.4s ease;";
     }
     if (overlay) {
         overlay.classList.add('active');
-        overlay.style.opacity = '1';
-        overlay.style.pointerEvents = 'all';
+        overlay.style.cssText = "position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); z-index: 999998 !important; opacity: 1 !important; pointer-events: all !important;";
     }
 };
 
