@@ -883,9 +883,9 @@ function updateChapterLockBadges() {
     });
 }
 
-// Click Interceptor & Navigation for all chapter links
+// Unstoppable Chapter Link Navigation
 document.addEventListener("click", (e) => {
-    const link = e.target.closest("a[href*='chapter']");
+    const link = e.target.closest("a[href*='chapter'], .chapter-link");
     if (!link) return;
 
     const href = link.getAttribute("href") || "";
@@ -899,8 +899,8 @@ document.addEventListener("click", (e) => {
         promptNovelUnlock(href);
     } else {
         e.preventDefault();
-        if (typeof window.closeAllDrawers === 'function') window.closeAllDrawers();
-        window.location.assign(href);
+        e.stopPropagation();
+        window.location.href = href;
     }
 }, true);
 
