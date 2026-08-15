@@ -2,6 +2,16 @@
 window.closeAllDrawers = function() {
     document.querySelectorAll('.chapter-drawer, .settings-panel, .contact-modal, .settings-overlay').forEach(el => {
         el.classList.remove('active');
+        if (el.classList.contains('settings-panel')) el.style.right = '-420px';
+        if (el.classList.contains('chapter-drawer')) el.style.left = '-420px';
+        if (el.classList.contains('settings-overlay')) {
+            el.style.opacity = '0';
+            el.style.pointerEvents = 'none';
+        }
+        if (el.classList.contains('contact-modal')) {
+            el.style.opacity = '0';
+            el.style.pointerEvents = 'none';
+        }
     });
 };
 
@@ -10,8 +20,15 @@ window.openSettings = function(e) {
     window.closeAllDrawers();
     const panel = document.getElementById('settingsPanel');
     const overlay = document.getElementById('settingsOverlay');
-    if (panel) panel.classList.add('active');
-    if (overlay) overlay.classList.add('active');
+    if (panel) {
+        panel.classList.add('active');
+        panel.style.right = '0px';
+    }
+    if (overlay) {
+        overlay.classList.add('active');
+        overlay.style.opacity = '1';
+        overlay.style.pointerEvents = 'all';
+    }
 };
 
 window.openChapters = function(e) {
@@ -19,8 +36,15 @@ window.openChapters = function(e) {
     window.closeAllDrawers();
     const drawer = document.getElementById('chapterDrawer');
     const overlay = document.getElementById('settingsOverlay');
-    if (drawer) drawer.classList.add('active');
-    if (overlay) overlay.classList.add('active');
+    if (drawer) {
+        drawer.classList.add('active');
+        drawer.style.left = '0px';
+    }
+    if (overlay) {
+        overlay.classList.add('active');
+        overlay.style.opacity = '1';
+        overlay.style.pointerEvents = 'all';
+    }
 };
 
 window.openContact = function(e) {
@@ -28,9 +52,42 @@ window.openContact = function(e) {
     window.closeAllDrawers();
     const modal = document.getElementById('contactModal');
     const overlay = document.getElementById('settingsOverlay');
-    if (modal) modal.classList.add('active');
-    if (overlay) overlay.classList.add('active');
+    if (modal) {
+        modal.classList.add('active');
+        modal.style.opacity = '1';
+        modal.style.pointerEvents = 'all';
+    }
+    if (overlay) {
+        overlay.classList.add('active');
+        overlay.style.opacity = '1';
+        overlay.style.pointerEvents = 'all';
+    }
 };
+
+// Theme, Font & Text Scaling Handlers inside Settings Panel
+document.addEventListener("click", (e) => {
+    const themeBtn = e.target.closest("[data-theme]");
+    if (themeBtn) {
+        e.preventDefault();
+        let theme = themeBtn.getAttribute("data-theme");
+        if (theme === 'default') theme = 'dark';
+        window.applyTheme(theme);
+    }
+
+    const fontBtn = e.target.closest("[data-font]");
+    if (fontBtn) {
+        e.preventDefault();
+        const font = fontBtn.getAttribute("data-font");
+        window.applyFont(font);
+    }
+
+    const sizeBtn = e.target.closest("[data-size]");
+    if (sizeBtn) {
+        e.preventDefault();
+        const size = sizeBtn.getAttribute("data-size");
+        window.applySize(size);
+    }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     loadSavedHomeHighlights();
