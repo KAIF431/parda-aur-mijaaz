@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 07 — Raat Ki Sair | Parda Aur Mijaz</title>
+    
+    <!-- OpenGraph & Social Media Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Chapter 07: Raat Ki Sair — Parda Aur Mijaz">
+    <meta property="og:description" content="Read Chapter 07 (Raat Ki Sair) of Parda Aur Mijaz by Mohammad. An Urdu novel of quiet grace and unspoken emotions.">
+    <meta property="og:image" content="cover.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chapter.css">
+<script>
+        (function() {
+            var t = localStorage.getItem("selectedTheme") || localStorage.getItem("parda_theme") || "dark";
+            var f = localStorage.getItem("selectedFont") || localStorage.getItem("parda_font") || "literata";
+            var s = localStorage.getItem("selectedSize") || localStorage.getItem("parda_size") || "medium";
+            document.documentElement.setAttribute("data-theme", t);
+            document.documentElement.setAttribute("data-font", f);
+            document.documentElement.setAttribute("data-size", s);
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- TOP READING PROGRESS BAR -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <a href="home.html" class="logo">Parda <span>Aur Mijaz</span></a>
+        <div class="header-actions">
+            <button class="header-button audio-toggle-btn" onclick="toggleAmbient('calm', this)" title="Soft Calming Music">Sound</button>
+            <button class="header-button" id="openChapters">Chapters</button>
+            <button class="header-button" id="openSettings">Settings</button>
+        </div>
+    </header>
+
+    <!-- CHAPTER DRAWER (ALL 12 CHAPTERS) -->
+    <div class="chapter-drawer" id="chapterDrawer">
+        <div class="drawer-header">
+            <h3>Chapters Index</h3>
+            <button id="closeChapters">&times;</button>
+        </div>
+        <div class="drawer-content">
+<a href="chapter1.html" class="chapter-link"><span>01</span> Ek Khwaab</a>
+<a href="chapter2.html" class="chapter-link"><span>02</span> Dil Ki Tabdeeli</a>
+<a href="chapter3.html" class="chapter-link"><span>03</span> Khud Se Jung</a>
+<a href="chapter4.html" class="chapter-link"><span>04</span> Be-Khabar Lamhe</a>
+<a href="chapter5.html" class="chapter-link"><span>05</span> Khamosh Saturday</a>
+<a href="chapter6.html" class="chapter-link"><span>06</span> Ghar Ki Raah</a>
+<a href="chapter7.html" class="chapter-link active"><span>07</span> Raat Ki Sair</a>
+<a href="chapter8.html" class="chapter-link"><span>08</span> Parde Ke Peeche</a>
+<a href="chapter9.html" class="chapter-link"><span>09</span> Ehsaas Ka Safar</a>
+<a href="chapter10.html" class="chapter-link"><span>10</span> Dil Ke Sawalon Ka Aagaz</a>
+<a href="chapter11.html" class="chapter-link"><span>11</span> Hadees Aur Mohobbat</a>
+<a href="chapter12.html" class="chapter-link"><span>12</span> Khamosh Fasla</a>
+        </div>
+    </div>
+
+    <!-- SETTINGS PANEL -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-header">
+            <h3>Reading Settings</h3>
+            <button id="closeSettings">&times;</button>
+        </div>
+        
+        <div class="setting-group">
+            <label>Theme Style</label>
+            <div class="theme-grid">
+                <button onclick="applyTheme('dark')">Dark</button>
+                <button onclick="applyTheme('oled')">OLED Black</button>
+                <button onclick="applyTheme('cream')">Cream</button>
+                <button onclick="applyTheme('midnight')">Midnight</button>
+                <button onclick="applyTheme('emerald')">Emerald</button>
+            </div>
+        </div>
+
+        <div class="setting-group">
+            <label>Font Family</label>
+            <button class="font-option" onclick="applyFont('literata')">Literata (Classic)</button>
+            <button class="font-option" onclick="applyFont('inter')">Inter (Modern Sans)</button>
+            <button class="font-option" onclick="applyFont('nastaliq')">Urdu Nastaliq</button>
+        </div>
+
+        <div class="setting-group">
+            <label>Text Size</label>
+            <div class="size-buttons">
+                <button onclick="applySize('small')">Small</button>
+                <button onclick="applySize('medium')">Medium</button>
+                <button onclick="applySize('large')">Large</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="settings-overlay" id="settingsOverlay"></div>
+
+    <!-- MAIN CONTENT & SIDEBAR WRAPPER -->
+    <div class="chapter-wrapper">
+        <main class="chapter-main-content">
+            <div class="chapter-header">
+                <span class="chapter-badge">Chapter 07</span>
+                <h1 class="chapter-title">Raat Ki Sair</h1>
+                <div class="chapter-meta">
+                    <span id="read-time">Calculating...</span>
+                    <span id="word-count">Calculating...</span>
+                </div>
+            </div>
+
+            <!-- TOP PART SWITCHER TABS -->
+<div class="part-tabs-container">
+    <button class="part-tab active" onclick="switchPart(1)">Part 1</button><button class="part-tab" onclick="switchPart(2)">Part 2</button><button class="part-tab" onclick="switchPart(3)">Part 3</button><button class="part-tab" onclick="switchPart(4)">Part 4</button>
+</div>
+
+            <!-- STORY BODY CONTENT -->
+            <article class="story-body">
+<div id="part-1" class="part-content active" style="display: block;">
+<p class="drop-cap">"Kuch dost tumhari zindagi mein isliye nahi aate ke tumhare saath waqt guzaarein... balki isliye aate hain ke tumhari zindagi ke har waqt ka hissa ban jaayein."</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super23.jpg" alt="✦ Harf-e-Mohabbat ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Harf-e-Mohabbat ✦</div>
+    </div>
+</figure>
+<p>Raat ke kareeb gyarah baj rahe the.</p>
+<p>Mohalle ki zyada tar dukaanon ke shutter gir chuke the.</p>
+<p>Kahin door kisi chai wale ke thele par abhi bhi do chaar log baithe hue the.</p>
+<p>Sadak par guzarti gaadiyon ki tadaad pehle se kaafi kam ho chuki thi.</p>
+<p>Hawa mein din bhar ki garmi ab dheere dheere ghul rahi thi.</p>
+<p>Fahad aur Qasim roz ki tarah bina kisi manzil ke chal rahe the.</p>
+<p>Na unhe jaldi thi...</p>
+<p>Na kisi jagah pahunchna tha.</p>
+<p>Unke liye raat ki ye sair hi sukoon thi.</p>
+<p>Kab galiyan peeche reh gayin...</p>
+<p>Kab dono main road tak aa gaye...</p>
+<p>Pata hi nahi chala.</p>
+<p>Road ke beech bane cement ke divider par baithne ki jagah thi.</p>
+<p>Ye jagah dono ki purani mehfil thi.</p>
+<p>Jab bhi baatein lambi karni hoti...</p>
+<p>Dono yahin aa kar baith jaate.</p>
+<p>Ek taraf se gaadiyan guzarti rehti...</p>
+<p>Doosri taraf se log.</p>
+<p>Kabhi koi dekh kar muskura deta...</p>
+<p>Kabhi koi ajeeb si nazar se dekh kar nikal jaata.</p>
+<p>Magar dono ko kabhi farq nahi pada.</p>
+<p>Qasim ne peeche haath rakh kar aasman ki taraf dekha.</p>
+<p>"Aaj hawa mast chal rahi hai."</p>
+<p>Fahad ne gehri saans lete hue kaha,</p>
+<p>"Haan..."</p>
+<p>"Aisi hawa roz nahi milti."</p>
+<p>Dono kuch der khamosh baithe rahe.</p>
+<p>Tabhi saamne se ek burkha pehne ladki guzri.</p>
+<p>Qasim ne uski taraf ishara karte hue hansi rok kar kaha,</p>
+<p>"Oye..."</p>
+<p>"Wo dekh..."</p>
+<p>"Burkhe wali."</p>
+<p>Fahad ne ek jhalak dekhi.</p>
+<p>Phir seedha saamne dekhte hue bola,</p>
+<p>"Kahin Mahira to nahi?"</p>
+<p>Ek pal ke liye Qasim chup raha...</p>
+<p>Phir zor se hans pada.</p>
+<p>"Pagal aadmi..."</p>
+<p>"Har burkhe wali Mahira nahi hoti."</p>
+<p>Fahad bhi hans diya.</p>
+<p>"Achha hua tune pehchan li."</p>
+<p>"Main to darr gaya tha."</p>
+<p>Qasim ne uske kandhe par halka sa mukka maara.</p>
+<p>"Tu sudhrega nahi."</p>
+<p>Dono ki hansi kuch lamhon tak raat ki khamoshi mein goonjti rahi.</p>
+<p>Hansi dheere dheere tham gayi.</p>
+<p>Phir dono dobara khamosh ho gaye.</p>
+<p>Qasim ki nazar ab bhi usi raaste par tikki hui thi...</p>
+<p>Jidhar wo burkhe wali ja chuki thi.</p>
+<p>Usne dheere se kaha,</p>
+<p>"...Waise."</p>
+<p>"Mahira yaad hai?"</p>
+<p>Fahad ke chehre ki muskurahat halki si badal gayi.</p>
+<p>Usne bina soche jawab diya,</p>
+<p>"Kaise bhool sakta hoon..."</p>
+<p>"Woh to meri bhi behen thi."</p>
+<p>Qasim ne halka sa sir jhuka diya.</p>
+<p>Raat achanak pehle se zyada khamosh lagne lagi.</p>
+<p>Aur un dono ke zehan mein...</p>
+<p>Ek saal purani yaadein dheere dheere zinda hone lagi.</p>
+<p>Us waqt dono 11th mein the.</p>
+<p>College ki zindagi abhi abhi shuru hui thi.</p>
+<p>Naye chehre... naye dost... aur naye qisse har roz unka intezaar karte the.</p>
+<p>Aur har kisi ki apni ek alag kahani thi.</p>
+<p>Unhi dino ek WhatsApp group bana tha.</p>
+<p>College ke students ka group.</p>
+<p>Usi group mein Qasim ki nazar ek number par padi.</p>
+<p>Naam likha tha...</p>
+<p>Mahira.</p>
+<p>Na usne kabhi uska chehra dekha tha...</p>
+<p>Na Mahira ne Qasim ka.</p>
+<p>Bas ek naam tha...</p>
+<p>Aur ek number.</p>
+<p>Ek din kaafi sochne ke baad Qasim ne himmat ki.</p>
+<p>Usne sirf ek chhota sa message bheja.</p>
+<p>"Assalamu Alaikum."</p>
+<p>Kuch der baad reply aaya.</p>
+<p>"Wa Alaikum Assalam."</p>
+<p>Baat wahi se shuru hui.</p>
+<p>Pehle sirf formal guftagu hoti thi.</p>
+<p>College kaisa chal raha hai...</p>
+<p>Assignments complete hue ya nahi...</p>
+<p>Exams kab hain...</p>
+<p>Aur dheere dheere...</p>
+<p>Roz ki salaam dua aadat ban gayi.</p>
+<p>Mahine guzarte gaye.</p>
+<p>Baaton mein bharosa badhta gaya.</p>
+<p>Kabhi notes ka bahana hota...</p>
+<p>Kabhi kisi assignment ka.</p>
+<p>Isi bahane Qasim ki Mahira se do-teen baar mulaqat bhi hui.</p>
+<p>Lekin har baar...</p>
+<p>Mahira burkhe mein hoti.</p>
+<p>Uska niqab uske chehre ko poori tarah chhupaye rakhta.</p>
+<p>Qasim ne kabhi usse ye nahi kaha...</p>
+<p>Ke apna chehra dikhao.</p>
+<p>Aur Mahira ne bhi kabhi khud se niqab nahi hataya.</p>
+<p>Dono ke darmiyan ek ajeeb sa adab tha.</p>
+<p>Jaise dono ne bina kahe hi ek had tay kar li ho.</p>
+<p>Us daur mein Fahad ko sirf itna pata tha...</p>
+<p>Ke Qasim kisi Mahira naam ki ladki se baat karta hai.</p>
+<p>Roz college mein Qasim uske paas aakar nayi nayi baatein sunata.</p>
+<p>"Aaj Mahira ne ye kaha..."</p>
+<p>"Aaj usne notes bheje..."</p>
+<p>"Aaj uska paper achha gaya..."</p>
+<p>Fahad bas muskura kar sunta rehta.</p>
+<p>Kabhi uska mazaak uda deta...</p>
+<p>Kabhi mashwara de deta...</p>
+<p>Aur kabhi sirf itna kehta,</p>
+<p>"Allah barkat de."</p>
+<p>Us waqt unmein se kisi ko bhi andaza nahi tha...</p>
+<p>Ke ye chhoti chhoti baatein...</p>
+<p>Ek din itni badi yaadein ban jayengi.</p>
+<p>Ek din Qasim subah se hi kuch zyada khush nazar aa raha tha.</p>
+<p>College ke lecture khatam hote hi woh seedha Fahad ke paas aaya.</p>
+<p>"Shaam ko free hai?"</p>
+<p>Fahad ne uski taraf dekh kar poocha.</p>
+<p>"Kyun?"</p>
+<p>Qasim muskuraya.</p>
+<p>"Aaj mera birthday hai."</p>
+<p>"To?"</p>
+<p>"Mahira milna chahti hai."</p>
+
+</div>
+
+<div id="part-2" class="part-content" style="display: none;">
+<p>Fahad hans pada.</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super24.jpg" alt="✦ Adab Ka Lehja ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Adab Ka Lehja ✦</div>
+    </div>
+</figure>
+<p>"Achha... asal birthday to ab shuru hoga."</p>
+<p>Qasim ne uske kandhe par halka sa mukka maara.</p>
+<p>"Bakwas band kar... chalna hai tere saath."</p>
+<p>Fahad ne hairani se poocha.</p>
+<p>"Main kya karunga wahan?"</p>
+<p>"Tu saath hoga to ghar walon ko bhi sukoon rahega... aur mujhe bhi."</p>
+<p>Fahad ne bina kuch soche sir hila diya.</p>
+<p>"Theek hai."</p>
+<p>Shaam ko dono waqt se pehle hi tay ki hui jagah par pahunch gaye.</p>
+<p>Ek chhota sa public garden tha.</p>
+<p>Shaam dhal rahi thi.</p>
+<p>Bachche jhule khel rahe the.</p>
+<p>Kuch buzurg bench par baithe baatein kar rahe the.</p>
+<p>Aur kuch families aaram se sair kar rahi thi.</p>
+<p>Fahad jaan-boojh kar thoda door khada ho gaya.</p>
+<p>Ye mulaqat Qasim aur Mahira ki thi...</p>
+<p>Woh sirf apne dost ke saath aaya tha.</p>
+<p>Kuch hi der baad...</p>
+<p>Door se ek burkha pehne ladki dheere dheere unki taraf aati hui nazar aayi.</p>
+<p>Qasim use dekh kar pehchan gaya.</p>
+<p>"Mahira..."</p>
+<p>Woh dono ke qareeb aakar ruk gayi.</p>
+<p>"Assalamu Alaikum."</p>
+<p>"Wa Alaikum Assalam."</p>
+<p>Kuch lamhon ki khamoshi ke baad...</p>
+<p>Mahira ne pehli baar Qasim ki taraf dekhte hue apne chehre se niqab halka sa hata diya.</p>
+<p>Bas utna hi...</p>
+<p>Jitna zaroori tha.</p>
+<p>Qasim usse dekhta hi reh gaya.</p>
+<p>Usne itne mahino tak sirf uski awaaz suni thi...</p>
+<p>Aaj pehli baar uska chehra dekha tha.</p>
+<p>Udhar...</p>
+<p>Fahad ne apni nazar doosri taraf kar li.</p>
+<p>Usne na dekhne ki koshish ki...</p>
+<p>Na jaanne ki.</p>
+<p>Uske liye ye un dono ka lamha tha.</p>
+<p>Thodi der baad Mahira ki nazar Fahad par padi.</p>
+<p>Woh halki si muskurayi.</p>
+<p>"Assalamu Alaikum, Bhai."</p>
+<p>Fahad ne bhi muskura kar jawab diya.</p>
+<p>"Wa Alaikum Assalam."</p>
+<p>Us din se...</p>
+<p>Mahira ne kabhi usse naam se nahi bulaya.</p>
+<p>Har baar sirf ek hi rishta diya...</p>
+<p>"Bhai."</p>
+<p>Mahira ne apne bag se ek chhota sa gift nikala.</p>
+<p>"Happy Birthday."</p>
+<p>Qasim ne muskurate hue packet khola.</p>
+<p>Andar ek couple watch thi.</p>
+<p>"Ye dekho..."</p>
+<p>Uske chehre par bachchon jaisi khushi aa gayi.</p>
+<p>Lekin jaise hi usne dabba khola...</p>
+<p>Watch uske haath se phisal kar neeche gir gayi.</p>
+<p>Tak...!</p>
+<p>Teeno ek saath us taraf dekhne lage.</p>
+<p>Qasim ne jaldi se watch uthayi.</p>
+<p>Glass ke kone par ek patli si daraar aa chuki thi.</p>
+<p>Ek pal ke liye teeno khamosh ho gaye.</p>
+<p>Phir Mahira hansi rok na saki.</p>
+<p>"Lagta hai gift jaldi dene ki jaldi thi."</p>
+<p>Qasim bhi hans pada.</p>
+<p>"Ab pehenunga phir bhi isi ko."</p>
+<p>Fahad ne mazaak mein kaha,</p>
+<p>"Birthday wale din hi tod di...</p>
+<p>Record bana diya tune."</p>
+<p>Teeno zor se hans pade.</p>
+<p>Us waqt kisi ne us chhoti si daraar ko ahmiyat nahi di.</p>
+<p>Shayad...</p>
+<p>Kuch ishare us waqt samajh nahi aate.</p>
+<p>Unka matlab insaan ko bahut baad mein samajh aata hai.</p>
+<p>Us din ke baad...</p>
+<p>Zindagi apni raftaar se chalti rahi.</p>
+<p>College ke lectures...</p>
+<p>Assignments...</p>
+<p>Exams...</p>
+<p>Aur un sab ke beech...</p>
+<p>Qasim aur Mahira ki baatein bhi roz thodi thodi badhti gayin.</p>
+<p>Dekhte hi dekhte...</p>
+<p>Mahine guzarte gaye.</p>
+<p>Aur phir...</p>
+<p>Poora ek saal.</p>
+<p>Is ek saal mein na jaane kitni mulaqatein hui.</p>
+<p>Kabhi college ke bahar.</p>
+<p>Kabhi kisi stationery ke paas notes lene ke bahane.</p>
+<p>Kabhi kisi chhote se garden mein.</p>
+<p>Aur har dafa...</p>
+<p>Fahad un dono ke saath hota.</p>
+<p>Lekin sirf saath.</p>
+<p>Kabhi beech mein nahi.</p>
+<p>Jab bhi Mahira aati...</p>
+<p>Sabse pehle door se hi kehti,</p>
+<p>"Assalamu Alaikum."</p>
+<p>Qasim muskura kar jawab deta.</p>
+<p>"Wa Alaikum Assalam."</p>
+<p>Phir uski nazar Fahad par padti.</p>
+<p>"Assalamu Alaikum, Bhai."</p>
+<p>Fahad bhi hamesha ek hi andaaz mein jawab deta.</p>
+<p>"Wa Alaikum Assalam."</p>
+<p>Bas...</p>
+<p>Itni hi guftagu hoti.</p>
+<p>Na Mahira ne kabhi Fahad se be-maqsad baat ki.</p>
+<p>Na Fahad ne kabhi zarurat se zyada lafz bole.</p>
+<p>Ye rishta sirf ek hi lafz mein simat gaya tha...</p>
+<p>"Bhai."</p>
+<p>Kabhi Qasim aur Mahira baat kar rahe hote...</p>
+<p>To Fahad thoda door jaakar khada ho jaata.</p>
+<p>Kabhi mobile chalane lagta.</p>
+<p>Kabhi aas-paas guzarte logon ko dekhne lagta.</p>
+<p>Aur kabhi bina wajah aasman ko.</p>
+<p>Usne kabhi unki tanhaai mein dakhal dena zaroori nahi samjha.</p>
+<p>Qasim aksar mazaak karta.</p>
+<p>"Abe idhar aa na."</p>
+<p>Fahad door se hi jawab deta.</p>
+<p>"Tum dono baat karo..."</p>
+<p>"Main yahin theek hoon."</p>
+<p>Mahira bhi muskura deti.</p>
+<p>Shayad woh samajh chuki thi...</p>
+<p>Ke Fahad sirf Qasim ka dost nahi...</p>
+<p>Balki uska sachcha bhai bhi hai.</p>
+<p>Kabhi kabhi mulaqat khatam hone ke baad...</p>
+<p>Qasim poore raste sirf Mahira ki baatein karta rehta.</p>
+
+</div>
+
+<div id="part-3" class="part-content" style="display: none;">
+<p>"Aaj usne ye bola..."</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super25.jpg" alt="✦ Solitary Morning ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Solitary Morning ✦</div>
+    </div>
+</figure>
+<p>"Aaj usne mere liye dua ki..."</p>
+<p>"Aaj usne daanta mujhe."</p>
+<p>Fahad hans kar kehta,</p>
+<p>"Achha hai."</p>
+<p>"Koi to hai jo tujhe seedha rakhta hai."</p>
+<p>Qasim hans padta.</p>
+<p>"Bilkul Ammi ki tarah daantti hai."</p>
+<p>Aur dono ki hansi sadak par der tak goonjti rehti.</p>
+<p>Waqt guzarta gaya.</p>
+<p>Yaadein banti gayin.</p>
+<p>Us waqt un teeno mein se kisi ne bhi nahi socha tha...</p>
+<p>Ke ek din...</p>
+<p>Yahi yaadein unki raaton ki guftagu ban jayengi.</p>
+<p>Ek raat...</p>
+<p>Ramzan ke aakhri ashre ki taaq raaton mein se ek raat thi.</p>
+<p>Poora mohalla lagbhag so chuka tha.</p>
+<p>Magar kuch gharon ki battiyan abhi bhi jal rahi thi.</p>
+<p>Koi Qur'an ki tilawat kar raha tha...</p>
+<p>Koi Tahajjud mein masroof tha...</p>
+<p>Aur koi Allah se apni taqdeer likhwa raha tha.</p>
+<p>Us raat Fahad aur Qasim ne bhi jaagne ka irada kiya tha.</p>
+<p>Dono ne apne apne ghar mein Isha aur Taraweeh ada ki.</p>
+<p>Thodi der Qur'an ki tilawat ki.</p>
+<p>Tasbeeh padhi.</p>
+<p>Aur raat ka ek hissa Allah ke saamne guzara.</p>
+<p>Kareeb dedh baje...</p>
+<p>Qasim ne Fahad ko message kiya.</p>
+<p>"Nikal?"</p>
+<p>Do minute baad jawab aaya.</p>
+<p>"Aa raha hoon."</p>
+<p>Roz ki tarah...</p>
+<p>Dono phir usi sadak par mil gaye.</p>
+<p>Raat aur bhi zyada khamosh thi.</p>
+<p>Na din ka shor...</p>
+<p>Na gaadiyon ki bheed.</p>
+<p>Sirf thandi hawa...</p>
+<p>Aur kabhi kabhi kisi kutte ke bhonkne ki awaaz.</p>
+<p>Dono dheere dheere chalte hue usi divider par jaakar baith gaye.</p>
+<p>Kuch der Allah ki rehmat aur Ramzan ki fazilat ki baatein hoti rahi.</p>
+<p>Phir achanak...</p>
+<p>Qasim ka phone baj utha.</p>
+<p>Screen par naam likha tha...</p>
+<p>Mahira Calling...</p>
+<p>Fahad ne muskurakar uski taraf dekha.</p>
+<p>"Oho..."</p>
+<p>"Raat ke do baje bhi yaad aa gayi."</p>
+<p>Qasim halka sa sharma gaya.</p>
+<p>"Chup reh."</p>
+<p>Usne call receive ki.</p>
+<p>"Assalamu Alaikum."</p>
+<p>Phone ke doosri taraf se narm si awaaz aayi.</p>
+<p>"Wa Alaikum Assalam."</p>
+<p>Fahad dheere se Qasim ke aur qareeb aa gaya.</p>
+<p>Phir shararat se bola,</p>
+<p>"Aaj speaker par baat kar..."</p>
+<p>"Mujhe bhi sunna hai tum dono kitni sharif baatein karte ho."</p>
+<p>Qasim ne aankhen dikha kar kaha,</p>
+<p>"Bakwas mat kar."</p>
+<p>Fahad hans pada.</p>
+<p>"Laga na speaker..."</p>
+<p>"Main kuch bolunga nahi."</p>
+<p>Qasim ne do pal socha...</p>
+<p>Phir muskura kar phone speaker par rakh diya.</p>
+<p>Mahira ko bilkul andaza nahi tha...</p>
+<p>Ke uski awaaz ab do log sun rahe the.</p>
+<p>Qasim ne bade pyaar se poocha,</p>
+<p>"Lagta hai so gayi thi..."</p>
+<p>"Maine pehle call kiya tha."</p>
+<p>Mahira ne bilkul saada andaaz mein jawab diya.</p>
+<p>"Haan..."</p>
+<p>"Neend lag gayi thi."</p>
+<p>Qasim halki si muskurahat ke saath bola,</p>
+<p>"Achha..."</p>
+<p>"Phir batao..."</p>
+<p>"Khwaab kya dekha?"</p>
+<p>Usne dil hi dil mein socha tha...</p>
+<p>Shayad Mahira kahegi...</p>
+<p>"Tum aaye the."</p>
+<p>Ya phir koi pyari si baat karegi.</p>
+<p>Lekin...</p>
+<p>Doosri taraf se bina ek pal soche jawab aaya,</p>
+<p>"Mujhe to koi khwaab hi nahi aaya."</p>
+<p>Ek second ke liye sannata chha gaya.</p>
+<p>Aur agle hi pal...</p>
+<p>Fahad itni zor se hans pada...</p>
+<p>Ke uski hansi poori khamosh sadak par goonj uthi.</p>
+<p>"Hahahaha..."</p>
+<p>"Abe Qasim..."</p>
+<p>"Saara romance hawa ho gaya."</p>
+<p>Qasim ne foran apna chehra dono haathon se chhupa liya.</p>
+<p>"Abe chup ho ja..."</p>
+<p>Phone ke doosri taraf Mahira ekdum khamosh ho gayi.</p>
+<p>Do teen second baad usne hairani se poocha,</p>
+<p>"...Ye hansi kiski thi?"</p>
+<p>Qasim ne dheere se kaha,</p>
+<p>"...Fahad."</p>
+<p>Doosri taraf kuch lamhon ki khamoshi rahi.</p>
+<p>Phir Mahira bhi hans padi.</p>
+<p>"Aapne speaker par rakha hua tha?"</p>
+<p>Qasim ne sharmate hue kaha,</p>
+<p>"...Haan."</p>
+<p>Mahira ne hans kar kaha,</p>
+<p>"Achha hua pehle pata nahi tha..."</p>
+<p>"Warna shayad main itni seedhi baat na karti."</p>
+<p>Ab ki baar...</p>
+<p>Teeno hans pade.</p>
+<p>Raat ki woh khamoshi...</p>
+<p>Aur usme goonjti woh hansi...</p>
+<p>Aaj bhi dono ke zehan mein bilkul waise hi mehfooz thi.</p>
+<p>Mahira ki hansi dheere dheere tham gayi.</p>
+<p>Qasim ne bhi muskura kar sir hila diya.</p>
+<p>"Achha..."</p>
+<p>"Ab dobara meri beizzati mat karwana."</p>
+<p>Mahira hans kar boli,</p>
+<p>"Usme meri kya galti thi..."</p>
+<p>"Aap hi ne sapne wala sawaal pooch liya."</p>
+<p>Fahad phir se hans pada.</p>
+<p>"Dekha..."</p>
+<p>"Main akela nahi bol raha."</p>
+<p>Qasim ne ghoor kar Fahad ko dekha.</p>
+<p>"Bas kar."</p>
+
+</div>
+
+<div id="part-4" class="part-content" style="display: none;">
+<p>"Nahi to agli baar speaker par nahi rakhunga."</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super26.jpg" alt="✦ Quiet Archway ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Quiet Archway ✦</div>
+    </div>
+</figure>
+<p>Fahad ne foran dono haath utha diye.</p>
+<p>"Theek hai huzoor."</p>
+<p>"Ab nahi hasunga."</p>
+<p>Teenon kuch der aur baat karte rahe.</p>
+<p>Kabhi Ramzan ki...</p>
+<p>Kabhi college ki...</p>
+<p>Kabhi exams ki...</p>
+<p>Aur kabhi bas yunhi be-maqsad.</p>
+<p>Raat ka pata hi nahi chala.</p>
+<p>Call khatam karte waqt Mahira ne hamesha ki tarah kaha,</p>
+<p>"Allah Hafiz."</p>
+<p>Qasim ne dheere se jawab diya,</p>
+<p>"Allah Hafiz."</p>
+<p>Phone kat gaya.</p>
+<p>Kuch lamhon tak dono khamosh baithe rahe.</p>
+<p>Phir Fahad ne Qasim ki taraf dekha...</p>
+<p>Aur bas uski shakal dekhte hi phir se hans pada.</p>
+<p>"Abey..."</p>
+<p>"'Khwaab kya dekha?'"</p>
+<p>Usne bilkul Qasim ki awaaz nikaalte hue kaha.</p>
+<p>Qasim ne zor se uske kandhe par mukka maara.</p>
+<p>"Chup kar yaar."</p>
+<p>Fahad hans hi raha tha.</p>
+<p>"Tu soch raha tha woh bolegi..."</p>
+<p>"'Sapne mein aap aaye the.'"</p>
+<p>"Lekin bechari ne seedha bol diya..."</p>
+<p>"'Mujhe to koi khwaab hi nahi aaya.'"</p>
+<p>Is baar Qasim bhi apni hansi nahi rok saka.</p>
+<p>Dono itna hase...</p>
+<p>Ke aankhon se aansu nikal aaye.</p>
+<p>Us raat ke baad...</p>
+<p>Ye dialogue un dono ke beech mazaak ban gaya tha.</p>
+<p>Jab bhi Qasim zyada romantic baat karta...</p>
+<p>Fahad bas itna keh deta,</p>
+<p>"Khwaab kya dekha?"</p>
+<p>Aur dono phir hans padte.</p>
+<p>Qasim ne ek gehri saans li.</p>
+<p>Yaad khatam hui...</p>
+<p>Aur dono dobara usi road ke divider par baithe hue the.</p>
+<p>Qasim halki si muskurahat ke saath bola,</p>
+<p>"Yaar..."</p>
+<p>"Aaj bhi yaad karta hoon na..."</p>
+<p>"To hansi bhi aati hai..."</p>
+<p>"Aur dard bhi hota hai."</p>
+<p>Fahad ne uske kandhe par haath rakha.</p>
+<p>"Kuch log chale jaate hain..."</p>
+<p>"Lekin unki yaadein kabhi nahi jaati."</p>
+<p>Saamne se ek naujawan couple guzra.</p>
+<p>Ladki burkhe mein thi.</p>
+<p>Ladka aaram se uske saath chal raha tha.</p>
+<p>Qasim kuch der tak un dono ko dekhta raha.</p>
+<p>Phir muskura kar bola,</p>
+<p>"Yaar..."</p>
+<p>"Kaash main bhi kabhi kisi ke saath aise hi chalun."</p>
+<p>Fahad ne uski taraf dekha aur hansi dabaate hue bola,</p>
+<p>"Pehle dusron ko ghurna band kar."</p>
+<p>"Har guzarti burkhe wali ko dekhte rahega..."</p>
+<p>"To Allah bhi bolega, pehle nazrein to neeche kar."</p>
+<p>Qasim zor se hans pada.</p>
+<p>"Achha..."</p>
+<p>"Ab tu mujhe deen bhi sikhaega?"</p>
+<p>Fahad muskuraya.</p>
+<p>"Nahi..."</p>
+<p>"Bas taang kheench raha hoon."</p>
+<p>Qasim ne do second use dekha.</p>
+<p>Phir achanak bola,</p>
+<p>"Waise..."</p>
+<p>"Teri Aamina kidhar hai?"</p>
+<p>Ye naam sunte hi Fahad ek pal ke liye chup ho gaya.</p>
+<p>Usne foran Qasim ki taraf dekha.</p>
+<p>"Uska naam lena band kar."</p>
+<p>Qasim hans diya.</p>
+<p>"Kyun?"</p>
+<p>"Galat kya bola?"</p>
+<p>"Agar waise hi parde wali ladki meri bhabhi ban gayi na..."</p>
+<p>"Qasam se..."</p>
+<p>"Apni naslein aabaad ho jayengi."</p>
+<p>Fahad ke chehre par halki si muskurahat aayi.</p>
+<p>Usne aahista se kaha,</p>
+<p>"Baat teri galat nahi hai."</p>
+<p>"Lekin hum dono ek doosre ko us nazar se dekhte hi nahi."</p>
+<p>"Hamare beech ek na-mehram ki bahut mazboot deewar khadi hai."</p>
+<p>Aur woh deewar wahi rehni chahiye.</p>
+<p>Qasim ne kandhe uchka diye.</p>
+<p>"Teri marzi."</p>
+<p>Kuch lamhe dono khamosh rahe.</p>
+<p>Fahad ne ghadi dekhi.</p>
+<p>"Abey..."</p>
+<p>"Do bajne wale hain."</p>
+<p>"Chal..."</p>
+<p>"Ghar chalte hain."</p>
+<p>Qasim uth khada hua.</p>
+<p>"Haan..."</p>
+<p>"Warna Ammi samjhegi fir se raat bhar bakchodi kar raha tha."</p>
+<p>Fahad hans pada.</p>
+<p>"Galat bhi to nahi samjhegi."</p>
+<p>Dono divider se neeche utar aaye.</p>
+<p>Road ab pehle se bhi zyada sunsaan ho chuki thi.</p>
+<p>Kabhi kisi gaadi ki headlight unke chehron par padti...</p>
+<p>Aur agle hi pal andhera wapas apni jagah le leta.</p>
+<p>Ghar ki taraf chalte hue kabhi Qasim, Fahad ki taang kheench deta...</p>
+<p>Kabhi Fahad uska mazaak uda deta.</p>
+<p>Kabhi dono kisi purani baat par hans padte.</p>
+<p>Kabhi kuch der bilkul khamosh chalne lagte.</p>
+<p>Ye unki dosti ka tareeqa tha...</p>
+<p>Khamoshi bhi unke darmiyan kabhi bojh nahi banti thi.</p>
+<p>Mohalle ke mod par dono ruk gaye.</p>
+<p>Roz ki tarah...</p>
+<p>Aaj bhi sirf do lafz kahe gaye.</p>
+<p>"Allah Hafiz."</p>
+<p>"Allah Hafiz."</p>
+<p>Qasim apne ghar ki taraf mud gaya.</p>
+<p>Aur Fahad apne.</p>
+<p>Us raat...</p>
+<p>Na Fahad ko andaaza tha...</p>
+<p>Na Qasim ko...</p>
+<p>Ke aane wala Itwaar sirf ek chhutti ka din nahi hoga.</p>
+<p>Us raat Fahad bilkul waise hi soya... jaise har roz sota tha.</p>
+<p>Use bilkul andaaza nahi tha... ke aane wala Itwaar uske dil mein ek naya safar shuru karne wala hai.</p>
+
+</div>
+            </article>
+
+            <!-- BOTTOM PART SWITCHER TABS -->
+<div class="part-tabs-container bottom-part-tabs">
+    <button class="part-tab active" onclick="switchPart(1)">Part 1</button><button class="part-tab" onclick="switchPart(2)">Part 2</button><button class="part-tab" onclick="switchPart(3)">Part 3</button><button class="part-tab" onclick="switchPart(4)">Part 4</button>
+</div>
+
+            <!-- CHAPTER BOTTOM NAVIGATION -->
+            <div class="chapter-reactions-widget">
+    <div class="reaction-title">✦ Yeh Chapter Kaisa Laga? ✦</div>
+    <div class="reaction-subtitle">Apna Ehsaas Express Karein:</div>
+    <div class="reaction-btn-group">
+        <button class="reaction-btn" onclick="reactToChapter('dil', this)">❤️ Dil Chhu Gaya</button>
+        <button class="reaction-btn" onclick="reactToChapter('haya', this)">✨ Haya & Sabr</button>
+        <button class="reaction-btn" onclick="reactToChapter('khamoshi', this)">🌧️ Deep Khamoshi</button>
+    </div>
+</div>
+            <div class="scene-break">✦ &nbsp; ✦ &nbsp; ✦</div>
+            <nav class="chapter-nav-footer">
+<a href="chapter6.html" class="chapter-nav-card prev">
+    <small>&larr; Previous Chapter 06</small>
+    <strong>Ghar Ki Raah</strong>
+</a>
+<a href="chapter8.html" class="chapter-nav-card next">
+    <small>Next Chapter 08 &rarr;</small>
+    <strong>Parde Ke Peeche</strong>
+</a>
+            </nav>
+        </main>
+
+        <aside class="chapter-sidebar">
+            <div class="sticky-sidebar-card">
+                <div class="sidebar-quote-box">
+                    "Har kehani parde ke peeche se shuru hoti hai... Har khamoshi ke peeche ek gehra mizaj hota hai."
+                </div>
+
+                <div>
+                    <div class="sidebar-widget-title">Reading Progress</div>
+                    <div style="font-size: 2rem; font-family:'Cormorant Garamond', serif; color: var(--accent-gold);" id="sidebar-scroll-percent">0%</div>
+                </div>
+
+                <div>
+                    <div class="sidebar-widget-title">Character Mentions</div>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-num" id="fahad-mentions">0</span>
+                            <span class="stat-lbl">Fahad</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num" id="aamina-mentions">0</span>
+                            <span class="stat-lbl">Aamina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="backToTopBtn" class="back-to-top-btn" onclick="scrollToTop()">&uarr; Top</button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="chapter.js"></script>
+    <script>
+        localStorage.setItem("last_read_chapter", "chapter7.html");
+        localStorage.setItem("last_read_title", "Chapter 07 — Raat Ki Sair");
+    </script>
+</body>
+</html>

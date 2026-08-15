@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 08 — Parde Ke Peeche | Parda Aur Mijaz</title>
+    
+    <!-- OpenGraph & Social Media Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Chapter 08: Parde Ke Peeche — Parda Aur Mijaz">
+    <meta property="og:description" content="Read Chapter 08 (Parde Ke Peeche) of Parda Aur Mijaz by Mohammad. An Urdu novel of quiet grace and unspoken emotions.">
+    <meta property="og:image" content="cover.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chapter.css">
+<script>
+        (function() {
+            var t = localStorage.getItem("selectedTheme") || localStorage.getItem("parda_theme") || "dark";
+            var f = localStorage.getItem("selectedFont") || localStorage.getItem("parda_font") || "literata";
+            var s = localStorage.getItem("selectedSize") || localStorage.getItem("parda_size") || "medium";
+            document.documentElement.setAttribute("data-theme", t);
+            document.documentElement.setAttribute("data-font", f);
+            document.documentElement.setAttribute("data-size", s);
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- TOP READING PROGRESS BAR -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <a href="home.html" class="logo">Parda <span>Aur Mijaz</span></a>
+        <div class="header-actions">
+            <button class="header-button audio-toggle-btn" onclick="toggleAmbient('calm', this)" title="Soft Calming Music">Sound</button>
+            <button class="header-button" id="openChapters">Chapters</button>
+            <button class="header-button" id="openSettings">Settings</button>
+        </div>
+    </header>
+
+    <!-- CHAPTER DRAWER (ALL 12 CHAPTERS) -->
+    <div class="chapter-drawer" id="chapterDrawer">
+        <div class="drawer-header">
+            <h3>Chapters Index</h3>
+            <button id="closeChapters">&times;</button>
+        </div>
+        <div class="drawer-content">
+<a href="chapter1.html" class="chapter-link"><span>01</span> Ek Khwaab</a>
+<a href="chapter2.html" class="chapter-link"><span>02</span> Dil Ki Tabdeeli</a>
+<a href="chapter3.html" class="chapter-link"><span>03</span> Khud Se Jung</a>
+<a href="chapter4.html" class="chapter-link"><span>04</span> Be-Khabar Lamhe</a>
+<a href="chapter5.html" class="chapter-link"><span>05</span> Khamosh Saturday</a>
+<a href="chapter6.html" class="chapter-link"><span>06</span> Ghar Ki Raah</a>
+<a href="chapter7.html" class="chapter-link"><span>07</span> Raat Ki Sair</a>
+<a href="chapter8.html" class="chapter-link active"><span>08</span> Parde Ke Peeche</a>
+<a href="chapter9.html" class="chapter-link"><span>09</span> Ehsaas Ka Safar</a>
+<a href="chapter10.html" class="chapter-link"><span>10</span> Dil Ke Sawalon Ka Aagaz</a>
+<a href="chapter11.html" class="chapter-link"><span>11</span> Hadees Aur Mohobbat</a>
+<a href="chapter12.html" class="chapter-link"><span>12</span> Khamosh Fasla</a>
+        </div>
+    </div>
+
+    <!-- SETTINGS PANEL -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-header">
+            <h3>Reading Settings</h3>
+            <button id="closeSettings">&times;</button>
+        </div>
+        
+        <div class="setting-group">
+            <label>Theme Style</label>
+            <div class="theme-grid">
+                <button onclick="applyTheme('dark')">Dark</button>
+                <button onclick="applyTheme('oled')">OLED Black</button>
+                <button onclick="applyTheme('cream')">Cream</button>
+                <button onclick="applyTheme('midnight')">Midnight</button>
+                <button onclick="applyTheme('emerald')">Emerald</button>
+            </div>
+        </div>
+
+        <div class="setting-group">
+            <label>Font Family</label>
+            <button class="font-option" onclick="applyFont('literata')">Literata (Classic)</button>
+            <button class="font-option" onclick="applyFont('inter')">Inter (Modern Sans)</button>
+            <button class="font-option" onclick="applyFont('nastaliq')">Urdu Nastaliq</button>
+        </div>
+
+        <div class="setting-group">
+            <label>Text Size</label>
+            <div class="size-buttons">
+                <button onclick="applySize('small')">Small</button>
+                <button onclick="applySize('medium')">Medium</button>
+                <button onclick="applySize('large')">Large</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="settings-overlay" id="settingsOverlay"></div>
+
+    <!-- MAIN CONTENT & SIDEBAR WRAPPER -->
+    <div class="chapter-wrapper">
+        <main class="chapter-main-content">
+            <div class="chapter-header">
+                <span class="chapter-badge">Chapter 08</span>
+                <h1 class="chapter-title">Parde Ke Peeche</h1>
+                <div class="chapter-meta">
+                    <span id="read-time">Calculating...</span>
+                    <span id="word-count">Calculating...</span>
+                </div>
+            </div>
+
+            <!-- TOP PART SWITCHER TABS -->
+<div class="part-tabs-container">
+    <button class="part-tab active" onclick="switchPart(1)">Part 1</button><button class="part-tab" onclick="switchPart(2)">Part 2</button><button class="part-tab" onclick="switchPart(3)">Part 3</button><button class="part-tab" onclick="switchPart(4)">Part 4</button><button class="part-tab" onclick="switchPart(5)">Part 5</button>
+</div>
+
+            <!-- STORY BODY CONTENT -->
+            <article class="story-body">
+<div id="part-1" class="part-content active" style="display: block;">
+<p class="drop-cap">"Kabhi kabhi poora din bilkul aam guzarta hai... aur wahi din ki raat insaan ki poori zindagi badal deti hai."</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super27.jpg" alt="✦ Qareeb Aur Door ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Qareeb Aur Door ✦</div>
+    </div>
+</figure>
+<p>Itwaar tha.</p>
+<p>Isliye aaj Fahad ne alarm hi nahi lagaya tha.</p>
+<p>Pichhli raat der tak Qasim ke saath ghoomte hue waqt ka pata hi nahi chala tha.</p>
+<p>Jab uski aankh khuli...</p>
+<p>Ghadi kareeb baarah baja rahi thi.</p>
+<p>Usne aadhi neend mein mobile uthaya.</p>
+<p>Screen ki roshni aankhon mein chubhi.</p>
+<p>Do teen notifications padi thi.</p>
+<p>Ek Qasim ka meme...</p>
+<p>Do office group ke messages...</p>
+<p>Aur kuch Instagram notifications.</p>
+<p>Usne phone side mein rakha.</p>
+<p>Ek gehri angdaai li...</p>
+<p>Aur kuch lamhe yunhi bistar par baitha raha.</p>
+<p>Aaj kahin pahunchne ki koi jaldi nahi thi.</p>
+<p>Itwaar ki subah aksar aisi hi guzarti thi.</p>
+<p>Woh dheere se uth kar bathroom chala gaya.</p>
+<p>Muh dhoya...</p>
+<p>Daant saaf kiye...</p>
+<p>Aur fresh hokar bahar nikla.</p>
+<p>Tab tak ghar apni roz ki raftaar pakad chuka tha.</p>
+<p>Kitchen se tadke ki khushboo aa rahi thi.</p>
+<p>Ammi dopahar ke khane ki taiyari ke saath saath nashta bhi garam kar rahi thi.</p>
+<p>Drawing room mein TV par news chal rahi thi.</p>
+<p>Abbu aadhi nazar TV par aur aadhi mobile par rakhe baithe the.</p>
+<p>Fahad ne aate hi salaam kiya.</p>
+<p>Sab ne hamesha ki tarah jawab diya.</p>
+<p>Phir woh chup-chaap nashta karne baith gaya.</p>
+<p>Nashta karte hue kabhi Ammi kisi ghar ke kaam ka zikr kar detin...</p>
+<p>Kabhi Abbu kisi khabar par apni rai de dete...</p>
+<p>Aur Fahad beech beech mein do chaar baatein karta rehta.</p>
+<p>Har Itwaar ki tarah...</p>
+<p>Aaj bhi ghar ka mahaul bilkul aam tha.</p>
+<p>Nashta khatam hua to woh drawing room ke sofa par ja baitha.</p>
+<p>Mobile haath mein liya...</p>
+<p>Aur aadat ke mutabiq reels dekhne laga.</p>
+<p>Kabhi koi funny video...</p>
+<p>Kabhi kisi Islamic page ki clip...</p>
+<p>Kabhi kisi food vlogger ki reel.</p>
+<p>Waqt ka pata hi nahi chala.</p>
+<p>Achanak uski nazar mobile ke upar waqt par padi.</p>
+<p>12:54</p>
+<p>"Abe..."</p>
+<p>"Ek bajne wale hain."</p>
+<p>Woh foran uth khada hua.</p>
+<p>"Masjid bhi jaana hai."</p>
+<p>Jaldi se shower liya.</p>
+<p>Safed kurta pehna.</p>
+<p>Itr lagaya.</p>
+<p>Topi uthai.</p>
+<p>Aur ghar se nikal gaya.</p>
+<p>Masjid zyada door nahi thi.</p>
+<p>Jab woh wahan pahuncha...</p>
+<p>Zohr ki jamaat shuru hone mein abhi paanch minute baaki the.</p>
+<p>Log dheere dheere safon mein baith rahe the.</p>
+<p>Koi Qur'an ki tilawat kar raha tha...</p>
+<p>Koi tasbeeh padh raha tha...</p>
+<p>Aur koi aankhen band kiye khamoshi se Allah ka zikr kar raha tha.</p>
+<p>Fahad ne wuzu taaza kiya...</p>
+<p>Pehli saf ke ek kone mein jaakar baith gaya...</p>
+<p>Aur iqamat ka intezar karne laga.</p>
+<p>Kuch hi der baad iqamat hui.</p>
+<p>Sab log safon mein seedhe khade ho gaye.</p>
+<p>Imam sahab ne takbeer kahi...</p>
+<p>Aur chand hi lamhon mein Zohr ki namaz ada kar li gayi.</p>
+<p>Salaam phirte hi kuch log foran uth kar masjid se bahar nikal gaye.</p>
+<p>Lekin zyadatar log apni jagah baithe rahe.</p>
+<p>Aakhir har Itwaar Zohr ke baad Dawat-e-Islami ka bayan hota tha.</p>
+<p>Fahad bhi tasbeeh padhte hue wahi baitha raha.</p>
+<p>Masjid mein dheere dheere ek alag hi sukoon utarne laga.</p>
+<p>Kisi ne Qur'an Shareef khol liya...</p>
+<p>Koi deewar se tek laga kar zikr mein mashghool ho gaya...</p>
+<p>Aur kuch log khamoshi se mimbar ki taraf dekhne lage.</p>
+<p>Thodi der baad muballigh sahab mimbar ke qareeb tashreef laaye.</p>
+<p>Unhone sabse pehle Durood-e-Pak padhwaya.</p>
+<p>Masjid mein ek saath durood ki awaaz goonj uthi.</p>
+<p>Uske baad unhone salam kiya...</p>
+<p>Hamd-o-Sana pesh ki...</p>
+<p>Aur narm lehje mein kehne lage,</p>
+<p>"Alhamdulillahi Rabbil Aalameen... Allah Ta'ala ka lakh lakh shukr hai jisne hume ek aur din apni ibadat ke liye zinda rakha."</p>
+<p>"Pyare Islami bhaiyo..."</p>
+<p>"Aaj hum ek aise mauzu par baat karenge..."</p>
+<p>"Jiski kami ki wajah se aaj na jaane kitne ghar barbaad ho rahe hain..."</p>
+<p>"Kitni zindagiyan gunahon mein doob rahi hain..."</p>
+<p>"Kitne jawaan bechain hain..."</p>
+<p>Thoda sa waqfa lekar unhone kaha,</p>
+<p>"Aur woh cheez hai... Haya."</p>
+<p>Masjid mein gehri khamoshi chha gayi.</p>
+<p>Har shakhs tawajjoh se sun raha tha.</p>
+<p>Muballigh sahab ne aage farmaya,</p>
+<p>"Haya sirf ek aadat nahi..."</p>
+<p>"Haya Allah Ta'ala ki bahut badi ne'mat hai."</p>
+<p>"Jis insaan ke dil mein haya zinda hoti hai..."</p>
+<p>"Uska imaan bhi zinda rehta hai."</p>
+<p>Phir unhone Hadees ka mafhoom bayan kiya,</p>
+<p>"Har deen ki ek pehchaan hoti hai... aur Islam ki pehchaan Haya hai."</p>
+<p>Unhone mimbar par rakhe Qur'an ki taraf ishara karte hue kaha,</p>
+<p>"Aaj afsos ke saath kehna padta hai..."</p>
+<p>"Humne haya ko sirf aurat ke burkhe tak mehdood kar diya."</p>
+<p>"Jabke Allah Ta'ala ne sabse pehle mardon ko hukm diya..."</p>
+<p>'Apni nazrein neeche rakho.'</p>
+<p>"Parda sirf kapdon ka nahi hota..."</p>
+<p>"Parda nazron ka bhi hota hai."</p>
+<p>"Parda niyyat ka bhi hota hai."</p>
+<p>"Parda dil ka bhi hota hai."</p>
+<p>Ye alfaaz sunkar masjid mein baithe kai jawaan khamoshi se sar jhukaye baithe the.</p>
+<p>Fahad bhi unhi mein se ek tha.</p>
+<p>Muballigh ne baat ko aage badhaya.</p>
+<p>"Aaj ka jawaan kehta hai..."</p>
+<p>'Mujhe mohabbat ho gayi.'</p>
+<p>"Main poochta hoon..."</p>
+<p>"Kis se?"</p>
+<p>"Uske akhlaaq se...?"</p>
+<p>"Uske deen se...?"</p>
+<p>"Uske haya se...?"</p>
+<p>"Ya sirf uski tasveer dekh kar?"</p>
+<p>Masjid mein halka sa sannata tha.</p>
+<p>Kisi ne koi awaaz nahi nikali.</p>
+<p>Muballigh ne narmi se kaha,</p>
+<p>"Yaad rakhiye..."</p>
+<p>"Chehra kabhi bhi insaan ko dhoka de sakta hai."</p>
+<p>"Lekin haya..."</p>
+<p>"Haya kabhi dhoka nahi deti."</p>
+<p>"Agar Allah kisi bande ya bandi ko haya ata kar de..."</p>
+<p>"To samajh lijiye Allah ne us par apni khaas rehmat farmayi hai."</p>
+<p>Unhone apni awaaz aur dheemi kar li.</p>
+<p>"Khoobsurati do tarah ki hoti hai..."</p>
+<p>"Ek woh jo aankhon ko achhi lagti hai..."</p>
+<p>"Aur ek woh jo Allah ko achhi lagti hai."</p>
+<p>"Aankhon wali khoobsurati waqt ke saath dhal jaati hai..."</p>
+<p>"Lekin Allah ko pasand aane wali khoobsurati..."</p>
+<p>"Woh insaan ke aamaal mein rehti hai."</p>
+<p>Muballigh Sahab kuch lamhe ke liye khamosh hue.</p>
+<p>Phir muskurakar kehne lage,</p>
+<p>"Main aap logon ko ek waqia sunata hoon."</p>
+<p>"Ek martaba Rasoolullah ﷺ ke paas ek naujawan aaya."</p>
+<p>"Usne arz kiya,</p>
+<p>'Ya Rasoolallah ﷺ... mujhe zina ki ijazat de dijiye.'"</p>
+<p>Masjid mein baithe Sahaba-e-Kiram ko uski baat bahut buri lagi.</p>
+<p>Kuch Sahaba foran uski taraf badhe.</p>
+<p>Lekin Rasoolullah ﷺ ne unhe roka.</p>
+<p>Aur us naujawan ko apne qareeb bula liya.</p>
+<p>Phir aap ﷺ ne usse pyar se poocha,</p>
+<p>"Kya tum ye pasand karoge ke koi tumhari maa ke saath aisa kare?"</p>
+<p>Usne foran kaha,</p>
+<p>"Nahi, Ya Rasoolallah ﷺ."</p>
+<p>Aap ﷺ ne farmaya,</p>
+<p>"Log bhi apni maaon ke liye ye pasand nahi karte."</p>
+<p>Phir aap ﷺ ne poocha,</p>
+<p>"Kya tum apni behen ke liye ye pasand karoge?"</p>
+<p>Usne kaha,</p>
+<p>"Hargiz nahi."</p>
+<p>Isi tarah Rasoolullah ﷺ ne usse uski beti, phuphi aur khala ke baare mein poocha.</p>
+<p>Har baar uska jawab ek hi tha.</p>
+<p>"Nahi."</p>
+<p>Tab Rasoolullah ﷺ ne apna mubarak haath uske seene par rakha.</p>
+<p>Aur dua ki,</p>
+<p>"Ya Allah... iske gunah maaf farma, iske dil ko paak kar de aur iski hifazat farma."</p>
+<p>Muballigh Sahab ne dheemi awaaz mein kaha,</p>
+<p>"Riwayat mein aata hai ke us dua ke baad us naujawan ke dil se woh gunah ki khwahish hi nikal gayi."</p>
+<p>Masjid mein gehri khamoshi chha gayi.</p>
+<p>Har shakhs sar jhukaye baitha tha.</p>
+<p>Muballigh Sahab ne phir kaha,</p>
+<p>"Dekhiye..."</p>
+<p>"Islam sirf 'ye mat karo' nahi kehta."</p>
+<p>"Islam dil ki islaah karta hai."</p>
+<p>"Jab dil paak ho jaata hai..."</p>
+<p>"To nazrein khud-ba-khud paak ho jaati hain."</p>
+<p>"Jab nazrein paak ho jaati hain..."</p>
+<p>"To mohabbat bhi paak ho jaati hai."</p>
+<p>"Yaad rakhiye..."</p>
+<p>"Jis mohabbat ki bunyaad haya par ho..."</p>
+<p>"Allah usme barkat ata farma deta hai."</p>
+<p>Muballigh Sahab ne paani ka ek ghunt piya.</p>
+<p>Phir kehne lage,</p>
+<p>"Ek aur baat yaad rakhiye..."</p>
+<p>"Haya sirf aurat ke liye nahi hoti..."</p>
+<p>"Mard ke liye bhi utni hi zaroori hai."</p>
+<p>Phir unhone ek hadees sunayi.</p>
+
+</div>
+
+<div id="part-2" class="part-content" style="display: none;">
+<p>"Rasoolullah ﷺ ne Hazrat Ali رضي الله عنه se farmaya,</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super28.jpg" alt="✦ Dil Ki Bechaini ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Dil Ki Bechaini ✦</div>
+    </div>
+</figure>
+<p>'Ali...</p>
+<p>Pehli nazar agar achanak pad jaaye to maaf hai...</p>
+<p>Lekin doosri nazar mat daalna.</p>
+<p>Kyunki pehli tumhare liye hai...</p>
+<p>Aur doosri tumhare khilaaf hai.'"</p>
+<p>Muballigh Sahab ne masjid mein baithe logon ki taraf dekha.</p>
+<p>"Is hadees mein kitni badi hikmat chhupi hui hai."</p>
+<p>"Insaan ka ikhtiyaar pehli nazar par nahi hota."</p>
+<p>"Lekin doosri nazar uske apne ikhtiyaar mein hoti hai."</p>
+<p>"Aur wahi doosri nazar...</p>
+<p>Aksar dil mein fitne ka pehla darwaza khol deti hai."</p>
+<p>Masjid mein gehri khamoshi thi.</p>
+<p>Har shakhs tawajjoh se sun raha tha.</p>
+<p>Muballigh Sahab ne apni awaaz aur narm kar li.</p>
+<p>"Yaqeen maaniye..."</p>
+<p>"Jo mard Allah ke liye apni nazar jhuka leta hai..."</p>
+<p>"Allah uske dil mein aisi roshni paida kar deta hai..."</p>
+<p>"Jo duniya ki kisi cheez se nahi mil sakti."</p>
+<p>"Isliye agar kabhi kisi ki haya...</p>
+<p>Kisi ka parda...</p>
+<p>Ya kisi ki sharafat dekh kar dil mutaasir ho..."</p>
+<p>"To us ehsaas ko gunah ki taraf mat le jaiye."</p>
+<p>"Uske liye Allah se halal raasta maangiye."</p>
+<p>"Kyunki paak dilon ko...</p>
+<p>Paak tareeqe hi zeba dete hain."</p>
+<p>Phir unhone Qur'an ki taraf ishara karte hue kaha,</p>
+<p>"Allah Ta'ala ne sabse pehle mardon ko hukm diya:</p>
+<p>'Momin mardon se keh dijiye ke woh apni nazrein neechi rakhein aur apni paakdamni ki hifazat karein.'</p>
+<p>Uske baad hi aurton ke liye hukm nazil hua."</p>
+<p>"Yaani islaah ki shuruaat mard se hoti hai."</p>
+<p>"Jab mard apni nazar ki hifazat karega..."</p>
+<p>"Tabhi muashra paak banega."</p>
+<p>Masjid mein phir ek gehri khamoshi chha gayi.</p>
+<p>Fahad ne beikhtiyaar apni nazrein aur jhuka li.</p>
+<p>Us waqt usne shayad is baat par zyada ghour nahi kiya...</p>
+<p>Lekin ye alfaaz...</p>
+<p>Aaj raat uske dil mein dobara goonjne wale the.</p>
+<p>Masjid mein kuch lamhon ke liye gehri khamoshi chha gayi.</p>
+<p>Muballigh sahab ne paani ka ek ghunt piya.</p>
+<p>Phir narm lehje mein kehne lage,</p>
+<p>"Ek aur hadees ka mafhoom suniye..."</p>
+<p>"Rasoolullah ﷺ ne irshad farmaya ke saat qism ke logon ko Qayamat ke din Allah Ta'ala apne Arsh ke saaye mein jagah ata farmayenge..."</p>
+<p>"Unhi mein ek woh jawan bhi hai..."</p>
+<p>"...jisne apni jawani Allah ki ibadat mein guzari."</p>
+<p>Ye alfaaz sunte hi masjid ka mahaul aur pur-sukoon ho gaya.</p>
+<p>Muballigh ne aage kaha,</p>
+<p>"Sochiye..."</p>
+<p>"Jawani woh umar hoti hai jahan insaan ke paas taqat bhi hoti hai..."</p>
+<p>"Khwahishaat bhi hoti hain..."</p>
+<p>"Duniya ke hazaar raste uske saamne khule hote hain."</p>
+<p>"Lekin jo jawan in sab ke bawajood Allah ko chun leta hai..."</p>
+<p>"Apni nazron ki hifazat karta hai..."</p>
+<p>"Apne dil ki hifazat karta hai..."</p>
+<p>"Apni zubaan ki hifazat karta hai..."</p>
+<p>"Allah usse kabhi zaya nahi karta."</p>
+<p>Unhone ek nazar poori masjid par daali.</p>
+<p>"Kabhi ye mat sochna..."</p>
+<p>"Ke gunah se bachne ka koi ajr nahi."</p>
+<p>"Jis haram ko tum sirf Allah ke liye chhod dete ho..."</p>
+<p>"Allah usse behtar cheez tumhare naseeb mein likh deta hai."</p>
+<p>"Kab..."</p>
+<p>"Kaise..."</p>
+<p>"Kis surat mein..."</p>
+<p>Ye sirf Allah jaanta hai.</p>
+<p>Masjid mein baithe kai naujawan sar jhukaye baithe the.</p>
+<p>Fahad bhi unhi mein se ek tha.</p>
+<p>Har jumla woh tawajjoh se sun raha tha.</p>
+<p>Muballigh ne aakhir mein kaha,</p>
+<p>"Apni jawani ko aazmaish mat samjho..."</p>
+<p>"Ise Allah ki amanat samjho."</p>
+<p>"Ye chand saal agar Allah ki raza mein guzar gaye..."</p>
+<p>"To baaqi zindagi bhi aasaan ho jayegi."</p>
+<p>Unhone mic se thoda peeche hote hue kaha,</p>
+<p>"Bas itni hi guzarish hai..."</p>
+<p>"Apni namazon ki hifazat kijiye."</p>
+<p>"Apni nazron ki hifazat kijiye."</p>
+<p>"Aur apne dil ko har us cheez se bachaiye..."</p>
+<p>"...jo Allah ko pasand nahi."</p>
+<p>"Allah Ta'ala hum sab ko amal ki taufeeq ata farmaye."</p>
+<p>"Aameen."</p>
+<p>Poore masjid se ek saath awaaz uthi,</p>
+<p>"Aameen."</p>
+<p>Iske baad dua hui.</p>
+<p>Har taraf uthe hue haath the.</p>
+<p>Koi apni aulaad ke liye dua maang raha tha...</p>
+<p>Koi rizq ke liye...</p>
+<p>Koi sehat ke liye...</p>
+<p>Aur koi sirf Allah ki maghfirat ke liye.</p>
+<p>Fahad ne bhi dono haath uthaye.</p>
+<p>Usne koi lambi dua nahi maangi.</p>
+<p>Bas itna kaha,</p>
+<p>"Ya Allah..."</p>
+<p>"Mujhe hamesha seedhe raste par qayam rakh."</p>
+<p>Dua ke baad log dheere dheere masjid se bahar nikalne lage.</p>
+<p>Fahad bhi apni chappal pehen kar ghar ki taraf chal diya.</p>
+<p>Uske zehan mein bayaan ke alfaaz abhi tak goonj rahe the...</p>
+<p>Lekin use bilkul andaaza nahi tha...</p>
+<p>Ke aaj ki raat...</p>
+<p>Yehi alfaaz uske dil mein ek naya ehsaas paida karne wale the.</p>
+<p>Masjid se bahar nikalte hi dhoop pehle se tez ho chuki thi.</p>
+<p>Log apni apni raah pakad kar gharon ki taraf laut rahe the.</p>
+<p>Kisi ko jaldi thi...</p>
+<p>Koi raste mein hi kisi jaan-pehchaan wale se mil kar khada ho gaya.</p>
+<p>Fahad ne bhi do teen buzurgon ko salaam kiya...</p>
+<p>Aur aahista aahista ghar ki taraf chal diya.</p>
+<p>Ghar pahunchte hi Ammi ne awaaz di,</p>
+<p>"Haath muh dho lo..."</p>
+<p>"Khana laga deti hoon."</p>
+<p>Fahad ne kurta badla...</p>
+<p>Haath muh dhoya...</p>
+<p>Aur dastarkhwan par baith gaya.</p>
+<p>Aaj khane mein daal, aloo gosht aur garam garam rotiyan thi.</p>
+<p>Ghar ka khana...</p>
+<p>Din bhar ki masroofiyat ke baad...</p>
+<p>Hamesha alag hi sukoon deta tha.</p>
+<p>Khana khate waqt Abbu ne bazaar ka zikr chhed diya.</p>
+<p>"Shaam ko nikalna."</p>
+<p>"Kitchen ka samaan bhi lana hai."</p>
+<p>Ammi ne foran baat pakad li.</p>
+<p>"Chai patti bhi khatam ho gayi hai."</p>
+<p>"Aur cheeni bhi le aana."</p>
+<p>"Theek hai."</p>
+<p>Fahad ne sir hila diya.</p>
+<p>Khana khatam karne ke baad usne paani piya...</p>
+<p>Mobile uthaya...</p>
+<p>Aur apne kamre mein chala gaya.</p>
+<p>Socha tha thodi der phone chalaunga...</p>
+<p>Phir uth jaunga.</p>
+<p>Lekin jaise hi bistar par letkar mobile haath mein liya...</p>
+<p>Pata hi nahi chala kab aankh lag gayi.</p>
+<p>Jab uski aankh khuli...</p>
+<p>Shaam dhalne lagi thi.</p>
+<p>Khidki se naram dhoop kamre mein aa rahi thi.</p>
+<p>Mobile uthaya.</p>
+<p>5:10 PM</p>
+<p>"Arre..."</p>
+<p>Woh foran uth kar baith gaya.</p>
+<p>Usne muh par paani mara hi tha...</p>
+<p>Ke bahar se Qasim ki awaaz aayi,</p>
+<p>"Oye Fahaaad...!"</p>
+<p>"Nikal..."</p>
+<p>Fahad bahar aaya to dekha...</p>
+<p>Qasim apne Abbu ki nayi bike par baitha hua tha.</p>
+<p>Usne bike ko dekhte hi poocha,</p>
+<p>"Aaj bike?"</p>
+<p>Qasim muskuraya.</p>
+<p>"Abbu ki hai."</p>
+<p>"Aaj le aaya."</p>
+<p>Fahad ne hans kar kaha,</p>
+<p>"Achha hua..."</p>
+<p>"Meri wali ka petrol pipe phat gaya hai."</p>
+<p>"Kal mechanic ke paas le jaunga."</p>
+<p>Qasim ne jeb se chaabi nikali...</p>
+<p>Aur uski taraf uchhal di.</p>
+<p>"Tu hi chala."</p>
+<p>Fahad ne bina kuch kahe chaabi pakad li.</p>
+<p>Ye un dono ke beech ek purana rule tha.</p>
+<p>Bike chahe kisi ki bhi ho...</p>
+<p>Handle hamesha Fahad hi pakadta tha.</p>
+<p>Qasim ko bike chalana seekhe abhi kuch hi mahine hue the.</p>
+<p>Aur Fahad...</p>
+<p>Lagbhag aath saal se bike chala raha tha.</p>
+<p>Qasim khud bhi jaanta tha...</p>
+<p>Ke is maamle mein uspar bharosa karna abhi thoda jaldi hoga.</p>
+<p>Woh peeche baith gaya.</p>
+<p>"Chal driver..."</p>
+<p>Fahad hans diya.</p>
+<p>"Zyada bol mat..."</p>
+<p>"Gir gaya na to ghar tak paidal jayega."</p>
+<p>Qasim zor se hans pada.</p>
+<p>Aur bike dheere dheere D-Mart ki taraf badh gayi.</p>
+<p>"Seedha D-Mart?"</p>
+<p>Fahad ne bike start karte hue jawab diya,</p>
+<p>"Haan... pehle rashan nipta lete hain. Maghrib se pehle wapas aa gaye to theek rahega."</p>
+<p>Engine ki awaaz ke saath bike gali se nikal kar main road par aa gayi.</p>
+<p>Itwaar ki shaam hone ki wajah se sadkon par aam dinon se zyada bheed thi.</p>
+<p>Kahin families shopping ke liye nikli hui thi...</p>
+<p>Kahin bachche cycle chala rahe the...</p>
+<p>Aur har doosre signal par gaadiyon ki lambi line lagi hui thi.</p>
+
+</div>
+
+<div id="part-3" class="part-content" style="display: none;">
+<p>Qasim peeche baitha idhar udhar dekh raha tha.</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super29.jpg" alt="✦ Rainy Night Lamp ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Rainy Night Lamp ✦</div>
+    </div>
+</figure>
+<p>Kabhi kisi gaadi wale par comment karta...</p>
+<p>Kabhi kisi ajeeb number plate ko padh kar hans padta.</p>
+<p>Fahad hamesha ki tarah aaraam se bike chala raha tha.</p>
+<p>Uske liye bike chalana sirf safar nahi...</p>
+<p>Ek aadat thi.</p>
+<p>Lagbhag aadhe ghante baad dono D-Mart ke parking mein pahunch gaye.</p>
+<p>Bike park karke Fahad ne trolley uthayi.</p>
+<p>Qasim ne aas paas nazar daalte hue kaha,</p>
+<p>"Aaj to poora Mumbai yahin aa gaya lagta hai."</p>
+<p>Fahad muskuraya.</p>
+<p>"Itwaar hai...</p>
+<p>Sabko aaj hi rashan yaad aata hai."</p>
+<p>Dono andar dakhil ho gaye.</p>
+<p>Thandi hawa ka jhonka lagte hi bahar ki garmi ka ehsaas khatam ho gaya.</p>
+<p>Har taraf log hi log the.</p>
+<p>Kisi ki trolley poori bhari hui thi...</p>
+<p>Koi offers dekh raha tha...</p>
+<p>Koi bachchon ko sambhal raha tha...</p>
+<p>Aur koi sirf ghoom raha tha.</p>
+<p>Fahad ne mobile nikala.</p>
+<p>Ammi ki bheji hui list kholi.</p>
+<p>"Chal..."</p>
+<p>"Jo list mein hai woh pehle lete hain."</p>
+<p>"Baad mein tera tourism karenge."</p>
+<p>Qasim hans pada.</p>
+<p>"Main to bas environment enjoy kar raha hoon."</p>
+<p>Dono trolley lekar pehle grocery section ki taraf badh gaye.</p>
+<p>Chawal...</p>
+<p>Aata...</p>
+<p>Daal...</p>
+<p>Tel...</p>
+<p>Masale...</p>
+<p>Ek ek karke trolley bharne lagi.</p>
+<p>Fahad list dekhta...</p>
+<p>Samaan uthata...</p>
+<p>Aur trolley mein rakhta jaata.</p>
+<p>Qasim ka kaam bas trolley dhakelna tha.</p>
+<p>Lekin usme bhi woh kabhi chips utha leta...</p>
+<p>Kabhi chocolate...</p>
+<p>Kabhi bina wajah koi naya product dekhne lagta.</p>
+<p>Fahad har do minute baad usse tok deta.</p>
+<p>"Abe..."</p>
+<p>"List mein hai kya?"</p>
+<p>Qasim packet wapas rakhte hue kehta,</p>
+<p>"Nahi."</p>
+<p>"Bas dekh raha tha."</p>
+<p>Fahad sirf sar hila kar reh jaata.</p>
+<p>Lagbhag ek ghante mein zaroorat ka aadha samaan trolley mein aa chuka tha.</p>
+<p>Phir dono cleaning section...</p>
+<p>Kitchen section...</p>
+<p>Aur household items ki taraf badh gaye.</p>
+<p>Beech beech mein Qasim apne ghar ke liye bhi samaan uthata ja raha tha.</p>
+<p>Kabhi apni Ammi ko phone karke pooch leta,</p>
+<p>"Ammi aur kuch chahiye?"</p>
+<p>Udhar se jawab aata,</p>
+<p>"Nahi... bas cheeni le aana."</p>
+<p>Aur woh phir trolley mein cheeni ka packet rakh deta.</p>
+<p>Shopping karte karte dono pehle floor par pahunch gaye.</p>
+<p>Yahin bachchon ka section tha.</p>
+<p>Har taraf rang birange toys sajae hue the.</p>
+<p>Remote wali gaadiyan...</p>
+<p>Soft toys...</p>
+<p>Plastic ki guns...</p>
+<p>Football...</p>
+<p>Cricket bats...</p>
+<p>Aur na jaane kya kya.</p>
+<p>Qasim ne ek football uthai aur seedha Fahad ki taraf uchhal di.</p>
+<p>Fahad ne bhi bina soche use catch kar liya.</p>
+<p>"Abe D-Mart mein match khelega kya?"</p>
+<p>Qasim hans pada.</p>
+<p>"Bas dekh raha tha grip kaisi hai."</p>
+<p>Do second baad dono waqai bachchon ki tarah ball ek doosre ki taraf uchhalne lage.</p>
+<p>Kabhi chest pass...</p>
+<p>Kabhi bounce pass...</p>
+<p>Kabhi Qasim jaan bujhkar tez phek deta.</p>
+<p>"Abe dheere..."</p>
+<p>"Kisi ko lag gayi to security bahar nikal degi."</p>
+<p>Qasim hans kar bola,</p>
+<p>"Match jeetne ke liye risk lena padta hai."</p>
+<p>Dono ki hansi sun kar paas se guzarta ek chhota bachcha bhi muskura diya.</p>
+<p>Uski Ammi ne use haath pakad kar aage le gayi.</p>
+<p>Fahad ne ball wapas uski jagah rakhi.</p>
+<p>"Chal..."</p>
+<p>"Kaafi bachpana ho gaya."</p>
+<p>Qasim ne afsos se kaha,</p>
+<p>"Yaar..."</p>
+<p>"Bada hona bhi kitni bekaar cheez hai."</p>
+<p>Dono hans diye.</p>
+<p>Phir trolley uthai...</p>
+<p>Aur dobara grocery section ki taraf badh gaye.</p>
+<p>Abhi bhi list ka kaafi samaan baaki tha.</p>
+<p>Ek shelf se doosri shelf tak ghoomte ghoomte waqt nikalta ja raha tha.</p>
+<p>Itwaar hone ki wajah se D-Mart mein kaafi bheed thi.</p>
+<p>Har taraf families apni apni trolley lekar shopping kar rahi thi.</p>
+<p>Kahin bachche chocolates ke liye zid kar rahe the...</p>
+<p>To kahin kisi shohar ko uski biwi baar baar keh rahi thi,</p>
+<p>"Woh wala packet nahi... doosra wala uthao."</p>
+<p>Isi bheed ke beech jab bhi koi naqab pehne hui ladki ya khatoon saamne se guzarti...</p>
+<p>Qasim ki nazar beikhtiyaar us taraf chali jaati.</p>
+<p>Phir dheere se Fahad ke paas aakar bola,</p>
+<p>"Yaar..."</p>
+<p>"Allah ne bhi kya cheez banayi hai."</p>
+<p>"Naqab pehni hui ladkiyon mein alag hi sukoon hota hai."</p>
+<p>Fahad trolley dhakka dete hue bas list dekh raha tha.</p>
+<p>Usne koi khaas reaction nahi diya.</p>
+<p>Qasim phir khud hi bolne laga,</p>
+<p>"Soch..."</p>
+<p>"Jannat mein bahattar hoorain mere aas paas ghoom rahi hongi."</p>
+<p>Do second ruk kar usne hansi dabayi.</p>
+<p>"Lekin kasam se..."</p>
+<p>"Mujhe unse bhi koi matlab nahi."</p>
+<p>"Main to bas apni biwi ka intezar karunga."</p>
+<p>Fahad ne shelf se detergent uthate hue sirf itna kaha,</p>
+<p>"Pehle shaadi to hone de."</p>
+<p>Qasim zor se hans pada.</p>
+<p>"Ho jayegi..."</p>
+<p>"InshaAllah ek din meri bhi naqab wali aa hi jayegi."</p>
+<p>Fahad ne uski taraf dekha aur muskuraya.</p>
+<p>"Roz yahi bolta hai."</p>
+<p>Qasim ne fakhr se kaha,</p>
+<p>"Armaan bade hone chahiye."</p>
+<p>Dono phir hans diye.</p>
+<p>Baaton baaton mein woh list ka aakhri samaan bhi trolley mein rakh chuke the.</p>
+<p>Jab Fahad ne mobile nikal kar waqt dekha...</p>
+<p>To kareeb teen ghante guzar chuke the.</p>
+<p>Usne trolley ka handle pakadte hue kaha,</p>
+<p>"Bas..."</p>
+<p>"Samaan poora ho gaya."</p>
+<p>Qasim ne bhi apni trolley ki taraf dekha.</p>
+<p>"Mere ghar ka bhi sab aa gaya."</p>
+<p>Dono dheere dheere billing counter ki taraf badh gaye.</p>
+<p>Dono apni apni trolley lekar billing counter ki line mein lag gaye.</p>
+<p>Itwaar hone ki wajah se har counter par achhi khaasi bheed thi.</p>
+<p>Kisi ki trolley poori bhari hui thi...</p>
+<p>To koi sirf do chaar samaan lekar khada tha.</p>
+<p>Kuch minute baad unki line aage badhi.</p>
+<p>Counter par ek hijab pehni hui ladki baithi thi.</p>
+<p>Uske haath bina ruke scanner chala rahe the.</p>
+<p>Ek ek karke samaan scan karti...</p>
+<p>Bill banati...</p>
+<p>Paise leti...</p>
+<p>Aur phir agle customer ki taraf mutawajjah ho jaati.</p>
+<p>Uske chehre par na muskurahat thi...</p>
+<p>Na udaasi.</p>
+<p>Bas roz ki tarah apna kaam kar rahi thi.</p>
+<p>Qasim ki nazar us par padi.</p>
+<p>Phir dheere se Fahad ke kaan ke paas aakar bola,</p>
+<p>"Yaar..."</p>
+<p>"Kasam se..."</p>
+<p>"Hijab mein alag hi noor hota hai."</p>
+<p>Fahad ne trolley aage badhate hue sirf itna kaha,</p>
+<p>"Hmm."</p>
+<p>Qasim rukne walon mein se nahi tha.</p>
+<p>"Soch..."</p>
+<p>"Agar meri biwi bhi aisi hi nikli na..."</p>
+<p>"To main roz D-Mart se shopping karunga."</p>
+<p>Fahad ne uski taraf dekhe baghair jawab diya,</p>
+<p>"Pehle nikah kar..."</p>
+<p>"Phir membership banwa lena."</p>
+<p>Qasim hans pada.</p>
+<p>Counter par baithi ladki ab unka samaan scan kar rahi thi.</p>
+<p>Beep...</p>
+<p>Beep...</p>
+<p>Beep...</p>
+<p>Machine ki awaaz lagataar aa rahi thi.</p>
+<p>Qasim use dekhte hue phir dheere se bola,</p>
+<p>"Yaar..."</p>
+<p>"Ye dekh kitni shareef lag rahi hai."</p>
+<p>"Bas apna kaam kar rahi hai."</p>
+<p>"Na idhar dekh rahi hai..."</p>
+<p>"Na udhar."</p>
+<p>Fahad ne bill ki screen par nazar rakhte hue kaha,</p>
+<p>"Woh apna kaam kar rahi hai."</p>
+<p>"Tu bhi usse apna kaam karne de."</p>
+<p>Qasim ne hansi daba li.</p>
+<p>"Theek hai..."</p>
+<p>"Lekin dua kar..."</p>
+<p>"Allah meri bhi naqab wali likh de."</p>
+<p>Fahad ne is baar halka sa muskura kar bas itna kaha,</p>
+
+</div>
+
+<div id="part-4" class="part-content" style="display: none;">
+<p>"Ameen."</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super30.jpg" alt="✦ Parchment & Candle ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Parchment & Candle ✦</div>
+    </div>
+</figure>
+<p>Bill tayyar ho chuka tha.</p>
+<p>Payment karne ke baad dono ne samaan trolley se uthakar bags mein jama kiya.</p>
+<p>D-Mart ke automatic darwaze khule...</p>
+<p>Aur dono shaam ki thandi hawa mein bahar nikal aaye.</p>
+<p>Aasmaan par suraj ka aakhri rang bhi kab ka kho chuka tha.</p>
+<p>Lekin shehar abhi bhi jaag raha tha.</p>
+<p>Har taraf roshniyan hi roshniyan thi.</p>
+<p>Dukaanon ke board chamak rahe the...</p>
+<p>Road ke dono taraf gaadiyon ki headlights ek lambi lakeer banati ja rahi thi...</p>
+<p>Aur hawa mein shaam ki woh alag hi raunaq thi jo sirf Itwaar ki raaton mein mehsoos hoti hai.</p>
+<p>Fahad ne mobile nikaal kar waqt dekha.</p>
+<p>Theek aath baj rahe the.</p>
+<p>"Dekh..."</p>
+<p>"Teen ghante pata hi nahi chale."</p>
+<p>Qasim hans pada.</p>
+<p>"D-Mart mein ghusne wala aadmi waqt dekhna bhool hi jaata hai."</p>
+<p>Dono ne apna apna samaan bike par rakha.</p>
+<p>Qasim hamesha ki tarah peeche baith gaya...</p>
+<p>Aur Fahad ne bike start kar di.</p>
+<p>Engine ki awaaz ke saath hi dono dheere dheere parking se bahar nikal aaye.</p>
+<p>Raaste bhar Qasim kabhi shopping ki baatein karta...</p>
+<p>Kabhi kisi cheez ka mazaak uda deta...</p>
+<p>Aur Fahad bas muskurata hua bike chalata rehta.</p>
+<p>Kareeb pandrah minute hi hue the...</p>
+<p>Ke achanak hawa ke saath seekh kabab aur garam parathon ki khushboo dono tak pahunchi.</p>
+<p>Qasim ne foran Fahad ke kandhe par haath maara.</p>
+<p>"Abe... rok."</p>
+<p>"Ye khushboo ignore karna gunaah hai."</p>
+<p>Fahad hans pada.</p>
+<p>"Mujhe pehle se pata tha..."</p>
+<p>"Tu yahin rukwayega."</p>
+<p>Aur usne bike dheere se road ke kinaare laga di.</p>
+<p>Bike road ke kinaare ruk gayi.</p>
+<p>Dukaan chhoti si thi...</p>
+<p>Lekin bheed dekh kar hi samajh aa raha tha ke swaad zabardast hoga.</p>
+<p>Angithiyon par seekhein dheere dheere sikk rahi thi.</p>
+<p>Unse uthta dhuaan hawa ke saath poori gali mein phail raha tha.</p>
+<p>Ek taraf garam garam parathe tave par sek rahe the...</p>
+<p>Doosri taraf log apne order ka intezar kar rahe the.</p>
+<p>Qasim ne bike se utarte hi kaha,</p>
+<p>"Bhai..."</p>
+<p>"Bas isi jagah ki khushboo rok leti hai."</p>
+<p>Fahad muskura diya.</p>
+<p>"Tu khushboo se kam..."</p>
+<p>Khaane se zyada attract hota hai."</p>
+<p>Dono counter ke paas jaakar khade ho gaye.</p>
+<p>"Bhaiya..."</p>
+<p>"Do seekh parathe."</p>
+<p>Dukaan wale ne sir hila diya.</p>
+<p>"Do minute."</p>
+<p>Jab tak order tayyar ho raha tha...</p>
+<p>Dono aas paas khade logon ko dekhte hue idhar udhar ki baatein karte rahe.</p>
+<p>Kuch hi der baad...</p>
+<p>Garam garam seekh parathe unke haath mein the.</p>
+<p>Dono ne pehla niwala liya.</p>
+<p>Qasim ne aankhen band kar li.</p>
+<p>"SubhanAllah..."</p>
+<p>"Ab lag raha hai Sunday complete hua."</p>
+<p>Fahad hans pada.</p>
+<p>"Abhi ghar jaakar khana bhi khana hai."</p>
+<p>Qasim ne bina soche jawab diya,</p>
+<p>"Woh alag hota hai."</p>
+<p>"Ye alag hota hai."</p>
+<p>Fahad sirf hans diya.</p>
+<p>Dono ne aaram se parathe khatam kiye.</p>
+<p>Thandi bottle se paani piya.</p>
+<p>Haath dhoye.</p>
+<p>Aur phir dobara bike par baith gaye.</p>
+<p>Aur dono mohalla ki taraf nikal pade.</p>
+<p>Raaste bhar kabhi shopping ki baat hoti...</p>
+<p>Kabhi D-Mart wale bachpne ko yaad karke dono hans padte.</p>
+<p>Kuch hi der baad...</p>
+<p>Bike Fahad ke ghar ke bahar aa kar ruk gayi.</p>
+<p>Dono neeche utare.</p>
+<p>Bike par rakha samaan utarne lage.</p>
+<p>Qasim ne do bade bags uthaye.</p>
+<p>"Chal..."</p>
+<p>"Ye main pakad leta hoon."</p>
+<p>Fahad ne baaki samaan sambhala.</p>
+<p>Dono saath saath ghar ke darwaze tak aa gaye.</p>
+<p>Jaise hi Fahad ne darwaza khola...</p>
+<p>Andar se hansi ki awaaz bahar tak aa rahi thi.</p>
+<p>Usne muskurakar kaha,</p>
+<p>"Lagta hai Baji aayi hui hain."</p>
+<p>Qasim bhi halki si muskurahat ke saath bola,</p>
+<p>"Haan..."</p>
+<p>"Awaaz se to wahi lag raha hai."</p>
+<p>Dono samaan andar rakh kar wapas bahar aaye.</p>
+<p>Qasim ne bike par baithte hue kaha,</p>
+<p>"Chal..."</p>
+<p>"Main bhi nikalta hoon."</p>
+<p>"Ammi intezar kar rahi hongi."</p>
+<p>Fahad ne muskurakar jawab diya,</p>
+<p>"Theek hai."</p>
+<p>"Allah Hafiz."</p>
+<p>"Allah Hafiz."</p>
+<p>Qasim bike modkar apne ghar ki taraf nikal gaya.</p>
+<p>Aur Fahad darwaza band karke ghar ke andar aa gaya.</p>
+<p>Jaise hi Fahad ghar ke andar dakhil hua...</p>
+<p>Drawing room se zor zor ki hansi ki awaazein aa rahi thi.</p>
+<p>Usne muskurate hue joote utaare...</p>
+<p>Aur samaan ek taraf rakh diya.</p>
+<p>Andar gaya to waqai uski Baji sofa par baithi hui thi.</p>
+<p>Unke paas Ammi baithi thi...</p>
+<p>Aur dono kisi baat par hans rahi thi.</p>
+<p>Fahad ko dekhte hi Baji boli,</p>
+<p>"Assalamu Alaikum."</p>
+<p>"Wa Alaikum Assalam."</p>
+<p>Fahad ne muskurate hue jawab diya.</p>
+<p>"Arre..."</p>
+<p>"Aaj yaad aa gayi hamari?"</p>
+<p>Baji hans padi.</p>
+<p>"Tumhare liye nahi aayi."</p>
+<p>"Ammi ke haath ka khana khane aayi hoon."</p>
+<p>Fahad ne foran jawab diya,</p>
+<p>"Achha hai..."</p>
+<p>"Mujhe laga mere liye itni door se aayi ho."</p>
+<p>Drawing room mein phir se hansi goonj uthi.</p>
+<p>Ammi kitchen se awaaz lagate hue boli,</p>
+<p>"Fahad..."</p>
+<p>"Ye samaan idhar rakh de."</p>
+<p>"Theek hai Ammi."</p>
+<p>Fahad aur Baji milkar D-Mart ke saare bags kitchen mein rakh aaye.</p>
+<p>Ammi ek ek samaan nikal kar dekhne lagi.</p>
+<p>"Cheeni le aaye?"</p>
+<p>"Haan."</p>
+<p>"Chai patti?"</p>
+<p>"Woh bhi hai."</p>
+<p>"Daal?"</p>
+<p>"Sab hai."</p>
+<p>Ammi ne tasalli se sir hila diya.</p>
+<p>"Theek hai..."</p>
+<p>"Kuch bhoola nahi."</p>
+<p>Fahad paani peene ke liye fridge ki taraf gaya.</p>
+<p>Glass bhar kar ek hi saans mein aadha paani pee gaya.</p>
+<p>Baji uski taraf dekh kar boli,</p>
+<p>"Lagta hai kaafi ghoom kar aaye ho."</p>
+<p>Fahad hans diya.</p>
+<p>"D-Mart gaye the."</p>
+<p>"Bas..."</p>
+<p>"Samaan lene."</p>
+<p>Baji muskura kar boli,</p>
+<p>"'Bas' bol raha hai..."</p>
+<p>"D-Mart jaane wala aadmi do ghante se pehle kabhi wapas aata hai kya?"</p>
+<p>Fahad ne Qasim ko yaad karke hansi daba li.</p>
+<p>"Hamare to poore teen ghante nikal gaye."</p>
+<p>"Teen ghante?"</p>
+<p>Baji ne hairani se poocha.</p>
+<p>"Wahan kar kya rahe the?"</p>
+<p>Fahad ne muskurate hue jawab diya,</p>
+<p>"Samaan kam..."</p>
+<p>"Bachpana zyada."</p>
+<p>Ye sunte hi Ammi bhi hans padi.</p>
+<p>"Lagta hai Qasim bhi saath tha."</p>
+<p>Fahad ne sirf muskura kar sir hila diya.</p>
+<p>Uske jawab ki zarurat hi nahi padi.</p>
+<p>Ghar mein sab jaante the...</p>
+<p>Jahan Qasim hoga...</p>
+<p>Wahan koi na koi shararat zaroor hui hogi.</p>
+<p>Tabhi choti behan beech me boli</p>
+<p>"Bhai..."</p>
+<p>"Mere liye kya laaye?"</p>
+<p>Uske peeche peeche Baji bhi muskuraate hue boli,</p>
+<p>"Haan..."</p>
+<p>"Hamare liye bhi kuch hai ya sirf rashan hi lekar aaye ho?"</p>
+<p>Fahad hans pada.</p>
+<p>"Ruko zara..."</p>
+<p>"Sabke liye hai."</p>
+<p>Usne D-Mart ka ek chhota sa packet bag se nikala.</p>
+<p>Bahar nikalte waqt jo caramel popcorn ka stall laga tha...</p>
+<p>Wahin se usne do packets le liye the.</p>
+<p>"Ye lo..."</p>
+<p>"Ek tumhara."</p>
+<p>"Ek Baji ka."</p>
+<p>Chhoti behan ne packet haath mein aate hi foran khol diya.</p>
+<p>"Bas..."</p>
+<p>"Isi ka intezar tha."</p>
+<p>Ek popcorn muh mein daalte hi boli,</p>
+<p>"Wah..."</p>
+
+</div>
+
+<div id="part-5" class="part-content" style="display: none;">
+<p>"Maza aa gaya."</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super31.jpg" alt="✦ Dua-e-Nikah ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Dua-e-Nikah ✦</div>
+    </div>
+</figure>
+<p>Baji ne bhi packet kholte hue muskura kar kaha,</p>
+<p>"Achha hua is baar humein yaad rakha."</p>
+<p>Fahad ne mazaak mein kaha,</p>
+<p>"Bas isi liye laya tha..."</p>
+<p>"Warna ghar mein ghusne hi nahi deti tum dono."</p>
+<p>Sab hans pade.</p>
+<p>Popcorn khate khate baatein phir se shuru ho gayin.</p>
+<p>Kabhi Baji apne sasural ke waqiaat sunaati...</p>
+<p>Kabhi chhoti behan apne college ki baatein batati...</p>
+<p>Kabhi Ammi beech mein kisi purani yaad ka zikr chhed deti.</p>
+<p>Fahad zyada bol nahi raha tha.</p>
+<p>Bas kabhi muskura deta...</p>
+<p>Kabhi kisi baat par hans padta.</p>
+<p>Pata hi nahi chala...</p>
+<p>Kab ghadi ne gyarah baja diye.</p>
+<p>Ammi ne kitchen se awaaz lagayi,</p>
+<p>"Sab log aa jao..."</p>
+<p>"Khana lag gaya hai."</p>
+<p>Sab ek saath dastarkhwan par baith gaye.</p>
+<p>Abbu...</p>
+<p>Ammi...</p>
+<p>Baji...</p>
+<p>Chhoti behan...</p>
+<p>Aur Fahad.</p>
+<p>Khana khate hue bhi guftagu chalti rahi.</p>
+<p>Kabhi Baji ke sasural ki baat...</p>
+<p>Kabhi Abbu ki kisi purane dost ka zikr...</p>
+<p>Kabhi chhoti behan ki shararatein.</p>
+<p>Ye ghar ka woh waqt tha...</p>
+<p>Jahan mobile se zyada ek doosre ki baatein suni jaati thi.</p>
+<p>Dekhte hi dekhte...</p>
+<p>Ghadi ne baarah baja diye.</p>
+<p>Khana khatam hua.</p>
+<p>Sab ne milkar dastarkhwan sameta.</p>
+<p>Phir dheere dheere har koi apne apne kamre ki taraf chala gaya.</p>
+<p>Fahad bhi apne kamre mein aa gaya.</p>
+<p>Lekin uska sone ka abhi koi iraada nahi tha.</p>
+<p>Woh bistar par tek laga kar baith gaya.</p>
+<p>Mobile haath mein uthaya.</p>
+<p>WhatsApp khola.</p>
+<p>Aur seedha Qasim ki chat khol di.</p>
+<p>Usne type kiya...</p>
+<p>"Kahin tu apni baju wali se to nahi laga pada hai?"</p>
+<p>Message bhejte hi uske chehre par halki si muskurahat aa gayi.</p>
+<p>Use pata tha...</p>
+<p>Qasim ye message padhkar zaroor koi ulta seedha jawab dega.</p>
+<p>Reply ka intezar karte karte...</p>
+<p>Usne Instagram khol liya.</p>
+<p>Reels ek ke baad ek chalti rahi.</p>
+<p>Kamre mein sirf mobile ki halki si roshni thi...</p>
+<p>Aur bahar raat poori tarah khamosh ho chuki thi.</p>
+<p>Thodi der baad...</p>
+<p>Usne mobile side mein rakh diya.</p>
+<p>Ghadi par nazar daali...</p>
+<p>Tahajjud ka waqt ho chuka tha.</p>
+<p>Woh aahista se bistar se utha...</p>
+<p>Aur wuzu karne ke liye kamre se bahar nikal gaya.</p>
+<p>Kamre mein wapas aakar Fahad ne darwaza aahista se band kar diya.</p>
+<p>Mobile pehle hi side par rakh chuka tha.</p>
+<p>Kamre ki light bujha di.</p>
+<p>Sirf ek halki si roshni bahar se parde ke beech se andar aa rahi thi.</p>
+<p>Usne almari ke paas rakha musallah uthaya...</p>
+<p>Aur qibla rukh bicha diya.</p>
+<p>Ek gehri saans li.</p>
+<p>"Allahu Akbar..."</p>
+<p>Raat ki khamoshi mein sirf Qur'an ki tilawat aur uski dheemi awaaz thi.</p>
+<p>Ek rakat...</p>
+<p>Do rakat...</p>
+<p>Phir aur.</p>
+<p>Aaj na jaane kyun...</p>
+<p>Uska dil roz se zyada der tak sajde mein rukna chahta tha.</p>
+<p>Namaz khatam hui to woh musalle par hi baitha raha.</p>
+<p>Ungliyon mein tasbeeh chal rahi thi.</p>
+<p>Zubaan par bas ek hi zikr tha.</p>
+<p>"SubhanAllah..."</p>
+<p>"Alhamdulillah..."</p>
+<p>"Allahu Akbar..."</p>
+<p>Kuch der baad uski nazar khaali kamre mein tik gayi.</p>
+<p>Aur beikhtiyaar...</p>
+<p>Aaj dopahar ka bayan uske zehan mein dobara goonj utha.</p>
+<p>"Aaj log chehre dekh kar mutaasir ho jaate hain...</p>
+<p>Lekin Allah taqwa dekhta hai."</p>
+<p>Phir doosra jumla yaad aaya.</p>
+<p>"Khoobsurati woh nahi jo aankhon ko achhi lage...</p>
+<p>Khoobsurati woh hai jo Allah ko pasand aa jaaye."</p>
+<p>Fahad ne dheere se aankhen band kar li.</p>
+<p>Na jaane kyun...</p>
+<p>Uske zehan mein ek hi shakhsiyat baar baar aa rahi thi.</p>
+<p>Aamina.</p>
+<p>Uska chehra...</p>
+<p>Woh aaj tak nahi dekh paaya tha.</p>
+<p>Usne kabhi dekhne ki koshish bhi nahi ki.</p>
+<p>Hamesha hijab...</p>
+<p>Aur uske upar naqab.</p>
+<p>Bas aankhen bhi mushkil se nazar aati thi.</p>
+<p>Phir bhi...</p>
+<p>Na jaane kyun...</p>
+<p>Aaj uska khayal dil se ja hi nahi raha tha.</p>
+<p>Fahad ne khud se hi dheere se kaha,</p>
+<p>"...Ye kaisa ehsaas hai?"</p>
+<p>Usne sochna shuru kiya.</p>
+<p>"Agar ye sirf chehre ki kashish hoti..."</p>
+<p>"To shayad kab ki khatam ho jaati."</p>
+<p>"Lekin maine to uska chehra kabhi dekha hi nahi."</p>
+<p>Phir dil ke kisi kone se ek jawab aaya...</p>
+<p>"Shayad..."</p>
+<p>"Mujhe uske chehre se nahi..."</p>
+<p>"Uske parde se mohabbat hone lagi hai."</p>
+<p>"Woh jab saamne se guzarti hai..."</p>
+<p>"To uski haya nazar aati hai."</p>
+<p>"Uska adab nazar aata hai."</p>
+<p>"Uski khamoshi nazar aati hai."</p>
+<p>"Uska parda..."</p>
+<p>"Uske chehre se zyada khoobsurat lagta hai."</p>
+<p>Fahad ki aankhon se nazar musalle par jhuk gayi.</p>
+<p>Uske honton par ek halki si muskurahat aa gayi.</p>
+<p>Aur usi lamhe...</p>
+<p>Usne pehli baar dil ki baat maan li.</p>
+<p>"Haan..."</p>
+<p>"Shayad..."</p>
+<p>"Mujhe mohabbat ho gayi hai."</p>
+<p>"Lekin ye mohabbat kisi chehre se nahi..."</p>
+<p>"Ek parde se hui hai."</p>
+<p>"Ek haya se hui hai."</p>
+<p>"Ek aisi ladki se hui hai..."</p>
+<p>"Jise maine aaj tak dekha hi nahi."</p>
+<p>Raat aur gehri hoti gayi...</p>
+<p>Aur Fahad musalle par baitha...</p>
+<p>Apne Rab ke saamne apne dil ka naya raaz samajhne ki koshish karta raha.</p>
+<p>Usne dono haath uthaye...</p>
+<p>Magar dua maangne ke bajaye kuch der bas khamosh baitha raha.</p>
+<p>Aisa lag raha tha...</p>
+<p>Jaise dil mein bahut kuch hai...</p>
+<p>Lekin alfaaz hi nahi mil rahe.</p>
+<p>Usne aankhen band ki.</p>
+<p>Aaj dopahar ka bayan ek ek lafz ke saath yaad aane laga.</p>
+<p>"Khoobsurati woh nahi... jo aankhon ko pasand aa jaaye."</p>
+<p>"Khoobsurati woh hai... jo Allah ko pasand ho."</p>
+<p>Bas...</p>
+<p>Yahin se uske dil mein ek ajeeb si kasak uthne lagi.</p>
+<p>Usne apne aap se poocha,</p>
+<p>"...Aakhir mujhe ho kya raha hai?"</p>
+<p>Uski soch beikhtiyaar Aamina tak ja pahunchi.</p>
+<p>Na uska chehra yaad tha...</p>
+<p>Na uski muskurahat.</p>
+<p>Yaad tha to bas...</p>
+<p>Office ke corridor mein uska aahista aahista chalna.</p>
+<p>Baat karte waqt uska nazrein jhuka lena.</p>
+<p>Har roz ek hi andaaz mein salaam karna.</p>
+<p>Aur woh naqab...</p>
+<p>Jo kabhi uske chehre se hata hi nahi.</p>
+<p>Fahad ne gehri saans li.</p>
+<p>Uske honton par beikhtiyaar ek muskurahat aayi...</p>
+<p>Jo agle hi lamhe aankhon ki nami mein badal gayi.</p>
+<p>"...Ya Allah."</p>
+<p>"Maine to uska chehra tak nahi dekha."</p>
+<p>"Phir mera dil uske paas kaise pahunch gaya?"</p>
+<p>Uski aankhon se ek aansu nikal kar musalle par gir gaya.</p>
+<p>Usne foran apna chehra dono haathon mein chhupa liya.</p>
+<p>Us lamhe use pehli baar ehsaas hua...</p>
+<p>Ke woh kisi husn ka aseer nahi bana.</p>
+<p>Uska dil kisi muskurahat par nahi aaya.</p>
+<p>Uska dil us ehteram par aa gaya...</p>
+<p>Jo us ladki ne apne Rab ke liye ikhtiyar kiya tha.</p>
+<p>Us parde ne...</p>
+<p>Jisne duniya ki nazron se uska chehra chhupa diya tha...</p>
+<p>Na jaane kab Fahad ke dil ka darwaza khol diya.</p>
+<p>Usne dheere se kaha,</p>
+<p>"Ya Allah..."</p>
+<p>"Agar ye sirf ek imtihaan hai..."</p>
+<p>"To mujhe isme kamyaab kar."</p>
+<p>"Aur agar ye mere naseeb ki kahani ka pehla safha hai..."</p>
+<p>"To iski hifazat Tu khud farma."</p>
+<p>Us raat...</p>
+<p>Fahad ko pehli baar samajh aaya...</p>
+<p>Mohabbat har baar aankhon se shuru nahi hoti.</p>
+<p>Kabhi kabhi...</p>
+<p>Ek insaan ki Allah se wafadari...</p>
+<p>Kisi doosre ke dil ko uska aseer bana deti hai.</p>
+
+</div>
+            </article>
+
+            <!-- BOTTOM PART SWITCHER TABS -->
+<div class="part-tabs-container bottom-part-tabs">
+    <button class="part-tab active" onclick="switchPart(1)">Part 1</button><button class="part-tab" onclick="switchPart(2)">Part 2</button><button class="part-tab" onclick="switchPart(3)">Part 3</button><button class="part-tab" onclick="switchPart(4)">Part 4</button><button class="part-tab" onclick="switchPart(5)">Part 5</button>
+</div>
+
+            <!-- CHAPTER BOTTOM NAVIGATION -->
+            <div class="chapter-reactions-widget">
+    <div class="reaction-title">✦ Yeh Chapter Kaisa Laga? ✦</div>
+    <div class="reaction-subtitle">Apna Ehsaas Express Karein:</div>
+    <div class="reaction-btn-group">
+        <button class="reaction-btn" onclick="reactToChapter('dil', this)">❤️ Dil Chhu Gaya</button>
+        <button class="reaction-btn" onclick="reactToChapter('haya', this)">✨ Haya & Sabr</button>
+        <button class="reaction-btn" onclick="reactToChapter('khamoshi', this)">🌧️ Deep Khamoshi</button>
+    </div>
+</div>
+            <div class="scene-break">✦ &nbsp; ✦ &nbsp; ✦</div>
+            <nav class="chapter-nav-footer">
+<a href="chapter7.html" class="chapter-nav-card prev">
+    <small>&larr; Previous Chapter 07</small>
+    <strong>Raat Ki Sair</strong>
+</a>
+<a href="chapter9.html" class="chapter-nav-card next">
+    <small>Next Chapter 09 &rarr;</small>
+    <strong>Ehsaas Ka Safar</strong>
+</a>
+            </nav>
+        </main>
+
+        <aside class="chapter-sidebar">
+            <div class="sticky-sidebar-card">
+                <div class="sidebar-quote-box">
+                    "Har kehani parde ke peeche se shuru hoti hai... Har khamoshi ke peeche ek gehra mizaj hota hai."
+                </div>
+
+                <div>
+                    <div class="sidebar-widget-title">Reading Progress</div>
+                    <div style="font-size: 2rem; font-family:'Cormorant Garamond', serif; color: var(--accent-gold);" id="sidebar-scroll-percent">0%</div>
+                </div>
+
+                <div>
+                    <div class="sidebar-widget-title">Character Mentions</div>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-num" id="fahad-mentions">0</span>
+                            <span class="stat-lbl">Fahad</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num" id="aamina-mentions">0</span>
+                            <span class="stat-lbl">Aamina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="backToTopBtn" class="back-to-top-btn" onclick="scrollToTop()">&uarr; Top</button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="chapter.js"></script>
+    <script>
+        localStorage.setItem("last_read_chapter", "chapter8.html");
+        localStorage.setItem("last_read_title", "Chapter 08 — Parde Ke Peeche");
+    </script>
+</body>
+</html>

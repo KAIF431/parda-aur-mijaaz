@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parda Aur Mijaz — An Urdu Novel Experience</title>
+
+    <!-- OpenGraph & Social Media Sharing Preview Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Parda Aur Mijaz — An Urdu Novel Experience">
+    <meta property="og:description" content="A rich Urdu digital novel unraveling the deep mysteries of human temperament, quiet grace, and unspoken emotions. Written by Mohammad.">
+    <meta property="og:image" content="https://parda-aur-mijaaz.netlify.app/cover.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        (function() {
+            var t = localStorage.getItem("selectedTheme") || localStorage.getItem("parda_theme") || "dark";
+            var f = localStorage.getItem("selectedFont") || localStorage.getItem("parda_font") || "literata";
+            var s = localStorage.getItem("selectedSize") || localStorage.getItem("parda_size") || "medium";
+            document.documentElement.setAttribute("data-theme", t);
+            document.documentElement.setAttribute("data-font", f);
+            document.documentElement.setAttribute("data-size", s);
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Background Ambient Glows -->
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-bottom"></div>
+
+    <!-- SECTION 1: HERO ENTRANCE CURTAIN -->
+    <div class="landing-hero">
+        
+        <!-- Top Navigation Bar -->
+        <header class="landing-top-nav">
+            <div class="brand-tag">DIGITAL NOVEL · 2026</div>
+            <div style="display: flex; gap: 12px; align-items: center;">
+                <button class="audio-toggle-btn" onclick="toggleAmbient('calm', this)" title="Toggle Soft Calming Music" style="background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.4); color: #d4af37; padding: 0.45rem 1rem; border-radius: 20px; font-size: 0.8rem; cursor: pointer; font-family: 'Inter', sans-serif;">Sound</button>
+                <a href="home.html" class="nav-hub-link">Explore Novel Portal &rarr;</a>
+            </div>
+        </header>
+
+        <!-- Main Hero Card Floating Experience -->
+        <main class="hero-wrapper">
+            <div class="top-tagline anim-delay-1">✦ AN URDU NOVEL BY MOHAMMAD ✦</div>
+            
+            <h1 class="hero-title anim-delay-2">Parda <em class="gold-shimmer">Aur Mijaz</em></h1>
+            
+            <div class="header-ornament anim-delay-3">
+                <span class="line"></span>
+                <span class="diamond">◆</span>
+                <span class="line"></span>
+            </div>
+
+            <p class="hero-urdu anim-delay-4">
+                پردہ اس کا لباس نہیں،<br>پردہ اس کا مزاج ہے
+            </p>
+
+            <p class="hero-tagline anim-delay-5">
+                A rich literary journey unraveling the deep mysteries of human temperament, quiet grace, and unspoken emotions.
+            </p>
+
+            <!-- Novel Meta Badges -->
+            <div class="novel-badges anim-delay-6">
+                <span class="badge">Author: Mohammad</span>
+                <span class="badge">12 Complete Chapters</span>
+                <span class="badge">Multi-Part Reading</span>
+            </div>
+
+            <!-- Resume Reading Banner -->
+            <div class="landing-resume-bar anim-delay-6" id="resumeBar">
+                <span class="resume-icon">✦</span>
+                <span class="resume-text">Continue Reading:</span>
+                <a href="chapter1.html" id="resumeLink" class="resume-link">Chapter 01 — Ek Khwaab</a>
+            </div>
+
+            <!-- Main Hero Action CTAs -->
+            <div class="hero-actions anim-delay-7">
+                <a href="home.html" class="hero-enter-btn" id="enterStory">
+                    Enter Novel Portal <span class="arrow">&rarr;</span>
+                </a>
+                <a href="#chapters-gateway" class="hero-secondary-btn">
+                    Browse 12 Chapters &darr;
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- SECTION 2: THE 12 CHAPTER GATEWAYS SHOWCASE -->
+    <section class="index-gateway-section" id="chapters-gateway">
+        <div class="index-gateway-inner">
+            <div class="gateway-heading">
+                <span>TABLE OF CONTENTS</span>
+                <h2>The 12 Gateways Of The Story</h2>
+            </div>
+
+        <div class="gateway-grid">
+            <a href="chapter1.html" class="gateway-card">
+                <div>
+                    <div class="gateway-num">01</div>
+                    <div class="gateway-title">Ek Khwaab</div>
+                    <div class="gateway-meta">3 Hissay · Chapter 1</div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; line-height: 1.5;">"Subah ki azaan ki awaaz ne Fahad ki aankh khol di..."</p>
+                </div>
+                <div class="gateway-btn">Read Chapter &rarr;</div>
+            </a>
+
+            <a href="chapter2.html" class="gateway-card">
+                <div>
+                    <div class="gateway-num">02</div>
+                    <div class="gateway-title">Dil Ki Tabdeeli</div>
+                    <div class="gateway-meta">4 Hissay · Chapter 2</div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; line-height: 1.5;">"Fahad ke dil mein ek ajeeb sa sukoon tha..."</p>
+                </div>
+                <div class="gateway-btn">Read Chapter &rarr;</div>
+            </a>
+
+            <a href="chapter3.html" class="gateway-card">
+                <div>
+                    <div class="gateway-num">03</div>
+                    <div class="gateway-title">Khud Se Jung</div>
+                    <div class="gateway-meta">4 Hissay · Chapter 3</div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; line-height: 1.5;">"Khamoshi mein bhi ek guftagu hoti hai..."</p>
+                </div>
+                <div class="gateway-btn">Read Chapter &rarr;</div>
+            </a>
+
+            <a href="chapter4.html" class="gateway-card">
+                <div>
+                    <div class="gateway-num">04</div>
+                    <div class="gateway-title">Be-Khabar Lamhe</div>
+                    <div class="gateway-meta">4 Hissay · Chapter 4</div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; line-height: 1.5;">"Waqt guzarta gaya par khayal wahin ruk gaya..."</p>
+                </div>
+                <div class="gateway-btn">Read Chapter &rarr;</div>
+            </a>
+
+            <a href="chapter5.html" class="gateway-card">
+                <div>
+                    <div class="gateway-num">05</div>
+                    <div class="gateway-title">Khamosh Saturday</div>
+                    <div class="gateway-meta">4 Hissay · Chapter 5</div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; line-height: 1.5;">"Khamoshi ka bhi apna ek alag mijaaz hota hai..."</p>
+                </div>
+                <div class="gateway-btn">Read Chapter &rarr;</div>
+            </a>
+
+            <a href="chapter6.html" class="gateway-card">
+                <div>
+                    <div class="gateway-num">06</div>
+                    <div class="gateway-title">Ghar Ki Raah</div>
+                    <div class="gateway-meta">3 Hissay · Chapter 6</div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; line-height: 1.5;">"Ghar ki raah par chalte hue har kadam ek naya ehsaas tha..."</p>
+                </div>
+                <div class="gateway-btn">Read Chapter &rarr;</div>
+            </a>
+
+            <a href="chapter7.html" class="gateway-card">
+                <div>
+                    <div class="gateway-num">07</div>
+                    <div class="gateway-title">Raat Ki Sair</div>
+                    <div class="gateway-meta">4 Hissay · Chapter 7</div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; line-height: 1.5;">"Raat ki khamoshi mein dil ke sawal aazad ho jaate hain..."</p>
+                </div>
+                <div class="gateway-btn">Read Chapter &rarr;</div>
+            </a>
+
+            <a href="chapter8.html" class="gateway-card">
+                <div>
+                    <div class="gateway-num">08</div>
+                    <div class="gateway-title">Parde Ke Peeche</div>
+                    <div class="gateway-meta">5 Hissay · Chapter 8</div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; line-height: 1.5;">"Parde ke peeche chhipi haqeeqat ko samjhne ke liye..."</p>
+                </div>
+                <div class="gateway-btn">Read Chapter &rarr;</div>
+            </a>
+
+            <a href="chapter9.html" class="gateway-card">
+                <div>
+                    <div class="gateway-num">09</div>
+                    <div class="gateway-title">Ehsaas Ka Safar</div>
+                    <div class="gateway-meta">4 Hissay · Chapter 9</div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; line-height: 1.5;">"Ehsaas ka safar kabhi khatam nahi hota..."</p>
+                </div>
+                <div class="gateway-btn">Read Chapter &rarr;</div>
+            </a>
+
+            <a href="chapter10.html" class="gateway-card">
+                <div>
+                    <div class="gateway-num">10</div>
+                    <div class="gateway-title">Dil Ke Sawalon Ka Aagaz</div>
+                    <div class="gateway-meta">4 Hissay · Chapter 10</div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; line-height: 1.5;">"Dil ke sawalon ka aagaz ho chuka tha..."</p>
+                </div>
+                <div class="gateway-btn">Read Chapter &rarr;</div>
+            </a>
+
+            <a href="chapter11.html" class="gateway-card">
+                <div>
+                    <div class="gateway-num">11</div>
+                    <div class="gateway-title">Hadees Aur Mohobbat</div>
+                    <div class="gateway-meta">4 Hissay · Chapter 11</div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; line-height: 1.5;">"Hadees aur mohobbat dono hi rooh ko paak karti hain..."</p>
+                </div>
+                <div class="gateway-btn">Read Chapter &rarr;</div>
+            </a>
+
+            <a href="chapter12.html" class="gateway-card">
+                <div>
+                    <div class="gateway-num">12</div>
+                    <div class="gateway-title">Khamosh Fasla</div>
+                    <div class="gateway-meta">3 Hissay · Chapter 12</div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; line-height: 1.5;">"Khamosh fasle bhi kabhi kabhi gehre rishton ki nishani..."</p>
+                </div>
+                <div class="gateway-btn">Read Chapter &rarr;</div>
+            </a>
+        </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="chapter.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const lastReadChapter = localStorage.getItem("last_read_chapter") || "chapter1.html";
+            const lastReadTitle = localStorage.getItem("last_read_title") || "Chapter 01 — Ek Khwaab";
+            const resumeBar = document.getElementById("resumeBar");
+            const resumeLink = document.getElementById("resumeLink");
+
+            if (resumeBar && resumeLink) {
+                resumeLink.href = lastReadChapter;
+                resumeLink.textContent = lastReadTitle;
+                resumeBar.style.display = "inline-flex";
+            }
+        });
+    </script>
+</body>
+</html>

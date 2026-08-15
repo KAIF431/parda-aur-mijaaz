@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 03 — Khud Se Jung | Parda Aur Mijaz</title>
+    
+    <!-- OpenGraph & Social Media Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Chapter 03: Khud Se Jung — Parda Aur Mijaz">
+    <meta property="og:description" content="Read Chapter 03 (Khud Se Jung) of Parda Aur Mijaz by Mohammad. An Urdu novel of quiet grace and unspoken emotions.">
+    <meta property="og:image" content="cover.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chapter.css">
+<script>
+        (function() {
+            var t = localStorage.getItem("selectedTheme") || localStorage.getItem("parda_theme") || "dark";
+            var f = localStorage.getItem("selectedFont") || localStorage.getItem("parda_font") || "literata";
+            var s = localStorage.getItem("selectedSize") || localStorage.getItem("parda_size") || "medium";
+            document.documentElement.setAttribute("data-theme", t);
+            document.documentElement.setAttribute("data-font", f);
+            document.documentElement.setAttribute("data-size", s);
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- TOP READING PROGRESS BAR -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <a href="home.html" class="logo">Parda <span>Aur Mijaz</span></a>
+        <div class="header-actions">
+            <button class="header-button audio-toggle-btn" onclick="toggleAmbient('calm', this)" title="Soft Calming Music">Sound</button>
+            <button class="header-button" id="openChapters">Chapters</button>
+            <button class="header-button" id="openSettings">Settings</button>
+        </div>
+    </header>
+
+    <!-- CHAPTER DRAWER (ALL 12 CHAPTERS) -->
+    <div class="chapter-drawer" id="chapterDrawer">
+        <div class="drawer-header">
+            <h3>Chapters Index</h3>
+            <button id="closeChapters">&times;</button>
+        </div>
+        <div class="drawer-content">
+<a href="chapter1.html" class="chapter-link"><span>01</span> Ek Khwaab</a>
+<a href="chapter2.html" class="chapter-link"><span>02</span> Dil Ki Tabdeeli</a>
+<a href="chapter3.html" class="chapter-link active"><span>03</span> Khud Se Jung</a>
+<a href="chapter4.html" class="chapter-link"><span>04</span> Be-Khabar Lamhe</a>
+<a href="chapter5.html" class="chapter-link"><span>05</span> Khamosh Saturday</a>
+<a href="chapter6.html" class="chapter-link"><span>06</span> Ghar Ki Raah</a>
+<a href="chapter7.html" class="chapter-link"><span>07</span> Raat Ki Sair</a>
+<a href="chapter8.html" class="chapter-link"><span>08</span> Parde Ke Peeche</a>
+<a href="chapter9.html" class="chapter-link"><span>09</span> Ehsaas Ka Safar</a>
+<a href="chapter10.html" class="chapter-link"><span>10</span> Dil Ke Sawalon Ka Aagaz</a>
+<a href="chapter11.html" class="chapter-link"><span>11</span> Hadees Aur Mohobbat</a>
+<a href="chapter12.html" class="chapter-link"><span>12</span> Khamosh Fasla</a>
+        </div>
+    </div>
+
+    <!-- SETTINGS PANEL -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-header">
+            <h3>Reading Settings</h3>
+            <button id="closeSettings">&times;</button>
+        </div>
+        
+        <div class="setting-group">
+            <label>Theme Style</label>
+            <div class="theme-grid">
+                <button onclick="applyTheme('dark')">Dark</button>
+                <button onclick="applyTheme('oled')">OLED Black</button>
+                <button onclick="applyTheme('cream')">Cream</button>
+                <button onclick="applyTheme('midnight')">Midnight</button>
+                <button onclick="applyTheme('emerald')">Emerald</button>
+            </div>
+        </div>
+
+        <div class="setting-group">
+            <label>Font Family</label>
+            <button class="font-option" onclick="applyFont('literata')">Literata (Classic)</button>
+            <button class="font-option" onclick="applyFont('inter')">Inter (Modern Sans)</button>
+            <button class="font-option" onclick="applyFont('nastaliq')">Urdu Nastaliq</button>
+        </div>
+
+        <div class="setting-group">
+            <label>Text Size</label>
+            <div class="size-buttons">
+                <button onclick="applySize('small')">Small</button>
+                <button onclick="applySize('medium')">Medium</button>
+                <button onclick="applySize('large')">Large</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="settings-overlay" id="settingsOverlay"></div>
+
+    <!-- MAIN CONTENT & SIDEBAR WRAPPER -->
+    <div class="chapter-wrapper">
+        <main class="chapter-main-content">
+            <div class="chapter-header">
+                <span class="chapter-badge">Chapter 03</span>
+                <h1 class="chapter-title">Khud Se Jung</h1>
+                <div class="chapter-meta">
+                    <span id="read-time">Calculating...</span>
+                    <span id="word-count">Calculating...</span>
+                </div>
+            </div>
+
+            <!-- TOP PART SWITCHER TABS -->
+<div class="part-tabs-container">
+    <button class="part-tab active" onclick="switchPart(1)">Part 1</button><button class="part-tab" onclick="switchPart(2)">Part 2</button><button class="part-tab" onclick="switchPart(3)">Part 3</button><button class="part-tab" onclick="switchPart(4)">Part 4</button>
+</div>
+
+            <!-- STORY BODY CONTENT -->
+            <article class="story-body">
+<div id="part-1" class="part-content active" style="display: block;">
+<p class="drop-cap"># Chapter 3 — Khud Se Jung</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="support8.jpg" alt="✦ Khud Se Jung ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Khud Se Jung ✦</div>
+    </div>
+</figure>
+<p>*"Kabhi kabhi insaan ki sabse badi jung duniya se nahi... apne hi dil se hoti hai."*</p>
+<p>Daftar ka waqt ab khatam hone ko tha.</p>
+<p>Din bhar ki masroofiyat dheere dheere kam ho rahi thi.</p>
+<p>Kuch log apne systems band kar chuke the...</p>
+<p>Kuch apni files arrange kar rahe the...</p>
+<p>Aur kuch log kal ke kaam ko lekar aapas mein baat kar rahe the.</p>
+<p>Fahad abhi bhi apni screen ke saamne baitha hua tha.</p>
+<p>Uski nazrein computer par thin...</p>
+<p>Lekin zehan mein woh kaam nahi tha jo screen par khula hua tha.</p>
+<p>Tabhi Aamina ki awaaz uske paas se aayi.</p>
+<p>"Aapne kal jo file share ki thi..."</p>
+<p>"Usko upload karna hai kya aaj?"</p>
+<p>Fahad ne screen se nazar hataye baghair jawab diya.</p>
+<p>"Nahi..."</p>
+<p>"Abhi wait karo."</p>
+<p>"Main bataunga."</p>
+<p>Lehja bilkul wahi tha...</p>
+<p>Seedha...</p>
+<p>Sanjeeda...</p>
+<p>Aur professional.</p>
+<p>Woh bilkul waise hi baat karta tha...</p>
+<p>Jaise hamesha karta aaya tha.</p>
+<p>Na uske lehje mein koi tabdeeli thi...</p>
+<p>Na uske rawaiye mein.</p>
+<p>Aamina ne bas halka sa sar hilaaya.</p>
+<p>"Ji."</p>
+<p>Aur phir woh apne kaam ki taraf mutawajjah ho gayi.</p>
+<p>Fahad ne bhi dobara screen ki taraf dekhna shuru kar diya.</p>
+
+<p>Lekin kuch seconds tak...</p>
+<p>Uski nazar screen par hone ke bawajood...</p>
+<p>Uska zehan kahin aur tha.</p>
+<p>Uske andar ek ajeeb si bechaini chal rahi thi.</p>
+<p>Aamina se baat karna koi nayi baat nahi thi.</p>
+<p>Woh roz usse kaam ke silsile mein baat karta tha.</p>
+<p>Kabhi kisi file ke baare mein...</p>
+<p>Kabhi kisi report ke baare mein...</p>
+<p>Kabhi kisi task ko lekar.</p>
+<p>Lekin aaj...</p>
+<p>Har chhoti si baat bhi uske dil par kuch zyada asar kar rahi thi.</p>
+<p>Har baar jab Aamina uske saamne se guzarti...</p>
+<p>Fahad ko raat ka woh khwaab yaad aa jaata.</p>
+<p>Wahi roshan jagah...</p>
+<p>Wahi sukoon...</p>
+<p>Wahi sajda...</p>
+<p>Aur phir...</p>
+<p>Us dua mein Aamina ka naam.</p>
+<p>Woh foran apni nazar computer ki screen par jama deta.</p>
+<p>Jaise screen par dekhna hi uske liye apne dil se bachne ka ek tareeqa ho.</p>
+<p>Usne khud ko kitni hi baar samjhaya.</p>
+<p>"Ye sirf ek khwaab tha."</p>
+<p>"Iska haqeeqat se koi taalluq nahi."</p>
+<p>"Main iske baare mein zyada nahi sochunga."</p>
+<p>Lekin dil...</p>
+<p>Har baar uski baat ko khamoshi se thukra deta.</p>
+<p>Woh jitna khud ko samjhata...</p>
+<p>Utna hi uska zehan usi taraf laut jaata.</p>
+
+<p>Kabhi Aamina ki awaaz sun kar...</p>
+<p>Kabhi uske paas se guzarte hue...</p>
+<p>Aur kabhi sirf uska naam kisi aur ki zubaan se sun kar.</p>
+<p>Fahad khud bhi samajh nahi pa raha tha...</p>
+<p>Ke ek khwaab kisi insaan ke andar itni bechaini kaise paida kar sakta hai.</p>
+<p>Shaam aur gehri ho gayi.</p>
+<p>Office mein log ab ek ek karke nikalne lage.</p>
+<p>Fahad ne aakhirkaar apni screen dekhi...</p>
+<p>Jo kaam tha usse save kiya...</p>
+<p>Phir system band kar diya.</p>
+<p>Usne kursi se uthkar ek gehri saans li.</p>
+<p>Bag uthaya...</p>
+<p>Aur kandhe par daal liya.</p>
+<p>Lekin office se nikalne se pehle...</p>
+<p>Uski nazar ek pal ke liye Aamina ki taraf chali gayi.</p>
+<p>Phir usne foran nazar hata li.</p>
+<p>Jaise khud ko yaad dila raha ho...</p>
+<p>Ke ye wahi Aamina hai...</p>
+</div>
+
+<div id="part-2" class="part-content" style="display: none;">
+<p>Jise woh kal tak sirf apni team ki ek member samajhta tha.</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="support9.jpg" alt="✦ Purani Dosti & Yaadein ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Purani Dosti & Yaadein ✦</div>
+    </div>
+</figure>
+<p>Aur aaj...</p>
+<p>Usi ka naam uske dil mein ek aisi bechaini ban chuka tha...</p>
+<p>Jiska jawab khud Fahad ke paas bhi nahi tha.</p>
+<p>Gate se bahar nikalte hi Fahad ne ek gehri saans li.</p>
+<p>Office ke andar ki band hawa ke muqable mein bahar ki hawa kuch alag mehsoos ho rahi thi.</p>
+<p>Sadak par hamesha ki tarah traffic chal raha tha.</p>
+<p>Log apne apne gharon ki taraf ja rahe the.</p>
+<p>Kisi ko train pakadne ki jaldi thi...</p>
+<p>Kisi ko bus...</p>
+<p>Aur koi roadside par khade hokar apne kisi jaan-pehchaan wale ka intezar kar raha tha.</p>
+<p>Fahad ne bag ko kandhe par theek kiya hi tha ke uska mobile baj utha.</p>
+<p>Usne jeb se mobile nikala.</p>
+<p>Screen par ek naam chamak raha tha.</p>
+<p>**Qasim.**</p>
+<p>Naam dekhte hi Fahad ke honton par halki si muskurahat aa gayi.</p>
+<p>Qasim uska purana dost tha.</p>
+<p>Aise doston mein se...</p>
+<p>Jinke saath baat karne ke liye kisi khaas wajah ki zarurat nahi padti.</p>
+<p>Fahad ne foran call receive ki.</p>
+<p>"Assalamu Alaikum."</p>
+
+<p>Doosri taraf se Qasim ki awaaz aayi.</p>
+<p>"Wa Alaikum Assalam."</p>
+<p>Phir bina kisi tamheed ke Qasim ne poocha,</p>
+<p>"Kahan hai?"</p>
+<p>Fahad ne office ki building ki taraf ek nazar daali aur jawab diya,</p>
+<p>"Bas office se nikla hoon."</p>
+<p>"Achha..."</p>
+<p>Qasim ki awaaz mein jaise pehle se hi koi plan tha.</p>
+<p>"To seedha purani chai wali dukaan par aa."</p>
+<p>Fahad thoda ruk gaya.</p>
+<p>"Kyun?"</p>
+<p>Qasim hans pada.</p>
+<p>"Yaar, har baat phone par hi poochega?"</p>
+<p>Fahad ke chehre par dobara muskurahat aa gayi.</p>
+<p>"To phir bata na..."</p>
+<p>"Bas aa ja."</p>
+<p>"Kuch hua hai kya?"</p>
+<p>"Nahi."</p>
+<p>"Phir?"</p>
+<p>"Tu aa raha hai ya main phone rakhun?"</p>
+<p>Fahad halka sa hans pada.</p>
+<p>"Theek hai..."</p>
+<p>"Thodi der mein pahunchta hoon."</p>
+<p>"Bas, ye hui na baat."</p>
+<p>Qasim ne jawab diya.</p>
+<p>"Main wahi hoon."</p>
+
+<p>"Achha."</p>
+<p>"Allah Hafiz."</p>
+<p>"Allah Hafiz."</p>
+<p>Call kat gaya.</p>
+<p>Fahad ne mobile wapas jeb mein rakha.</p>
+<p>Kuch lamhon tak woh wahi khada raha.</p>
+<p>Phir bag kandhe par theek kiya...</p>
+<p>Aur Qasim se milne ke liye chal pada.</p>
+<p>Fahad aur Qasim ki dosti aaj ki nahi thi.</p>
+<p>Saat saal pehle...</p>
+<p>Dasvin class mein dono ki pehli mulaqat hui thi.</p>
+<p>Shuru shuru mein woh sirf classmates the.</p>
+<p>Ek doosre ko jaante the...</p>
+<p>Kabhi class mein baat ho jaati...</p>
+<p>Kabhi kisi homework ya padhai ki wajah se.</p>
+<p>Phir pata hi nahi chala ke kab dono ek hi bench par baithne lage.</p>
+<p>Aur ek bench se shuru hui woh dosti...</p>
+<p>Dheere dheere itni gehri ho gayi ke log unhe sirf dost nahi...</p>
+<p>Bhai samajhne lage.</p>
+<p>Zindagi mein kitne hi log aaye...</p>
+<p>Kitne hi chale gaye...</p>
+<p>Kuch log kuch waqt ke liye kareeb aaye...</p>
+<p>Aur phir waqt ke saath door hote chale gaye.</p>
+<p>Lekin Fahad aur Qasim ki dosti...</p>
+<p>Waqt ke saath kabhi nahi badli.</p>
+<p>Fahad ke ghar ke halaat...</p>
+<p>Uski zimmedariyan...</p>
+<p>Uski pareshaniyan...</p>
+</div>
+
+<div id="part-3" class="part-content" style="display: none;">
+<p>Aur uski zindagi ki woh baatein jo woh har kisi se nahi keh sakta tha...</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="support10.jpg" alt="✦ Bharose Ki Amanat ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Bharose Ki Amanat ✦</div>
+    </div>
+</figure>
+<p>Qasim sab jaanta tha.</p>
+<p>Kabhi Fahad ko kuch kehne ki zarurat bhi nahi padti thi.</p>
+<p>Uske chehre se hi Qasim samajh jaata tha ke baat kya hai.</p>
+<p>Aur Qasim ki zindagi ka bhi koi aisa raaz nahi tha...</p>
+<p>Jo Fahad se chhupa ho.</p>
+<p>Usne jo kuch Fahad ko bataya...</p>
+<p>Fahad ke paas woh sab amanat ki tarah mehfooz raha.</p>
+<p>Dono ke beech ek aisa bharosa tha...</p>
+<p>Jisme lafzon se zyada waqt aur saath ki ahmiyat thi.</p>
+<p>Ek waqt aisa bhi tha...</p>
+<p>Jab Qasim ko Mahira naam ki ek ladki pasand thi.</p>
+<p>Qasim ne ye baat Fahad se chhupayi nahi thi.</p>
+<p>Aur Fahad hi un dono ke darmiyan zariya bana tha.</p>
+<p>Lekin ek saal baad...</p>
+<p>Mahira ke ghar walon ko sab pata chal gaya.</p>
+
+<p>Aur uske baad...</p>
+<p>Woh rishta wahi khatam ho gaya.</p>
+<p>Qasim ke liye woh waqt aasaan nahi tha.</p>
+<p>Lekin waqt...</p>
+<p>Har cheez ko dheere dheere apni jagah par la deta hai.</p>
+<p>Kuch waqt baad Mahira ki yaad bhi...</p>
+<p>Sirf ek yaad ban kar reh gayi.</p>
+<p>Fahad ne bhi kabhi Qasim ko us baat ke liye chheda nahi.</p>
+<p>Jo ho gaya tha...</p>
+<p>Woh ho gaya tha.</p>
+<p>Aur dono apni zindagi mein aage badh gaye.</p>
+<p>Aaj dono ki zindagi mein...</p>
+<p>Ladkiyon ke naam par sirf apni maa aur behnein hi thi.</p>
+<p>Mohabbat...</p>
+<p>Nikah...</p>
+<p>Ya ishq ki baatein...</p>
+<p>Ye sab unki rozmarra ki guftagu ka hissa kabhi nahi bani.</p>
+<p>Unki duniya filhaal bahut simple thi.</p>
+<p>Kaam...</p>
+<p>Ghar...</p>
+<p>Dost...</p>
+<p>Aur kabhi waqt mila to ek cup chai ke saath kuch der ki baatein.</p>
+<p>Bas itni si duniya thi un dono ki.</p>
+<p>Aur dono ko lagta tha...</p>
+<p>Ke zindagi isi tarah chalti rahegi.</p>
+<p>Kuch der baad Fahad usi purani chai ki dukaan par pahunch gaya.</p>
+<p>Qasim pehle se wahin maujood tha.</p>
+
+<p>Woh apni hamesha wali kursi par baitha chai ka cup haath mein liye Fahad ka intezar kar raha tha.</p>
+<p>Fahad ko dekhte hi usne saamne wali kursi ki taraf ishara kiya.</p>
+<p>"Baith."</p>
+<p>Fahad bina kuch kahe uske saamne jaakar baith gaya.</p>
+<p>Chai wale ne dono ko dekhte hi bina pooche do chai laga di.</p>
+<p>Ye bhi unki purani aadat thi.</p>
+<p>Saat saal ki dosti mein kuch cheezein kehni nahi padti thin.</p>
+<p>Chai aayi...</p>
+<p>Aur dono roz ki tarah idhar-udhar ki baaton mein lag gaye.</p>
+<p>Kabhi office ki baat...</p>
+<p>Kabhi kisi purane dost ka zikr...</p>
+<p>Kabhi bas aise hi kisi baat par hansna.</p>
+<p>Fahad bhi normal rehne ki poori koshish kar raha tha.</p>
+<p>Lekin Qasim...</p>
+<p>Aaj use thoda zyada gaur se dekh raha tha.</p>
+<p>Kuch der baad usne chai ka cup neeche rakha.</p>
+<p>Phir Fahad ki taraf seedha dekhte hue bola...</p>
+<p>"Aaj kal tu kuch alag lag raha hai."</p>
+<p>Fahad ne cup haath mein lete hue hairani se uski taraf dekha.</p>
+<p>"Main?"</p>
+<p>"Haan... tu."</p>
+<p>Fahad ke honton par halki si muskurahat aayi.</p>
+<p>"Pata nahi."</p>
+<p>Qasim ne aankhein thodi sikod kar use dekha.</p>
+<p>"Kuch khoya khoya sa lag raha hai."</p>
+<p>Fahad halka sa hans diya.</p>
+<p>"Tera waham hai."</p>
+<p>Qasim bhi muskuraya...</p>
+<p>Lekin uski nazar ab bhi Fahad ke chehre par hi thi.</p>
+<p>"Saat saal ho gaye tujhe jaante hue."</p>
+<p>Fahad chup raha.</p>
+<p>Qasim ne chai ka ek ghunt liya aur aahista se kaha...</p>
+</div>
+
+<div id="part-4" class="part-content" style="display: none;">
+<p>"Tera chehra dekh kar bata sakta hoon kab tu pareshan hota hai."</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super11.jpg" alt="✦ Taqdeer Ka Naya Safha ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Taqdeer Ka Naya Safha ✦</div>
+    </div>
+</figure>
+<p>Fahad ne nazrein chai ke cup par kar li.</p>
+<p>Aur pehli baar...</p>
+<p>Usse mehsoos hua ke shayad Qasim ki nazar uske dil tak pahunchne lagi hai.</p>
+<p>Fahad ne mehsoos kiya ke Qasim ki baat ab kahin aur ja rahi hai.</p>
+<p>Usne foran baat badalne ki koshish ki.</p>
+<p>"Achha chhod..."</p>
+<p>"Tu kuch bol raha tha."</p>
+<p>Qasim ne chai ka cup table par rakha.</p>
+<p>"Haan..."</p>
+<p>"Ek baat bolni thi."</p>
+<p>Fahad ne uski taraf dekha.</p>
+<p>"Bolo."</p>
+
+<p>Qasim kuch pal khamosh raha.</p>
+<p>Phir jaise achanak use kuch yaad aaya ho, usne kaha...</p>
+<p>"Us din jab main tujhe lene office aaya tha..."</p>
+<p>Fahad ne sir hilaya.</p>
+<p>"Haan."</p>
+<p>"Woh teri office wali..."</p>
+<p>Qasim ne baat adhoori chhodi.</p>
+<p>Fahad ne beparwai se poocha...</p>
+<p>"Aamina?"</p>
+<p>"Haan..."</p>
+<p>"Uska kya hua?"</p>
+<p>Qasim ke honton par halki si shararti muskurahat aa gayi.</p>
+<p>"Yaar..."</p>
+<p>"Main jab bhi tere office aata hoon..."</p>
+<p>"Use dekhta hoon."</p>
+<p>Fahad chup-chaap uski baat sunta raha.</p>
+<p>Qasim ne chai ka cup uthaya, lekin peene ke bajaye use haath mein hi pakde rakha.</p>
+<p>"Us din dil kar raha tha..."</p>
+<p>"Uske paas jaaun..."</p>
+<p>"Usse salaam karun..."</p>
+<p>"Aur bolun..."</p>
+<p>Qasim ne ek pal ruk kar Fahad ki taraf dekha.</p>
+<p>Phir bilkul masoomiyat se bola...</p>
+<p>"Assalamu Alaikum, Bhabhi."</p>
+<p>Ek pal ke liye dono ke darmiyan khamoshi chha gayi.</p>
+
+<p>Fahad ne Qasim ko dekha...</p>
+<p>Jaise use yakeen hi na ho ke usne abhi kya keh diya.</p>
+<p>Phir agle hi pal woh zor se hans pada.</p>
+<p>"Pagal hai kya?"</p>
+<p>"Har parde wali ladki tujhe meri biwi hi lagti hai?"</p>
+<p>Qasim ne beparwai se kandhe uchka diye.</p>
+<p>"Pata nahi..."</p>
+<p>"Bas ladki bahut shareef lagti hai."</p>
+<p>"Isliye dil se nikal gaya."</p>
+<p>Fahad ne muskurate hue sir hila diya.</p>
+<p>"Tu bhi na..."</p>
+<p>Phir usne chai ka cup uthaya aur aahista se bola...</p>
+<p>"Mere paas itna waqt nahi hai."</p>
+<p>"Ghar ki zimmedariyan hi itni hain..."</p>
+<p>"Nikah ke baare mein sochna bhi abhi mumkin nahi."</p>
+<p>Qasim ne is baar mazaak nahi kiya.</p>
+<p>Usne Fahad ki baat khamoshi se suni.</p>
+<p>Woh jaanta tha ke Fahad apni zindagi ko lekar kitna sanjeeda hai.</p>
+<p>Kuch lamhon baad Qasim ke chehre par phir halki si muskurahat aayi.</p>
+<p>Usne chai ka aakhri ghunt piya aur cup table par rakh diya.</p>
+<p>"Jo Allah ki marzi."</p>
+<p>Fahad ne bas itna hi kaha...</p>
+<p>"Haan."</p>
+<p>Us waqt...</p>
+<p>Ye sirf do purane doston ke darmiyan hui ek maamooli si guftagu thi.</p>
+<p>Na Fahad ke dil mein Aamina ke liye koi jazba tha...</p>
+<p>Na Qasim ki baat ka uske liye koi khaas matlab.</p>
+<p>Dono ke liye woh bas ek mazaak tha...</p>
+<p>Ek chhoti si baat...</p>
+<p>Jo chai ki us purani dukaan par kahi gayi aur wahi reh gayi.</p>
+<p>Magar insaan jo baat mazaak mein keh deta hai...</p>
+<p>Kabhi kabhi waqt usi baat ko haqeeqat bana kar saamne khada kar deta hai.</p>
+<p>Aur us waqt...</p>
+<p>Taqdeer khamoshi se apna agla safha likh rahi thi.</p>
+</div>
+            </article>
+
+            <!-- BOTTOM PART SWITCHER TABS -->
+<div class="part-tabs-container bottom-part-tabs">
+    <button class="part-tab active" onclick="switchPart(1)">Part 1</button><button class="part-tab" onclick="switchPart(2)">Part 2</button><button class="part-tab" onclick="switchPart(3)">Part 3</button><button class="part-tab" onclick="switchPart(4)">Part 4</button>
+</div>
+
+            <!-- CHAPTER BOTTOM NAVIGATION -->
+            <div class="chapter-reactions-widget">
+    <div class="reaction-title">✦ Yeh Chapter Kaisa Laga? ✦</div>
+    <div class="reaction-subtitle">Apna Ehsaas Express Karein:</div>
+    <div class="reaction-btn-group">
+        <button class="reaction-btn" onclick="reactToChapter('dil', this)">❤️ Dil Chhu Gaya</button>
+        <button class="reaction-btn" onclick="reactToChapter('haya', this)">✨ Haya & Sabr</button>
+        <button class="reaction-btn" onclick="reactToChapter('khamoshi', this)">🌧️ Deep Khamoshi</button>
+    </div>
+</div>
+            <div class="scene-break">✦ &nbsp; ✦ &nbsp; ✦</div>
+            <nav class="chapter-nav-footer">
+<a href="chapter2.html" class="chapter-nav-card prev">
+    <small>&larr; Previous Chapter 02</small>
+    <strong>Dil Ki Tabdeeli</strong>
+</a>
+<a href="chapter4.html" class="chapter-nav-card next">
+    <small>Next Chapter 04 &rarr;</small>
+    <strong>Be-Khabar Lamhe</strong>
+</a>
+            </nav>
+        </main>
+
+        <aside class="chapter-sidebar">
+            <div class="sticky-sidebar-card">
+                <div class="sidebar-quote-box">
+                    "Har kehani parde ke peeche se shuru hoti hai... Har khamoshi ke peeche ek gehra mizaj hota hai."
+                </div>
+
+                <div>
+                    <div class="sidebar-widget-title">Reading Progress</div>
+                    <div style="font-size: 2rem; font-family:'Cormorant Garamond', serif; color: var(--accent-gold);" id="sidebar-scroll-percent">0%</div>
+                </div>
+
+                <div>
+                    <div class="sidebar-widget-title">Character Mentions</div>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-num" id="fahad-mentions">0</span>
+                            <span class="stat-lbl">Fahad</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num" id="aamina-mentions">0</span>
+                            <span class="stat-lbl">Aamina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="backToTopBtn" class="back-to-top-btn" onclick="scrollToTop()">&uarr; Top</button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="chapter.js"></script>
+    <script>
+        localStorage.setItem("last_read_chapter", "chapter3.html");
+        localStorage.setItem("last_read_title", "Chapter 03 — Khud Se Jung");
+    </script>
+</body>
+</html>

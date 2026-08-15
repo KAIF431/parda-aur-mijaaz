@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 06 — Ghar Ki Raah | Parda Aur Mijaz</title>
+    
+    <!-- OpenGraph & Social Media Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Chapter 06: Ghar Ki Raah — Parda Aur Mijaz">
+    <meta property="og:description" content="Read Chapter 06 (Ghar Ki Raah) of Parda Aur Mijaz by Mohammad. An Urdu novel of quiet grace and unspoken emotions.">
+    <meta property="og:image" content="cover.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chapter.css">
+<script>
+        (function() {
+            var t = localStorage.getItem("selectedTheme") || localStorage.getItem("parda_theme") || "dark";
+            var f = localStorage.getItem("selectedFont") || localStorage.getItem("parda_font") || "literata";
+            var s = localStorage.getItem("selectedSize") || localStorage.getItem("parda_size") || "medium";
+            document.documentElement.setAttribute("data-theme", t);
+            document.documentElement.setAttribute("data-font", f);
+            document.documentElement.setAttribute("data-size", s);
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- TOP READING PROGRESS BAR -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <a href="home.html" class="logo">Parda <span>Aur Mijaz</span></a>
+        <div class="header-actions">
+            <button class="header-button audio-toggle-btn" onclick="toggleAmbient('calm', this)" title="Soft Calming Music">Sound</button>
+            <button class="header-button" id="openChapters">Chapters</button>
+            <button class="header-button" id="openSettings">Settings</button>
+        </div>
+    </header>
+
+    <!-- CHAPTER DRAWER (ALL 12 CHAPTERS) -->
+    <div class="chapter-drawer" id="chapterDrawer">
+        <div class="drawer-header">
+            <h3>Chapters Index</h3>
+            <button id="closeChapters">&times;</button>
+        </div>
+        <div class="drawer-content">
+<a href="chapter1.html" class="chapter-link"><span>01</span> Ek Khwaab</a>
+<a href="chapter2.html" class="chapter-link"><span>02</span> Dil Ki Tabdeeli</a>
+<a href="chapter3.html" class="chapter-link"><span>03</span> Khud Se Jung</a>
+<a href="chapter4.html" class="chapter-link"><span>04</span> Be-Khabar Lamhe</a>
+<a href="chapter5.html" class="chapter-link"><span>05</span> Khamosh Saturday</a>
+<a href="chapter6.html" class="chapter-link active"><span>06</span> Ghar Ki Raah</a>
+<a href="chapter7.html" class="chapter-link"><span>07</span> Raat Ki Sair</a>
+<a href="chapter8.html" class="chapter-link"><span>08</span> Parde Ke Peeche</a>
+<a href="chapter9.html" class="chapter-link"><span>09</span> Ehsaas Ka Safar</a>
+<a href="chapter10.html" class="chapter-link"><span>10</span> Dil Ke Sawalon Ka Aagaz</a>
+<a href="chapter11.html" class="chapter-link"><span>11</span> Hadees Aur Mohobbat</a>
+<a href="chapter12.html" class="chapter-link"><span>12</span> Khamosh Fasla</a>
+        </div>
+    </div>
+
+    <!-- SETTINGS PANEL -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-header">
+            <h3>Reading Settings</h3>
+            <button id="closeSettings">&times;</button>
+        </div>
+        
+        <div class="setting-group">
+            <label>Theme Style</label>
+            <div class="theme-grid">
+                <button onclick="applyTheme('dark')">Dark</button>
+                <button onclick="applyTheme('oled')">OLED Black</button>
+                <button onclick="applyTheme('cream')">Cream</button>
+                <button onclick="applyTheme('midnight')">Midnight</button>
+                <button onclick="applyTheme('emerald')">Emerald</button>
+            </div>
+        </div>
+
+        <div class="setting-group">
+            <label>Font Family</label>
+            <button class="font-option" onclick="applyFont('literata')">Literata (Classic)</button>
+            <button class="font-option" onclick="applyFont('inter')">Inter (Modern Sans)</button>
+            <button class="font-option" onclick="applyFont('nastaliq')">Urdu Nastaliq</button>
+        </div>
+
+        <div class="setting-group">
+            <label>Text Size</label>
+            <div class="size-buttons">
+                <button onclick="applySize('small')">Small</button>
+                <button onclick="applySize('medium')">Medium</button>
+                <button onclick="applySize('large')">Large</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="settings-overlay" id="settingsOverlay"></div>
+
+    <!-- MAIN CONTENT & SIDEBAR WRAPPER -->
+    <div class="chapter-wrapper">
+        <main class="chapter-main-content">
+            <div class="chapter-header">
+                <span class="chapter-badge">Chapter 06</span>
+                <h1 class="chapter-title">Ghar Ki Raah</h1>
+                <div class="chapter-meta">
+                    <span id="read-time">Calculating...</span>
+                    <span id="word-count">Calculating...</span>
+                </div>
+            </div>
+
+            <!-- TOP PART SWITCHER TABS -->
+<div class="part-tabs-container">
+    <button class="part-tab active" onclick="switchPart(1)">Part 1</button><button class="part-tab" onclick="switchPart(2)">Part 2</button><button class="part-tab" onclick="switchPart(3)">Part 3</button>
+</div>
+
+            <!-- STORY BODY CONTENT -->
+            <article class="story-body">
+<div id="part-1" class="part-content active" style="display: block;">
+<p class="drop-cap">"Har din ki tarah us shaam bhi ghar lautna tha... lekin har safar apne saath kuch chhoti yaadein chhod jaata hai."</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super20.jpg" alt="✦ Mumbai Rain Street ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Mumbai Rain Street ✦</div>
+    </div>
+</figure>
+<p>Saturday ki duty khatam ho chuki thi.</p>
+<p>Office ki deewaron par chhayi khamoshi ab dheere dheere khatam ho rahi thi.</p>
+<p>Aamina ne bhi apna computer band kar diya.</p>
+<p>Dono ne apni apni desk theek ki.</p>
+<p>Aur roz ki tarah ek hi jumla kaha.</p>
+<p>"Allah Hafiz."</p>
+<p>"Allah Hafiz."</p>
+<p>Dono office se bahar nikal gaye.</p>
+<p>Saturday khatam ho chuka tha.</p>
+<p>Building ke bahar aate hi Fahad ne ek gehri saans li.</p>
+<p>Poora din AC wali cabin mein guzra tha.</p>
+<p>Bahar ki hawa alag hi mehsoos ho rahi thi.</p>
+<p>Shaam dhal chuki thi.</p>
+<p>Aasmaan par suraj ka aakhri rang dheere dheere andhere mein kho raha tha.</p>
+<p>Sadak par log apni apni manzilon ki taraf bhaag rahe the.</p>
+<p>Koi auto rok raha tha...</p>
+<p>Koi phone par ghar walon ko bata raha tha ke bas pahunchne wala hoon...</p>
+<p>Koi chai ki tapri par ruk kar din bhar ki thakan utaar raha tha.</p>
+<p>Fahad ne apna bag kandhe par theek kiya aur bus stop ki taraf chal diya.</p>
+<p>Ye raasta woh pichhle do saal se lagbhag roz tay kar raha tha.</p>
+<p>Raaste ki har dukaan...</p>
+<p>Har signal...</p>
+<p>Har mod...</p>
+<p>Sab uske liye jaane pehchaane the.</p>
+<p>Bus stop par pahunchte hi usne ghadi dekhi.</p>
+<p>Roz ki tarah kuch log pehle se hi intezar kar rahe the.</p>
+<p>Kisi ke kaan mein earphones the.</p>
+<p>Koi mobile mein reels dekh raha tha.</p>
+<p>Koi bas chup-chaap sadak ki taraf dekh raha tha.</p>
+<p>Thodi der baad door se laal rang ki A180 bus nazar aayi.</p>
+<p>Bus abhi poori tarah ruki bhi nahi thi ke kuch log darwaze ki taraf badhne lage.</p>
+<p>Fahad ne aadat ke mutabiq sabr se line ka intezar kiya.</p>
+<p>Bus rukte hi woh bhi dheere se andar chadh gaya.</p>
+<p>Aaj bhi bus ka wahi haal tha.</p>
+<p>Lagbhag saari seats bhari hui thi.</p>
+<p>Usne upar wali rod pakdi aur chup-chaap khada ho gaya.</p>
+<p>Bus chal padi.</p>
+<p>Har stop par kuch log utarte...</p>
+<p>Aur usse zyada log chadh jaate.</p>
+<p>Kuch hi der baad ek buzurg aadmi bus mein chadhe.</p>
+<p>Unhe dekhte hi Fahad ke chehre par halki si muskurahat aa gayi.</p>
+<p>Ye buzurg usse naye nahi the.</p>
+<p>Lagbhag roz isi waqt isi bus mein mil jaate the.</p>
+<p>Aur roz kisi na kisi se seat ko lekar behes karte the.</p>
+<p>Aaj bhi wahi hua.</p>
+<p>Unhone saamne khade ek naujawan se kaha,</p>
+<p>"Beta... uth jao. Mujhe baithna hai."</p>
+<p>Naujawan ne thakawat bhari awaaz mein kaha,</p>
+<p>"Uncle... main bhi kaafi der se khada tha. Abhi abhi seat mili hai."</p>
+<p>Buzurg ne phir kuch budbudaaya.</p>
+<p>Bus mein baithe do teen log unki taraf dekhkar muskurane lage.</p>
+<p>Conductor ne ek baar unki taraf dekha...</p>
+<p>Phir bina kuch kahe doosri taraf muh kar liya.</p>
+<p>Jaise woh bhi jaanta ho...</p>
+<p>Kal phir yahi manzar dekhne ko milega.</p>
+<p>Aakhir kisi aur musafir ne apni seat chhod di.</p>
+<p>Buzurg aaraam se baith gaye.</p>
+<p>Aur bus mein phir se roz wali khamoshi laut aayi.</p>
+<p>Fahad ab bhi khada tha.</p>
+<p>Do stop aur guzre.</p>
+<p>Tabhi peeche wali ek seat khaali hui.</p>
+<p>Us seat ke bagal mein ek burkhe mein baithi ladki thi.</p>
+<p>Woh bhi roz isi bus mein dikh jaati thi.</p>
+<p>Na kabhi Fahad ne usse baat ki.</p>
+<p>Na hi kabhi uski taraf khaas tawajjo di.</p>
+<p>Bas itna zaroor tha...</p>
+<p>Ke woh ladki bus ke lagbhag har regular musafir ko pehchaan gayi thi.</p>
+<p>Use andaaza hota tha ke kaun kis stop par utrega.</p>
+<p>Kabhi kisi aunty se keh deti,</p>
+<p>"Agla stop aapki seat khaali ho jayegi."</p>
+<p>Kabhi kisi buzurg ko ishara kar deti,</p>
+<p>"Uncle, do minute ruk jaiye."</p>
+
+</div>
+
+<div id="part-2" class="part-content" style="display: none;">
+<p>Aur waqai do minute baad seat khaali ho jaati.</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super21.jpg" alt="✦ Ammi Ka Pyaar ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Ammi Ka Pyaar ✦</div>
+    </div>
+</figure>
+<p>Aaj bhi usne saamne ishara karte hue kisi khadi aurat se kaha,</p>
+<p>"Didi... agle stop par ye seat khaali ho jayegi."</p>
+<p>Fahad ne ek pal ke liye us taraf dekha.</p>
+<p>Phir nazar hata li.</p>
+<p>Uske bagal wali seat bhi ab khaali thi.</p>
+<p>Ek lamhe ke liye woh jhijhka.</p>
+<p>Phir aaraam se jaakar baith gaya.</p>
+<p>Na usne kuch kaha.</p>
+<p>Na us ladki ne.</p>
+<p>Bus apni raftaar se Mumbai ki roshniyon ke beech aage badhti rahi.</p>
+<p>Khidki ke bahar shehar bhaag raha tha...</p>
+<p>Aur andar har musafir apni apni khamoshi mein gum tha.</p>
+<p>Fahad ke bagal mein baithi burkhe wali ladki ne khidki ke bahar dekhte hue halka sa kaha,</p>
+<p>"Lagta hai aaj bus thodi late chal rahi hai."</p>
+<p>Fahad ne nazar uthaye baghair sirf itna kaha,</p>
+<p>"Haan... shayad."</p>
+<p>Ladki muskura di.</p>
+<p>Kuch der baad bus ek bade signal par ruk gayi.</p>
+<p>Bahut lambi line lagi hui thi.</p>
+<p>Usne phir dheere se kaha,</p>
+<p>"Aaj Saturday hone ke baad bhi itni bheed hai."</p>
+<p>Is baar bhi Fahad ne sirf adab ke saath jawab diya.</p>
+<p>"Ji."</p>
+<p>Uske baad dono dobara khamosh ho gaye.</p>
+<p>Na ladki ne baat badhayi...</p>
+<p>Na Fahad ne.</p>
+<p>Fahad ki aadat hi aisi thi.</p>
+<p>Woh har kisi se izzat se baat karta tha...</p>
+<p>Lekin zarurat se zyada guftagu se hamesha bachta tha.</p>
+<p>Usne dobara khidki ke bahar dekhna shuru kar diya.</p>
+<p>Raat dheere dheere shehar par utar rahi thi.</p>
+<p>Dukaanon ke board roshan ho chuke the.</p>
+<p>Footpath par chai walon ke paas bheed badhne lagi thi.</p>
+<p>Ek jagah kuch bachche ab bhi cricket khel rahe the.</p>
+<p>Kahin ek couple haath mein shopping ke bags liye haste hue chal raha tha.</p>
+<p>Horn ki awaazein...</p>
+<p>Signal ki laal roshni...</p>
+<p>Auto walon ki awaaz...</p>
+<p>Sab kuch roz jaisa hi tha.</p>
+<p>Magar har roz ki tarah aaj bhi Fahad in sab ko bas dekhta tha...</p>
+<p>Unka hissa kabhi nahi banta tha.</p>
+<p>Bus ek ke baad ek stop paar karti rahi.</p>
+<p>Kuch der baad conductor ne zor se awaaz lagayi,</p>
+<p>"Agla stop..."</p>
+<p>Ye Fahad ka stop tha.</p>
+<p>Usne aaraam se bag kandhe par dala.</p>
+<p>Seat se utha.</p>
+<p>Aur bina kisi taraf dekhe bus se neeche utar gaya.</p>
+<p>Bus aage badh gayi.</p>
+<p>Uske saamne hi masjid thi.</p>
+<p>Isha ki jamaat shuru hone mein bas kuch hi lamhe baaki the.</p>
+<p>Fahad ne chalne ki raftaar tez kar di.</p>
+<p>Masjid mein dakhil hote hi usne wuzu kiya.</p>
+<p>Saf ke aakhri hisse mein jaakar khada ho gaya.</p>
+<p>Takbeer hui.</p>
+<p>Aur kuch hi palon mein duniya ki saari awaazein uske liye khatam ho gayin.</p>
+<p>Namaz ke baad woh kuch der wahi baitha raha.</p>
+<p>Tasbeeh padhi.</p>
+<p>Dua maangi.</p>
+<p>Phir masjid se bahar nikal kar ghar ki taraf chal diya.</p>
+<p>Masjid se ghar tak ka raasta mushkil se das minute ka tha.</p>
+<p>Mohalle ki galiyan ab khaamosh hone lagi thi.</p>
+<p>Kahin kisi ghar se TV ki awaaz aa rahi thi...</p>
+<p>Kahin bachche ab bhi cycle chala rahe the...</p>
+<p>Aur kuch buzurg masjid ke bahar baith kar aapas mein baatein kar rahe the.</p>
+<p>Lagbhag saadhe nau baje Fahad ghar pahunch gaya.</p>
+<p>"Assalamu Alaikum."</p>
+<p>"Wa Alaikum Assalam."</p>
+<p>Ammi ki awaaz sunte hi uske chehre ki thakan aadhi reh gayi.</p>
+<p>Bag apne kamre mein rakh kar woh fresh hua.</p>
+<p>Phir ghar walon ke saath dastarkhwan par baith gaya.</p>
+<p>Aaj ki tarah har raat ki tarah bhi sab ek saath khana khate the.</p>
+
+</div>
+
+<div id="part-3" class="part-content" style="display: none;">
+<p>Khana khate hue kabhi Ammi ghar ki baat kartin...</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super22.jpg" alt="✦ Raat Ka Sukoon ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Raat Ka Sukoon ✦</div>
+    </div>
+</figure>
+<p>Kabhi chhoti behan apne college ke qisse sunati...</p>
+<p>Aur Fahad muskura kar sabki baatein sunta rehta.</p>
+<p>Uske liye din ka ye hissa sabse sukoon bhara hota tha.</p>
+<p>Khana khatam hone ke baad Fahad foran uth kar apne kamre mein nahi gaya.</p>
+<p>Uski aadat hi nahi thi.</p>
+<p>Din bhar office ki bhaag-daud ke baad raat ka thoda waqt woh hamesha ghar walon ke saath baith kar guzarta tha.</p>
+<p>Ammi bartan samet rahi thi.</p>
+<p>Abbu drawing room mein TV par news dekh rahe the.</p>
+<p>Screen par siyasi behas chal rahi thi.</p>
+<p>Ek anchor doosre ko bolne hi nahi de raha tha.</p>
+<p>Abbu ne remote uthaya aur TV ki awaaz thodi kam kar di.</p>
+<p>"Aaj office kaisa tha?"</p>
+<p>Unhone Fahad se poocha.</p>
+<p>Fahad sofa par baithte hue bola,</p>
+<p>"Alhamdulillah... theek tha."</p>
+<p>"Saturday tha, isliye kaam bhi kam tha."</p>
+<p>Abbu ne sir hila diya.</p>
+<p>"Achha hai... kabhi kabhi sukoon bhi mil jana chahiye."</p>
+<p>Kitchen se Ammi ki awaaz aayi,</p>
+<p>"Waise kal Itwaar hai."</p>
+<p>"Subah bazaar chale jana."</p>
+<p>"Kitchen ka kuch samaan khatam ho gaya hai."</p>
+<p>"Theek hai Ammi."</p>
+<p>Fahad ne bina soche jawab diya.</p>
+<p>Phir baat dheere dheere ghar ke rozmarra ke maslon par aa gayi.</p>
+<p>Bijli ka bill kab bharna hai...</p>
+<p>Gas cylinder kitne din chalega...</p>
+<p>Mohalle mein kal paani kis waqt aane wala hai...</p>
+<p>Sab apni apni baat kar rahe the.</p>
+<p>Beech beech mein hansi bhi nikal jaati.</p>
+<p>Kabhi Ammi kisi padosan ka qissa suna deti...</p>
+<p>To kabhi Abbu kehte,</p>
+<p>"Arre usse chhodo... apna kaam dekho."</p>
+<p>Fahad bas muskura kar sab sunta rehta.</p>
+<p>Din bhar office mein rehne ke baad...</p>
+<p>Ye aadha ghanta uske liye sabse zyada sukoon wala hota tha.</p>
+<p>Ghar ki ye chhoti chhoti baatein...</p>
+<p>Uski saari thakan halka kar deti thi.</p>
+<p>Tabhi bahar gali se kisi ne zor se awaaz lagayi,</p>
+<p>"Fahaaaaad...!"</p>
+<p>"Bahaar aa...!"</p>
+<p>Fahad muskuraya.</p>
+<p>"Aa gaya."</p>
+<p>Usne dheere se kaha.</p>
+<p>Ammi ne bina bahar dekhe hi pehchan liya.</p>
+<p>"Qasim hoga."</p>
+<p>"Haan."</p>
+<p>Fahad ne jawab diya.</p>
+<p>Abbu halki si muskurahat ke saath bole,</p>
+<p>"Roz raat ko dono ka conference zaroor hota hai."</p>
+<p>Sab hans pade.</p>
+<p>Fahad ne chappal pehni.</p>
+<p>Darwaze tak pahunchte hi Ammi ne peeche se awaaz di,</p>
+<p>"Bahut der mat karna."</p>
+<p>Fahad mud kar muskuraya.</p>
+<p>"InshaAllah."</p>
+<p>Darwaza kholte hi saamne Qasim dono haath jeb mein daale khada tha.</p>
+<p>Jaise pichhle das minute se usi ka intezar kar raha ho.</p>
+<p>Fahad ko dekhte hi bola,</p>
+<p>"Yaar... aaj to record tod diya."</p>
+<p>"Main soch raha tha andar hi aa jaun."</p>
+<p>Fahad hans pada.</p>
+<p>"Tu andar aa gaya na..."</p>
+<p>"To Ammi tujhe bhi khana khila deti."</p>
+<p>Qasim ne hans kar kaha,</p>
+<p>"Bas isi darr se bahar khada hoon."</p>
+<p>Dono zor se hans pade.</p>
+<p>Phir bina kisi jaldi ke...</p>
+<p>Roz ki tarah sadak ki taraf chal diye.</p>
+<p>Raat abhi shuru hui thi...</p>
+<p>Aur un dono ki baatein bhi.</p>
+
+</div>
+            </article>
+
+            <!-- BOTTOM PART SWITCHER TABS -->
+<div class="part-tabs-container bottom-part-tabs">
+    <button class="part-tab active" onclick="switchPart(1)">Part 1</button><button class="part-tab" onclick="switchPart(2)">Part 2</button><button class="part-tab" onclick="switchPart(3)">Part 3</button>
+</div>
+
+            <!-- CHAPTER BOTTOM NAVIGATION -->
+            <div class="chapter-reactions-widget">
+    <div class="reaction-title">✦ Yeh Chapter Kaisa Laga? ✦</div>
+    <div class="reaction-subtitle">Apna Ehsaas Express Karein:</div>
+    <div class="reaction-btn-group">
+        <button class="reaction-btn" onclick="reactToChapter('dil', this)">❤️ Dil Chhu Gaya</button>
+        <button class="reaction-btn" onclick="reactToChapter('haya', this)">✨ Haya & Sabr</button>
+        <button class="reaction-btn" onclick="reactToChapter('khamoshi', this)">🌧️ Deep Khamoshi</button>
+    </div>
+</div>
+            <div class="scene-break">✦ &nbsp; ✦ &nbsp; ✦</div>
+            <nav class="chapter-nav-footer">
+<a href="chapter5.html" class="chapter-nav-card prev">
+    <small>&larr; Previous Chapter 05</small>
+    <strong>Khamosh Saturday</strong>
+</a>
+<a href="chapter7.html" class="chapter-nav-card next">
+    <small>Next Chapter 07 &rarr;</small>
+    <strong>Raat Ki Sair</strong>
+</a>
+            </nav>
+        </main>
+
+        <aside class="chapter-sidebar">
+            <div class="sticky-sidebar-card">
+                <div class="sidebar-quote-box">
+                    "Har kehani parde ke peeche se shuru hoti hai... Har khamoshi ke peeche ek gehra mizaj hota hai."
+                </div>
+
+                <div>
+                    <div class="sidebar-widget-title">Reading Progress</div>
+                    <div style="font-size: 2rem; font-family:'Cormorant Garamond', serif; color: var(--accent-gold);" id="sidebar-scroll-percent">0%</div>
+                </div>
+
+                <div>
+                    <div class="sidebar-widget-title">Character Mentions</div>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-num" id="fahad-mentions">0</span>
+                            <span class="stat-lbl">Fahad</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num" id="aamina-mentions">0</span>
+                            <span class="stat-lbl">Aamina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="backToTopBtn" class="back-to-top-btn" onclick="scrollToTop()">&uarr; Top</button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="chapter.js"></script>
+    <script>
+        localStorage.setItem("last_read_chapter", "chapter6.html");
+        localStorage.setItem("last_read_title", "Chapter 06 — Ghar Ki Raah");
+    </script>
+</body>
+</html>

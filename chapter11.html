@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 11 — Hadees Aur Mohobbat | Parda Aur Mijaz</title>
+    
+    <!-- OpenGraph & Social Media Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Chapter 11: Hadees Aur Mohobbat — Parda Aur Mijaz">
+    <meta property="og:description" content="Read Chapter 11 (Hadees Aur Mohobbat) of Parda Aur Mijaz by Mohammad. An Urdu novel of quiet grace and unspoken emotions.">
+    <meta property="og:image" content="cover.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chapter.css">
+<script>
+        (function() {
+            var t = localStorage.getItem("selectedTheme") || localStorage.getItem("parda_theme") || "dark";
+            var f = localStorage.getItem("selectedFont") || localStorage.getItem("parda_font") || "literata";
+            var s = localStorage.getItem("selectedSize") || localStorage.getItem("parda_size") || "medium";
+            document.documentElement.setAttribute("data-theme", t);
+            document.documentElement.setAttribute("data-font", f);
+            document.documentElement.setAttribute("data-size", s);
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- TOP READING PROGRESS BAR -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <a href="home.html" class="logo">Parda <span>Aur Mijaz</span></a>
+        <div class="header-actions">
+            <button class="header-button audio-toggle-btn" onclick="toggleAmbient('calm', this)" title="Soft Calming Music">Sound</button>
+            <button class="header-button" id="openChapters">Chapters</button>
+            <button class="header-button" id="openSettings">Settings</button>
+        </div>
+    </header>
+
+    <!-- CHAPTER DRAWER (ALL 12 CHAPTERS) -->
+    <div class="chapter-drawer" id="chapterDrawer">
+        <div class="drawer-header">
+            <h3>Chapters Index</h3>
+            <button id="closeChapters">&times;</button>
+        </div>
+        <div class="drawer-content">
+<a href="chapter1.html" class="chapter-link"><span>01</span> Ek Khwaab</a>
+<a href="chapter2.html" class="chapter-link"><span>02</span> Dil Ki Tabdeeli</a>
+<a href="chapter3.html" class="chapter-link"><span>03</span> Khud Se Jung</a>
+<a href="chapter4.html" class="chapter-link"><span>04</span> Be-Khabar Lamhe</a>
+<a href="chapter5.html" class="chapter-link"><span>05</span> Khamosh Saturday</a>
+<a href="chapter6.html" class="chapter-link"><span>06</span> Ghar Ki Raah</a>
+<a href="chapter7.html" class="chapter-link"><span>07</span> Raat Ki Sair</a>
+<a href="chapter8.html" class="chapter-link"><span>08</span> Parde Ke Peeche</a>
+<a href="chapter9.html" class="chapter-link"><span>09</span> Ehsaas Ka Safar</a>
+<a href="chapter10.html" class="chapter-link"><span>10</span> Dil Ke Sawalon Ka Aagaz</a>
+<a href="chapter11.html" class="chapter-link active"><span>11</span> Hadees Aur Mohobbat</a>
+<a href="chapter12.html" class="chapter-link"><span>12</span> Khamosh Fasla</a>
+        </div>
+    </div>
+
+    <!-- SETTINGS PANEL -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-header">
+            <h3>Reading Settings</h3>
+            <button id="closeSettings">&times;</button>
+        </div>
+        
+        <div class="setting-group">
+            <label>Theme Style</label>
+            <div class="theme-grid">
+                <button onclick="applyTheme('dark')">Dark</button>
+                <button onclick="applyTheme('oled')">OLED Black</button>
+                <button onclick="applyTheme('cream')">Cream</button>
+                <button onclick="applyTheme('midnight')">Midnight</button>
+                <button onclick="applyTheme('emerald')">Emerald</button>
+            </div>
+        </div>
+
+        <div class="setting-group">
+            <label>Font Family</label>
+            <button class="font-option" onclick="applyFont('literata')">Literata (Classic)</button>
+            <button class="font-option" onclick="applyFont('inter')">Inter (Modern Sans)</button>
+            <button class="font-option" onclick="applyFont('nastaliq')">Urdu Nastaliq</button>
+        </div>
+
+        <div class="setting-group">
+            <label>Text Size</label>
+            <div class="size-buttons">
+                <button onclick="applySize('small')">Small</button>
+                <button onclick="applySize('medium')">Medium</button>
+                <button onclick="applySize('large')">Large</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="settings-overlay" id="settingsOverlay"></div>
+
+    <!-- MAIN CONTENT & SIDEBAR WRAPPER -->
+    <div class="chapter-wrapper">
+        <main class="chapter-main-content">
+            <div class="chapter-header">
+                <span class="chapter-badge">Chapter 11</span>
+                <h1 class="chapter-title">Hadees Aur Mohobbat</h1>
+                <div class="chapter-meta">
+                    <span id="read-time">Calculating...</span>
+                    <span id="word-count">Calculating...</span>
+                </div>
+            </div>
+
+            <!-- TOP PART SWITCHER TABS -->
+<div class="part-tabs-container">
+    <button class="part-tab active" onclick="switchPart(1)">Part 1</button><button class="part-tab" onclick="switchPart(2)">Part 2</button><button class="part-tab" onclick="switchPart(3)">Part 3</button><button class="part-tab" onclick="switchPart(4)">Part 4</button>
+</div>
+
+            <!-- STORY BODY CONTENT -->
+            <article class="story-body">
+<div id="part-1" class="part-content active" style="display: block;">
+<p class="drop-cap">Shaam dhal rahi thi.</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super40.jpg" alt="✦ Pareshaan Dil ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Pareshaan Dil ✦</div>
+    </div>
+</figure>
+<p>Samandar ki lehrein aahista aahista kinare se takra rahi thi.</p>
+<p>Hawa mein ek ajeeb sa sukoon tha.</p>
+<p>Aas paas koi nahi tha...</p>
+<p>Sirf woh dono.</p>
+<p>Aamina uske bilkul qareeb baithi thi.</p>
+<p>Usne dheere se Fahad ka bazu pakda aur muskurakar kaha,</p>
+<p>**"Ye shaam kitni khoobsurat hai na?"**</p>
+<p>Fahad uski taraf dekh kar muskuraya.</p>
+<p>**"Shaam to khoobsurat hai..."**</p>
+<p>**"Lekin Allah jis dil ko apni mohabbat se roshan kar de..."**</p>
+<p>**"Uske saamne duniya ki har shaam pheeki lagti hai."**</p>
+<p>Aamina bas muskura di.</p>
+<p>Uske chehre par ek aisa noor tha...</p>
+<p>Jo husn ka nahi tha...</p>
+<p>Allah ki ita'at ka noor tha.</p>
+<p>Woh noor...</p>
+<p>Jise dekh kar dil ko sukoon milta tha.</p>
+<p>Tabhi...</p>
+<p>Kahin door se kisi ki awaaz aayi...</p>
+<p>"Fahad..."</p>
+<p>Fahad ne idhar udhar dekha.</p>
+<p>Wahan koi nahi tha.</p>
+<p>Usne dobara Aamina ki taraf dekha.</p>
+<p>Woh waise hi muskura rahi thi.</p>
+<p>Phir wahi awaaz dobara sunai di...</p>
+<p>"Fahad..."</p>
+<p>Is baar awaaz pehle se zyada qareeb thi.</p>
+<p>Fahad ne phir aas paas nazar daudayi.</p>
+<p>Magar wahan koi nahi tha.</p>
+<p>Usne hairani se Aamina ki taraf dekha...</p>
+<p>Lekin is baar...</p>
+<p>Woh wahan nahi thi.</p>
+<p>Samandar wahi tha...</p>
+<p>Lehrein bhi wahi thi...</p>
+<p>Magar Aamina gayab ho chuki thi.</p>
+<p>"Fahad...!"</p>
+<p>Is baar awaaz bilkul qareeb se aayi.</p>
+<p>Achanak uski aankh khul gayi.</p>
+<p>Usne ghabra kar idhar udhar dekha.</p>
+<p>Woh apne kamre mein tha.</p>
+<p>Saans tez chal rahi thi.</p>
+<p>Kuch lamhon baad use ehsaas hua...</p>
+<p>Ye sab...</p>
+<p>Sirf ek khwaab tha.</p>
+<p>Aur jo awaaz usse baar baar pukaar rahi thi...</p>
+<p>Woh kisi aur ki nahi...</p>
+<p>Uski Ammi ki thi.</p>
+<p>"Fahad..."</p>
+<p>"Uth ja beta..."</p>
+<p>Raat kab guzar gayi...</p>
+<p>Fahad ko khud bhi ehsaas na hua.</p>
+<p>Pichhle poore hafte ki thakan shayad aaj hi nikal rahi thi.</p>
+<p>Isi liye uski aankh seedha dopahar ke kareeb baarah baje khuli.</p>
+<p>Kuch lamhe woh bistar par hi pada raha.</p>
+<p>Phir dheere se uth kar bahar aaya.</p>
+<p>Ammi ne muskurate hue kaha,</p>
+<p>"Aakhir huzoor ki aankh khul hi gayi."</p>
+<p>Fahad halka sa muskura diya.</p>
+<p>"Thoda zyada hi so gaya."</p>
+<p>Jaldi se nashta kiya...</p>
+<p>Aur phir fresh hokar masjid ki taraf nikal gaya.</p>
+<p>Zohar ki namaz ada karne ke baad...</p>
+<p>Woh roz ki tarah masjid ke ek kone mein baith gaya.</p>
+<p>Itwaar ka din tha.</p>
+<p>Aur har itwaar ki tarah Daawat-e-Islami ka bayan shuru hone wala tha.</p>
+<p>Fahad ko bachpan se hi in bayanaat ko sunne ki aadat thi.</p>
+<p>Kabhi koi waqia...</p>
+<p>Kabhi kisi Sahabi ki zindagi...</p>
+<p>Aur kabhi Huzoor-e-Akram ﷺ ki seerat se judi koi baat.</p>
+<p>Aaj bhi woh puri tawajjoh ke saath baith gaya.</p>
+<p>Hazrat ne bayan shuru kiya.</p>
+<p>"Alhamdulillahi Rabbil Aalameen..."</p>
+<p>Kuch der hamd-o-sana aur durood-o-salaam ke baad Hazrat ne narm lehje mein kaha,</p>
+<p>**"Aaj ke bayan ka mauzu hai..."**</p>
+<p>**"Huzoor-e-Akram ﷺ ki Ummul Momineen Hazrat Ayesha Siddiqah رضي الله عنها se mohabbat."**</p>
+<p>Ye alfaaz sunte hi...</p>
+<p>Na jaane kyun...</p>
+<p>Fahad ki tawajjoh aur gehri ho gayi.</p>
+<p>Usne seedha baith kar puri tawajjoh se bayan sunna shuru kar diya.</p>
+<p>"Log aksar samajhte hain ke deen sirf ibadat ka naam hai..."</p>
+<p>"Lekin hamare Nabi ﷺ ne hume yeh bhi sikhaya ke mohabbat kaise ki jaati hai..."</p>
+<p>"Apni biwi ki izzat kaise ki jaati hai..."</p>
+<p>"Uska dil kaise rakha jaata hai..."</p>
+<p>Phir Hazrat ne Hazrat Ayesha رضي الله عنها ka waqia sunana shuru kiya.</p>
+<p>"Hazrat Ayesha رضي الله عنها farmati hain..."</p>
+<p>"Main jis pyale se pani peeti thi..."</p>
+<p>"Rasoolullah ﷺ usi pyale ko lete..."</p>
+<p>"Aur apne mubarak hont bilkul usi jagah rakhte..."</p>
+<p>"Jahan mere hont lage hote."</p>
+<p>Hazrat kuch lamhe ke liye ruk gaye.</p>
+<p>Phir farmaya,</p>
+<p>"Aur sirf itna hi nahi..."</p>
+<p>"Jis haddi se Hazrat Ayesha رضي الله عنها gosht kha leti thin..."</p>
+<p>"Rasoolullah ﷺ usi haddi ko lekar usi jagah se gosht khate."</p>
+<p>Masjid mein baithe kai log beikhtiyaar muskura diye.</p>
+<p>Hazrat ne kaha,</p>
+<p>"Ye sirf ek amal nahi tha..."</p>
+<p>"Ye mohabbat ka izhar tha."</p>
+<p>"Kyunki Islam ne kabhi mohabbat se mana nahi kiya..."</p>
+<p>"Islam ne mohabbat ko paak tareeqe se jeena sikhaya."</p>
+<p>Phir Hazrat ne doosra waqia sunaya.</p>
+<p>"Ek safar ke dauran..."</p>
+<p>"Rasoolullah ﷺ ne Sahaba-e-Kiraam ko aage bhej diya."</p>
+<p>"Phir Hazrat Ayesha رضي الله عنها se farmaya..."</p>
+<p>'Aao, daud lagate hain.'</p>
+
+</div>
+
+<div id="part-2" class="part-content" style="display: none;">
+<p>"Hazrat Ayesha رضي الله عنها farmati hain..."</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super41.jpg" alt="✦ Sabr Ka Imtihaan ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Sabr Ka Imtihaan ✦</div>
+    </div>
+</figure>
+<p>"Us daud mein main jeet gayi."</p>
+<p>Masjid mein halki si muskurahat phail gayi.</p>
+<p>Hazrat bhi muskuraye.</p>
+<p>"Kuch saal baad..."</p>
+<p>"Jab Hazrat Ayesha رضي الله عنها ka wazan badh gaya..."</p>
+<p>"Ek baar phir daud hui."</p>
+<p>"Is baar Rasoolullah ﷺ jeet gaye."</p>
+<p>"Aur muskurakar farmaya..."</p>
+<p>'Yeh us pehli daud ka badla hai.'</p>
+<p>Hazrat ne kaha,</p>
+<p>"Dekhiye..."</p>
+<p>"Ye woh Nabi hain..."</p>
+<p>"Jinke kandhon par poori ummat ki zimmedari thi."</p>
+<p>"Magar phir bhi..."</p>
+<p>"Woh apni biwi ke saath muskurane..."</p>
+<p>"Hansne..."</p>
+<p>"Aur waqt guzarne ke liye waqt nikalte the."</p>
+<p>Phir Hazrat ne teesra waqia bayan kiya.</p>
+<p>"Hazrat Ayesha رضي الله عنها kabhi kabhi poocha karti thin..."</p>
+<p>'Ya Rasoolallah ﷺ... aapki mohabbat mere liye kaisi hai?'</p>
+<p>"Rasoolullah ﷺ farmate..."</p>
+<p>'Ek mazboot giraah ki tarah.'</p>
+<p>Hazrat ne apni ungliyon se giraah banane ka ishara karte hue kaha,</p>
+<p>"Phir Hazrat Ayesha رضي الله عنها kabhi kabhi muskurakar poochti thin..."</p>
+<p>'Giraah ab bhi waise hi hai?'</p>
+<p>"Rasoolullah ﷺ farmate..."</p>
+<p>'Haan... waise hi mazboot hai.'</p>
+<p>Masjid ki fiza ajeeb sukoon se bhar gayi thi.</p>
+<p>Har shakhs khamoshi se bayan sun raha tha.</p>
+<p>Aur Fahad...</p>
+<p>Woh bhi sir jhukaye baitha tha.</p>
+<p>Har waqia uske dil ke kisi kone ko chhoo raha tha.</p>
+<p>Hazrat ne phir ek aur waqia bayan farmaya.</p>
+<p>"Ek martaba Masjid-e-Nabawi ke sehan mein Habsha ke kuch log neze se kartab dikha rahe the."</p>
+<p>"Hazrat Ayesha رضي الله عنها ne unhe dekhne ki khwahish zahir ki."</p>
+<p>"Rasoolullah ﷺ unke aage is tarah khade ho gaye ke Hazrat Ayesha رضي الله عنها apna chehra Aap ﷺ ke kandhe se laga kar aaram se woh manzar dekhti rahi."</p>
+<p>Hazrat ne muskurate hue farmaya,</p>
+<p>"Sochiye..."</p>
+<p>"Ummat ka rehnuma..."</p>
+<p>"Allah ka Mehboob..."</p>
+<p>"Lekin apni biwi ki ek chhoti si khwahish poori karne ke liye itni der tak khade rahe..."</p>
+<p>"Yahan tak ke Hazrat Ayesha رضي الله عنها ka khud dil bhar gaya."</p>
+<p>Hazrat kuch lamhe ke liye khamosh hue.</p>
+<p>Phir farmaya,</p>
+<p>"Mohabbat ka matlab sirf bade tohfe nahi hote..."</p>
+<p>"Kabhi kabhi kisi ki chhoti si khushi ke liye apna waqt de dena bhi mohabbat hoti hai."</p>
+<p>Hazrat ne phir farmaya,</p>
+<p>"Rasoolullah ﷺ Hazrat Ayesha رضي الله عنها ko aksar ek pyare se naam se pukarte the."</p>
+<p>"Humaira."</p>
+<p>"Ye mohabbat ka naam tha."</p>
+<p>"Narmi ka naam tha."</p>
+<p>"Apnayat ka naam tha."</p>
+<p>Hazrat ne kaha,</p>
+<p>"Zara sochiye..."</p>
+<p>"Jo shakhs poori insaniyat ke liye rehmat bankar aaya..."</p>
+<p>"Woh apne ghar mein kitni narmi aur muhabbat ke saath rehta hoga."</p>
+<p>Phir Hazrat ne ek aur waqia sunaya.</p>
+<p>"Hazrat Amr bin Aas رضي الله عنه ne ek martaba Rasoolullah ﷺ se poocha..."</p>
+<p>'Ya Rasoolallah ﷺ, aapko sabse zyada mohabbat kis se hai?'</p>
+<p>Hazrat ne kaha,</p>
+<p>"Logon ko laga hoga ke kisi Sahabi ka naam lenge..."</p>
+<p>"Lekin Rasoolullah ﷺ ne foran jawab diya..."</p>
+<p>'Ayesha.'</p>
+<p>Hazrat ne masjid ki taraf dekhte hue kaha,</p>
+<p>"Dekhiye..."</p>
+<p>"Nabi ﷺ ne apni mohabbat ko kabhi chhupaya nahi."</p>
+<p>"Na usme sharm mehsoos ki."</p>
+<p>"Na usse kamzori samjha."</p>
+<p>"Balki halal mohabbat ka izhar bhi sunnat bana diya."</p>
+<p>Phir Hazrat ne aakhri waqia bayan kiya.</p>
+<p>"Jab Rasoolullah ﷺ ki tabiyat mubarak zyada nasaz hui..."</p>
+<p>"To Aap ﷺ ne apne aakhri ayyaam Hazrat Ayesha رضي الله عنها ke hujre mein guzare."</p>
+<p>"Aur jab duniya se pardah farmaya..."</p>
+<p>"To Aap ﷺ ka sar Hazrat Ayesha رضي الله عنها ki god mein tha."</p>
+<p>Hazrat ki awaaz dheemi ho gayi.</p>
+<p>"Ye sirf wafat ka waqia nahi tha..."</p>
+<p>"Ye ek paak mohabbat ki takmeel thi."</p>
+<p>Ye sab waqiyaat sunte sunte...</p>
+<p>Masjid mein gehri khamoshi chha gayi.</p>
+<p>Har shakhs apne apne andaaz mein soch raha tha.</p>
+<p>Aur Fahad...</p>
+<p>Uska dil ajeeb sukoon aur soch mein doob chuka tha.</p>
+<p>Usse pehli baar ehsaas hua...</p>
+<p>Ke mohabbat sirf kisi ko pa lene ka naam nahi...</p>
+<p>Balki uski izzat, uska khayal aur uske saath Allah ki raza ke mutabiq zindagi guzarne ka naam hai.</p>
+<p>Hazrat ne kuch lamhe ke liye khamoshi ikhtiyar ki.</p>
+<p>Phir narm lehje mein farmaya,</p>
+<p>"Mere pyare Islami bhaiyo..."</p>
+<p>"Aaj humne Rasoolullah ﷺ ki mohabbat ke chand waqiyaat sune."</p>
+<p>"Lekin ye waqiyaat sirf kahaniyan nahi hain..."</p>
+<p>"Ye hamari zindagi ke liye uswa hain."</p>
+<p>Hazrat ne majme ki taraf dekhte hue farmaya,</p>
+<p>"Aaj ka daur dekhiye..."</p>
+<p>"Log mohabbat ko sirf jazbaat ka naam samajhte hain."</p>
+<p>"Kisi ko dekh liya..."</p>
+<p>"Baat kar li..."</p>
+<p>"Number le liya..."</p>
+<p>"Har roz ghanton guftagu hone lagi..."</p>
+<p>"Aur usi ko mohabbat samajh liya."</p>
+<p>Phir Hazrat ki awaaz mein thodi sanjeedgi aa gayi.</p>
+<p>"Magar Rasoolullah ﷺ ne hume ye nahi sikhaya."</p>
+<p>"Aap ﷺ ne hume paak mohabbat sikhayi."</p>
+<p>"Aisi mohabbat..."</p>
+<p>"Jisme haya ho."</p>
+<p>"Jisme izzat ho."</p>
+
+</div>
+
+<div id="part-3" class="part-content" style="display: none;">
+<p>"Jisme Allah ki raza ho."</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super42.jpg" alt="✦ Islamic Archway ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Islamic Archway ✦</div>
+    </div>
+</figure>
+<p>"Jisme gunah ki milawat na ho."</p>
+<p>Hazrat ne apni ungli uthate hue farmaya,</p>
+<p>"Yaad rakhiye..."</p>
+<p>"Mohabbat karna gunah nahi hai."</p>
+<p>"Lekin mohabbat ke naam par Allah ki nafarmani karna..."</p>
+<p>"Ye zaroor gunah hai."</p>
+<p>Masjid mein gehri khamoshi chha gayi.</p>
+<p>Hazrat ne baat jaari rakhi.</p>
+<p>"Kitne afsos ki baat hai..."</p>
+<p>"Log kehte hain..."</p>
+<p>'Uske bina jee nahi sakta.'</p>
+<p>"Lekin jab Allah aur uske Rasool ﷺ ke hukm ki baat aati hai..."</p>
+<p>"To wahi log apni mohabbat ko Allah ke hukm se upar rakh dete hain."</p>
+<p>Hazrat ne farmaya,</p>
+<p>"Rasoolullah ﷺ ki zindagi hume batati hai..."</p>
+<p>"Ke halal mohabbat hi asal mohabbat hai."</p>
+<p>"Woh mohabbat..."</p>
+<p>"Jo nikah tak le kar jaaye."</p>
+<p>"Na ke gunah tak."</p>
+<p>Phir Hazrat ne ek aur baat farmayi.</p>
+<p>"Agar kisi ke dil mein kisi ke liye mohabbat paida ho jaaye..."</p>
+<p>"To sabse pehle Allah se dua kare."</p>
+<p>"Apni nigahon ki hifazat kare."</p>
+<p>"Apni zubaan ki hifazat kare."</p>
+<p>"Apne dil ko haram raste par chalne se bachaye."</p>
+<p>"Kyunki jis mohabbat ki bunyaad taqwa par rakhi jaati hai..."</p>
+<p>"Allah usme barkat ata farmata hai."</p>
+<p>Hazrat ki awaaz dheemi ho gayi.</p>
+<p>"Aur jis mohabbat ki bunyaad gunah par rakhi jaati hai..."</p>
+<p>"Uska anjaam aksar aansuon par khatam hota hai."</p>
+<p>Kuch lamhe tak poori masjid mein khamoshi chhayi rahi.</p>
+<p>Har shakhs apne apne andaaz mein soch raha tha.</p>
+<p>Hazrat ne aakhir mein farmaya,</p>
+<p>"Allah Ta'ala hume Rasoolullah ﷺ ki sunnat ke mutabiq mohabbat karne ki taufeeq ata farmaye."</p>
+<p>"Hamare dilon ko paak rakhe."</p>
+<p>"Hamari nigahon ko paak rakhe."</p>
+<p>"Aur agar kisi ke naseeb mein mohabbat likhi hai..."</p>
+<p>"To us mohabbat ko nikah ki surat mein mukammal farma de."</p>
+<p>"Aameen."</p>
+<p>Hazrat ki zubaan se "Aameen" nikla...</p>
+<p>Aur poori masjid ek saath goonj uthi.</p>
+<p>"Aameen."</p>
+<p>Fahad ab bhi wahin baitha tha.</p>
+<p>Uski nazrein jhuki hui thin.</p>
+<p>Aaj usne pehli baar mehsoos kiya...</p>
+<p>Ke uska raasta ghalat nahi tha.</p>
+<p>Usne Aamina se mohabbat zaroor ki thi...</p>
+<p>Magar kabhi usse Allah ki hudood se bahar ja kar paane ki tamanna nahi ki.</p>
+<p>Uske dil mein sirf ek hi khwahish thi...</p>
+<p>Agar woh kabhi uski zindagi ka hissa bane...</p>
+<p>To sirf nikah ke paak rishte ke zariye.</p>
+<p>Aur shayad...</p>
+<p>Aaj ke bayan ne us irade ko pehle se bhi zyada mazboot kar diya tha.</p>
+<p>Bayan khatam ho chuka tha.</p>
+<p>Log dheere dheere uth kar jaane lage.</p>
+<p>Koi Hazrat se musafaha kar raha tha...</p>
+<p>Koi masjid ke bahar apne doston se baat kar raha tha...</p>
+<p>Aur koi chup-chaap ghar ki taraf nikal gaya.</p>
+<p>Magar Fahad...</p>
+<p>Ab bhi wahi baitha hua tha.</p>
+<p>Uski nazrein ja-e-namaz par tiki hui thin.</p>
+<p>Aaj ka bayan sirf uske kaanon tak nahi pahuncha tha...</p>
+<p>Seedha uske dil mein utar gaya tha.</p>
+<p>Usne dheere se gehri saans li.</p>
+<p>Phir dil hi dil mein socha,</p>
+<p>"Ya Allah..."</p>
+<p>"Agar meri mohabbat mein zara si bhi khudgarzi ho..."</p>
+<p>"To use mere dil se nikaal dena."</p>
+<p>"Aur agar ye mohabbat meri duniya aur aakhirat ke liye behtar hai..."</p>
+<p>"To ise sirf halal tareeqe se meri taqdeer bana dena."</p>
+<p>Usne apni aankhen band kar li.</p>
+<p>Na jaane kyun...</p>
+<p>Aaj uske dil par ek ajeeb sa sukoon tha.</p>
+<p>Ab usse kisi jaldi ka ehsaas nahi ho raha tha.</p>
+<p>Na izhar ki...</p>
+<p>Na jawab ki...</p>
+<p>Na hi kisi nateeje ki.</p>
+<p>Usne sirf itna samajh liya tha...</p>
+<p>Ke agar ye rishta uske naseeb mein likha hai...</p>
+<p>To Allah us tak pahunchane ke liye koi na koi sabab zaroor paida karega.</p>
+<p>Aur agar nahi likha...</p>
+<p>To Allah uske dil ko bhi razi kar dega.</p>
+<p>Fahad dheere se uth khada hua.</p>
+<p>Masjid se bahar nikla.</p>
+<p>Dhoop ab kuch naram pad chuki thi.</p>
+<p>Itwaar ki dopahar apni rawani se guzar rahi thi.</p>
+<p>Woh aahista aahista ghar ki taraf chal pada.</p>
+<p>Lekin aaj...</p>
+<p>Uske qadam pehle se zyada mutma'in the.</p>
+<p>Mohabbat ab bhi thi...</p>
+<p>Magar us mohabbat ke saath...</p>
+<p>Tawakkul bhi aa chuka tha.</p>
+<p>Itwaar bhi dekhte dekhte guzar gaya.</p>
+<p>Hazrat ka bayan...</p>
+<p>Ab bhi Fahad ke zehan mein goonj raha tha.</p>
+<p>Us din usne sirf mohabbat ke waqiyaat hi nahi sune the...</p>
+<p>Balki mohabbat ka asal matlab samjha tha.</p>
+<p>Aur shayad...</p>
+<p>Isi liye uske dil ka irada pehle se bhi zyada mazboot ho gaya tha.</p>
+<p>Dekhte hi dekhte...</p>
+<p>Monday aa gaya.</p>
+<p>Daftar ka mahaul hamesha ki tarah masroof tha.</p>
+<p>Subah se hi har koi apne apne kaam mein laga hua tha.</p>
+<p>Reports...</p>
+<p>Clients...</p>
+
+</div>
+
+<div id="part-4" class="part-content" style="display: none;">
+<p>Calls...</p>
+<figure class="novel-emotion-card">
+    <div class="novel-emotion-card-wrapper">
+        <img src="super43.jpg" alt="✦ Midnight Stars ✦" loading="lazy">
+        <div class="novel-emotion-card-overlay"></div>
+        <div class="novel-emotion-card-caption">✦ Midnight Stars ✦</div>
+    </div>
+</figure>
+<p>Aur beech beech mein roz ki halki phulki guftagu.</p>
+<p>Kuch der baad...</p>
+<p>Aamina apni desk se uthi aur Fahad ke paas aayi.</p>
+<p>"Ek baat kehni thi."</p>
+<p>Fahad ne screen se nazar hata kar uski taraf dekha.</p>
+<p>"Ji, boliye."</p>
+<p>"Mujhe next Monday se ek hafte ki chhutti chahiye."</p>
+<p>Ye sunte hi...</p>
+<p>Na jaane kyun...</p>
+<p>Fahad ka dil ek pal ke liye thehar sa gaya.</p>
+<p>Ek hi lamhe mein uske zehan mein kitne hi khayal aa gaye.</p>
+<p>"Kahin..."</p>
+<p>"Rishta dekhne to nahi ja rahe..."</p>
+<p>"Ya ghar mein koi aur baat..."</p>
+<p>Magar agle hi pal usne apne aap ko sambhal liya.</p>
+<p>Ab woh Team Leader tha.</p>
+<p>Aur us waqt usse sirf professional tareeqe se baat karni thi.</p>
+<p>Usne bilkul aam lehje mein poocha,</p>
+<p>"Achha... kis liye chhutti chahiye?"</p>
+<p>Aamina ne narmi se jawab diya,</p>
+<p>"Ghar walon ke saath Ajmer jaana hai."</p>
+<p>"Isliye socha pehle hi bata doon."</p>
+<p>Fahad ke dil ne chupke se sukoon ki saans li.</p>
+<p>"Achha..."</p>
+<p>"Theek hai."</p>
+<p>"Main bhi Sir ko inform kar dunga."</p>
+<p>"Lekin ek baar aap bhi unse baat kar lijiye."</p>
+<p>"Ji."</p>
+<p>Aamina ne sir hila kar kaha.</p>
+<p>Baat wahi khatam ho gayi.</p>
+<p>Office ka kaam phir apni rawani se chalne laga.</p>
+<p>Dopahar kab guzar gayi...</p>
+<p>Pata hi nahi chala.</p>
+<p>Shaam ke kareeb saadhe chhe baj rahe the.</p>
+<p>Har koi apna pending kaam khatam karne mein laga hua tha.</p>
+<p>Beech beech mein idhar udhar ki baatein bhi chal rahi thi.</p>
+<p>Achanak...</p>
+<p>Aamina ne kaam karte karte poocha,</p>
+<p>"Achha... ek baat bataiye."</p>
+<p>Fahad ne keyboard se haath hata diye.</p>
+<p>"Haan... poochiye."</p>
+<p>Aur phir...</p>
+<p>Baaton baaton mein Fatima aur Imran ka zikr nikal aaya.</p>
+<p>Fatima ko office chhode hue kuch haftay ho chuke the.</p>
+<p>Woh Sales Team mein sirf teen mahine rahi thi.</p>
+<p>Aur usi dauran uski aur Imran ki mohabbat ki baat dheere dheere poore office mein phail gayi thi.</p>
+<p>Sab jaante the...</p>
+<p>Lekin koi unke saamne kabhi is baat ka zikr nahi karta tha.</p>
+<p>Imran roz Sales ke silsile mein Fahad se baat karta tha.</p>
+<p>Isliye uski kaafi baatein Fahad tak pahunch jaati thin.</p>
+<p>Aamina ne kaam karte karte poocha,</p>
+<p>"Ek baat bataiye..."</p>
+<p>"Fatima aur Imran bhai ki ab bhi baat hoti hai?"</p>
+<p>Fahad ne screen se nazar hata kar kaha,</p>
+<p>"Pata nahi..."</p>
+<p>"Shayad hoti ho."</p>
+<p>"Lekin kuch din pehle Imran bata rahe the ke unka breakup ho gaya."</p>
+<p>"Keh rahe the Fatima ne mana kar diya..."</p>
+<p>"Uska kehna tha ke ghar wale nahi maanenge."</p>
+<p>Aamina kuch lamhe khamosh rahi.</p>
+<p>Phir usne seedha sawal poocha,</p>
+<p>"Achha..."</p>
+<p>"Kya Imran bhai ne kabhi Fatima se ye kaha tha..."</p>
+<p>"Ke woh uske ghar walon se rishta maangne jayenge?"</p>
+<p>Ya...</p>
+<p>"Kam se kam kabhi ye kaha ho ke agar baat aage badhi to woh apne ghar walon ko bhejenge?"</p>
+<p>Fahad ne foran jawab diya,</p>
+<p>"Nahi..."</p>
+<p>"Meri jahan tak baat hui hai..."</p>
+<p>"Unhone kabhi aisi koi baat nahi batayi."</p>
+<p>Aamina ne uski taraf dekha.</p>
+<p>"Sab kuch to batate hain na aapko..."</p>
+<p>"Ye baat bhi zaroor batayi hogi."</p>
+<p>Uska lehja sakht nahi tha...</p>
+<p>Magar bilkul saaf tha.</p>
+<p>Fahad halka sa muskura diya.</p>
+<p>"Wallah..."</p>
+<p>"Sach keh raha hoon."</p>
+<p>"Ye baat unhone kabhi nahi kahi."</p>
+<p>"Ho sakta hai..."</p>
+<p>"Fatima se bhi kabhi na kahi ho."</p>
+<p>Aamina ne bina der kiye kaha,</p>
+<p>"To phir Imran bhai ye kaise keh sakte hain ke Fatima ke ghar wale nahi maanenge..."</p>
+<p>"Jab unhone kabhi rishta bhejne ki baat hi nahi ki?"</p>
+<p>Fahad kuch pal ke liye khamosh ho gaya.</p>
+<p>Phir dheere se bola,</p>
+<p>"Pata nahi..."</p>
+<p>"Ye to woh dono hi behtar jaante honge."</p>
+<p>Us din Fahad ne Aamina ki ek aur pehchaan dekhi.</p>
+<p>Uske nazdeek...</p>
+<p>Mohabbat ka matlab sirf "I love you" keh dena nahi tha.</p>
+<p>Agar kisi mard mein itni himmat hi na ho...</p>
+<p>Ke woh ek din uske ghar ka darwaza khatkhataye...</p>
+<p>To phir us mohabbat ki koi haisiyat nahi thi.</p>
+<p>Usne pehli baar mehsoos kiya...</p>
+<p>Ke Aamina un ladkiyon mein se nahi thi...</p>
+<p>Jo waadon par yaqeen karti hain.</p>
+<p>Woh sirf niyyat aur amal dekhti thi.</p>
+<p>Aur shayad...</p>
+<p>Isi liye Fahad ki mohabbat uske liye har guzarte din ke saath aur mushkil hoti ja rahi thi.</p>
+<p>Kyunki usse samajh aa gaya tha...</p>
+<p>Ke is safar mein lafzon se zyada...</p>
+<p>Himmat ki zarurat padegi.</p>
+
+</div>
+            </article>
+
+            <!-- BOTTOM PART SWITCHER TABS -->
+<div class="part-tabs-container bottom-part-tabs">
+    <button class="part-tab active" onclick="switchPart(1)">Part 1</button><button class="part-tab" onclick="switchPart(2)">Part 2</button><button class="part-tab" onclick="switchPart(3)">Part 3</button><button class="part-tab" onclick="switchPart(4)">Part 4</button>
+</div>
+
+            <!-- CHAPTER BOTTOM NAVIGATION -->
+            <div class="chapter-reactions-widget">
+    <div class="reaction-title">✦ Yeh Chapter Kaisa Laga? ✦</div>
+    <div class="reaction-subtitle">Apna Ehsaas Express Karein:</div>
+    <div class="reaction-btn-group">
+        <button class="reaction-btn" onclick="reactToChapter('dil', this)">❤️ Dil Chhu Gaya</button>
+        <button class="reaction-btn" onclick="reactToChapter('haya', this)">✨ Haya & Sabr</button>
+        <button class="reaction-btn" onclick="reactToChapter('khamoshi', this)">🌧️ Deep Khamoshi</button>
+    </div>
+</div>
+            <div class="scene-break">✦ &nbsp; ✦ &nbsp; ✦</div>
+            <nav class="chapter-nav-footer">
+<a href="chapter10.html" class="chapter-nav-card prev">
+    <small>&larr; Previous Chapter 10</small>
+    <strong>Dil Ke Sawalon Ka Aagaz</strong>
+</a>
+<a href="chapter12.html" class="chapter-nav-card next">
+    <small>Next Chapter 12 &rarr;</small>
+    <strong>Khamosh Fasla</strong>
+</a>
+            </nav>
+        </main>
+
+        <aside class="chapter-sidebar">
+            <div class="sticky-sidebar-card">
+                <div class="sidebar-quote-box">
+                    "Har kehani parde ke peeche se shuru hoti hai... Har khamoshi ke peeche ek gehra mizaj hota hai."
+                </div>
+
+                <div>
+                    <div class="sidebar-widget-title">Reading Progress</div>
+                    <div style="font-size: 2rem; font-family:'Cormorant Garamond', serif; color: var(--accent-gold);" id="sidebar-scroll-percent">0%</div>
+                </div>
+
+                <div>
+                    <div class="sidebar-widget-title">Character Mentions</div>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-num" id="fahad-mentions">0</span>
+                            <span class="stat-lbl">Fahad</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num" id="aamina-mentions">0</span>
+                            <span class="stat-lbl">Aamina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="backToTopBtn" class="back-to-top-btn" onclick="scrollToTop()">&uarr; Top</button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="chapter.js"></script>
+    <script>
+        localStorage.setItem("last_read_chapter", "chapter11.html");
+        localStorage.setItem("last_read_title", "Chapter 11 — Hadees Aur Mohobbat");
+    </script>
+</body>
+</html>
