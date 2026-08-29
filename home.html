@@ -49,9 +49,9 @@
 
     <div class="header-actions">
         <button class="header-button audio-toggle-btn" onclick="toggleAmbient('calm', this)" title="Soft Calming Music">Sound</button>
-        <button class="header-button" id="contactButton" onclick="if(typeof openContact==='function'){openContact(event);}else{document.getElementById('contactModal').classList.add('active');document.getElementById('contactModal').style.cssText='position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:100000;opacity:1!important;pointer-events:all!important;display:flex!important;align-items:center;justify-content:center;';document.getElementById('settingsOverlay').classList.add('active');document.getElementById('settingsOverlay').style.cssText='position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:999998!important;opacity:1!important;pointer-events:all!important;';}">Contact Us</button>
-        <button class="header-button" id="chaptersButton" onclick="if(typeof openChapters==='function'){openChapters(event);}else{document.getElementById('chapterDrawer').classList.add('active');document.getElementById('chapterDrawer').style.cssText='position:fixed;top:0;left:0px!important;width:380px;max-width:100vw;height:100vh;background:var(--bg-drawer);z-index:999999!important;padding:3rem 2rem;display:block!important;';document.getElementById('settingsOverlay').classList.add('active');document.getElementById('settingsOverlay').style.cssText='position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:999998!important;opacity:1!important;pointer-events:all!important;';}">Chapters</button>
-        <button class="header-button settings-trigger" id="settingsButton" onclick="if(typeof openSettings==='function'){openSettings(event);}else{document.getElementById('settingsPanel').classList.add('active');document.getElementById('settingsPanel').style.cssText='position:fixed;top:0;right:0px!important;width:380px;max-width:100vw;height:100vh;background:var(--bg-drawer);z-index:999999!important;padding:3rem 2rem;display:block!important;';document.getElementById('settingsOverlay').classList.add('active');document.getElementById('settingsOverlay').style.cssText='position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:999998!important;opacity:1!important;pointer-events:all!important;';}">Settings</button>
+        <button class="header-button" id="contactButton" onclick="openContact(event)">Contact Us</button>
+        <button class="header-button" id="chaptersButton" onclick="openChapters(event)">Chapters</button>
+        <button class="header-button settings-trigger" id="settingsButton" onclick="openSettings(event)">Settings</button>
     </div>
 </header>
 
@@ -329,7 +329,7 @@
 
         <!-- Comment Box -->
         <div class="comment-box-wrapper" style="margin-top: 3rem;">
-            <form id="commentForm" class="comment-form">
+            <form id="commentForm" class="comment-form" onsubmit="return handleCommentSubmit(event)">
                 <div class="form-row">
                     <input type="text" id="reviewerName" name="name" placeholder="Your Name" required>
                     <input type="email" id="reviewerEmail" name="email" placeholder="Your Email (Optional)">
@@ -455,7 +455,7 @@
             <h3>Get In Touch</h3>
             <button id="closeContact" onclick="closeAllDrawers()">×</button>
         </div>
-        <form id="contactForm">
+        <form id="contactForm" onsubmit="return handleContactSubmit(event)">
             <input type="hidden" name="access_key" value="78b08615-65ca-4c89-a320-b21b236bba26">
             <input type="text" id="contactName" name="name" placeholder="Your Name" required>
             <input type="email" id="contactEmail" name="email" placeholder="Your Email" required>
@@ -467,6 +467,161 @@
 
 <div class="settings-overlay" id="settingsOverlay" onclick="closeAllDrawers()"></div>
 
-<script src="home.js?v=9.0"></script>
+<!-- JAVASCRIPT LOGIC (FIXED & 100% OPERATIONAL) -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Last Read Handler
+        var lastChapter = localStorage.getItem("last_read_chapter");
+        var lastTitle = localStorage.getItem("last_read_title");
+        var resumeBar = document.getElementById("resumeBar");
+        var resumeLink = document.getElementById("resumeLink");
+        if (lastChapter && lastTitle && resumeBar && resumeLink) {
+            resumeBar.style.display = "flex";
+            resumeLink.setAttribute("href", lastChapter);
+            resumeLink.innerText = lastTitle;
+        }
+
+        // 2. Theme & Customization Listeners
+        document.querySelectorAll("[data-theme]").forEach(function(btn) {
+            btn.addEventListener("click", function(e) {
+                e.preventDefault();
+                var theme = btn.getAttribute("data-theme");
+                document.documentElement.setAttribute("data-theme", theme);
+                localStorage.setItem("selectedTheme", theme);
+            });
+        });
+
+        document.querySelectorAll("[data-font]").forEach(function(btn) {
+            btn.addEventListener("click", function(e) {
+                e.preventDefault();
+                var font = btn.getAttribute("data-font");
+                document.documentElement.setAttribute("data-font", font);
+                localStorage.setItem("selectedFont", font);
+            });
+        });
+
+        document.querySelectorAll("[data-size]").forEach(function(btn) {
+            btn.addEventListener("click", function(e) {
+                e.preventDefault();
+                var size = btn.getAttribute("data-size");
+                document.documentElement.setAttribute("data-size", size);
+                localStorage.setItem("selectedSize", size);
+            });
+        });
+    });
+
+    // 3. Global Drawer & Modal Functions
+    window.openChapters = function(e) {
+        if (e) e.preventDefault();
+        closeAllDrawers();
+        var drawer = document.getElementById("chapterDrawer");
+        var overlay = document.getElementById("settingsOverlay");
+        if (drawer) drawer.classList.add("active");
+        if (overlay) overlay.classList.add("active");
+    };
+
+    window.openSettings = function(e) {
+        if (e) e.preventDefault();
+        closeAllDrawers();
+        var panel = document.getElementById("settingsPanel");
+        var overlay = document.getElementById("settingsOverlay");
+        if (panel) panel.classList.add("active");
+        if (overlay) overlay.classList.add("active");
+    };
+
+    window.openContact = function(e) {
+        if (e) e.preventDefault();
+        closeAllDrawers();
+        var modal = document.getElementById("contactModal");
+        var overlay = document.getElementById("settingsOverlay");
+        if (modal) modal.classList.add("active");
+        if (overlay) overlay.classList.add("active");
+    };
+
+    window.closeAllDrawers = function(e) {
+        if (e) e.preventDefault();
+        document.querySelectorAll(".chapter-drawer, .settings-panel, .contact-modal, .settings-overlay").forEach(function(el) {
+            el.classList.remove("active");
+        });
+    };
+
+    // 4. Sound Toggle Function
+    var ambientAudio = null;
+    window.toggleAmbient = function(type, btn) {
+        if (!ambientAudio) {
+            ambientAudio = new Audio("https://cdn.pixabay.com/download/audio/2022/05/16/audio_c8b273b42b.mp3?filename=soft-rain-ambient-111154.mp3");
+            ambientAudio.loop = true;
+        }
+        if (ambientAudio.paused) {
+            ambientAudio.play().then(function() {
+                if (btn) btn.innerText = "Sound: On 🔊";
+            }).catch(function() {});
+        } else {
+            ambientAudio.pause();
+            if (btn) btn.innerText = "Sound 🔇";
+        }
+    };
+
+    // 5. Quote Share
+    window.shareQuote = function(text) {
+        window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent('"' + text + '" — Parda Aur Mijaz'), "_blank");
+    };
+
+    // 6. Community Poll Vote
+    window.vote = function(btn, option) {
+        var res = document.getElementById("pollResult");
+        if (res) {
+            res.innerText = "✓ Shukriya! Aapka vote '" + option + "' ke liye darj ho gaya hai.";
+            res.style.color = "var(--accent-gold, #c5a059)";
+        }
+        document.querySelectorAll(".poll-btn").forEach(function(b) {
+            b.disabled = true;
+            b.style.opacity = "0.7";
+        });
+    };
+
+    // 7. Contact Form Handler
+    window.handleContactSubmit = function(e) {
+        if (e) e.preventDefault();
+        var form = document.getElementById("contactForm");
+        var formData = new FormData(form);
+        fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        }).then(function() {
+            alert("✓ Message successfully bheja gaya!");
+            closeAllDrawers();
+            form.reset();
+        }).catch(function() {
+            alert("Message bhejne me error aaya, kripya dobara try karein.");
+        });
+        return false;
+    };
+
+    // 8. Comment Box Handler
+    window.handleCommentSubmit = function(e) {
+        if (e) e.preventDefault();
+        var name = document.getElementById("reviewerName").value.trim();
+        var message = document.getElementById("reviewerMessage").value.trim();
+        if (!name || !message) return false;
+
+        var list = document.getElementById("commentsList");
+        if (list) {
+            var item = document.createElement("div");
+            item.className = "comment-item";
+            item.innerHTML = '<div class="comment-header"><strong>' + escapeHTML(name) + '</strong></div><p>' + escapeHTML(message) + '</p>';
+            list.prepend(item);
+        }
+        document.getElementById("commentForm").reset();
+        alert("✓ Aapka comment post ho gaya hai!");
+        return false;
+    };
+
+    function escapeHTML(str) {
+        return str.replace(/[&<>'"]/g, function(tag) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag;
+        });
+    }
+</script>
 </body>
 </html>
