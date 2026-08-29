@@ -468,5 +468,37 @@
 <div class="settings-overlay" id="settingsOverlay" onclick="closeAllDrawers()"></div>
 
 <script src="home.js?v=9.0"></script>
+            <form id="contactForm">
+            <input type="hidden" name="access_key" value="78b08615-65ca-4c89-a320-b21b236bba26">
+            <input type="text" id="contactName" name="name" placeholder="Your Name" required>
+            <input type="email" id="contactEmail" name="email" placeholder="Your Email" required>
+            <textarea id="contactMessage" name="message" rows="4" placeholder="Your Message or Query..." required></textarea>
+            <button type="submit" class="primary-button" style="width: 100%;">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<div class="settings-overlay" id="settingsOverlay" onclick="closeAllDrawers()"></div>
+
+<script src="home.js?v=9.0"></script>
+
+<!-- YEH SCRIPT ADD KAREIN NAV BUTTONS KE LIYE -->
+<script>
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            var targetId = this.getAttribute('href');
+            if (targetId && targetId.startsWith('#')) {
+                e.preventDefault();
+                var targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
 </body>
 </html>
