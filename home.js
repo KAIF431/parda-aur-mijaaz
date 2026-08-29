@@ -158,12 +158,14 @@ function promptNovelUnlock(targetHref) {
         lockModal.id = "novelLockModal";
         lockModal.className = "novel-lock-modal active";
 
-        lockModal.style.cssText = "position: fixed; inset: 0; background: rgba(12, 9, 7, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); display: flex; align-items: center; justify-content: center; z-index: 999999; padding: 1rem;";
+        lockModal.style.cssText = "position: fixed; inset: 0; background: rgba(12, 9, 7, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); display: flex; align-items: center; justify-content: center; z-index: 999999; padding: 1rem; pointer-events: auto;";
 
         lockModal.innerHTML = `
             <div class="novel-lock-card" style="background: #16100c; border: 2px solid #e2b857; border-radius: 20px; padding: 2.5rem 1.8rem; width: 100%; max-width: 440px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.9), 0 0 30px rgba(226,184,87,0.3);">
 
-                <div class="novel-lock-icon" style="font-size: 3rem; margin-bottom: 0.8rem;">🔒</div>
+                <div class="novel-lock-icon" style="font-size: 3rem; margin-bottom: 0.8rem;">
+                    🔒
+                </div>
 
                 <div class="novel-lock-title" style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #e2b857; margin-bottom: 0.4rem;">
                     Chapter Locked
@@ -195,7 +197,7 @@ function promptNovelUnlock(targetHref) {
                     <button
                         type="submit"
                         class="novel-lock-btn"
-                        style="width: 100%; padding: 0.9rem; border-radius: 12px; border: none; background: #e2b857; color: #000000; font-family: 'Inter', sans-serif; font-weight: bold; font-size: 0.95rem; cursor: pointer; touch-action: manipulation;"
+                        style="width: 100%; padding: 0.9rem; border-radius: 12px; border: none; background: #e2b857; color: #000000; font-family: 'Inter', sans-serif; font-weight: bold; font-size: 0.95rem; cursor: pointer; touch-action: manipulation; position: relative; z-index: 1000000; pointer-events: auto;"
                     >
                         Unlock Chapter 🔓
                     </button>
@@ -213,7 +215,7 @@ function promptNovelUnlock(targetHref) {
                 <button
                     type="button"
                     onclick="closeLockModal()"
-                    style="background: none; border: none; color: #a09585; margin-top: 1rem; cursor: pointer; font-size: 0.8rem; text-decoration: underline; padding: 10px; touch-action: manipulation;"
+                    style="background: none; border: none; color: #a09585; margin-top: 1rem; cursor: pointer; font-size: 0.8rem; text-decoration: underline; padding: 10px; touch-action: manipulation; position: relative; z-index: 1000000; pointer-events: auto;"
                 >
                     Cancel / Return
                 </button>
@@ -223,18 +225,26 @@ function promptNovelUnlock(targetHref) {
 
         document.body.appendChild(lockModal);
 
-        const lockForm = document.getElementById("novelLockForm");
+        const lockForm =
+            document.getElementById("novelLockForm");
 
-        lockForm.addEventListener("submit", function(e) {
+        const unlockButton =
+            document.querySelector("#novelLockModal .novel-lock-btn");
 
-            e.preventDefault();
-            e.stopPropagation();
+        function checkNovelPassword(e) {
+
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
 
             const inputField =
                 document.getElementById("novelLockInput");
 
             const errorMsg =
                 document.getElementById("novelLockError");
+
+            if (!inputField) return;
 
             const inputVal =
                 inputField.value.trim();
@@ -250,11 +260,8 @@ function promptNovelUnlock(targetHref) {
                 lockModal.style.display = "none";
 
                 if (pendingUrl) {
-
                     window.location.href = pendingUrl;
-
                 } else {
-
                     window.location.reload();
                 }
 
@@ -267,14 +274,43 @@ function promptNovelUnlock(targetHref) {
                 }
 
                 inputField.value = "";
-                inputField.focus();
+
+                setTimeout(function() {
+                    inputField.focus();
+                }, 50);
             }
 
-        });
+            return false;
+        }
+
+        // PC + Mobile
+        if (unlockButton) {
+
+            unlockButton.addEventListener(
+                "pointerup",
+                checkNovelPassword,
+                false
+            );
+
+        }
+
+        // Keyboard / Enter
+        if (lockForm) {
+
+            lockForm.addEventListener(
+                "submit",
+                checkNovelPassword,
+                false
+            );
+
+        }
     }
 
     if (targetHref) {
-        lockModal.setAttribute("data-pending-url", targetHref);
+        lockModal.setAttribute(
+            "data-pending-url",
+            targetHref
+        );
     }
 
     lockModal.style.display = "flex";
@@ -291,7 +327,10 @@ function promptNovelUnlock(targetHref) {
 
     if (inputField) {
         inputField.value = "";
-        inputField.focus();
+
+        setTimeout(function() {
+            inputField.focus();
+        }, 100);
     }
 
     return false;
@@ -531,7 +570,7 @@ function escapeHTML(str) {
             '<': '&lt;',
             '>': '&gt;',
             "'": '&#39;',
-            '"': '&quot;'
+            '"': '&quot;'8
         }[tag] || tag)
     );
 }
