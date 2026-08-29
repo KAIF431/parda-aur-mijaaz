@@ -43,7 +43,7 @@ function loadSavedHomeHighlights() {
     } catch(e) {}
 }
 
-// Bulletproof Global Drawer & Settings Toggles
+// Global Drawer & Settings Toggles
 window.closeAllDrawers = function() {
     const panel = document.getElementById('settingsPanel');
     const drawer = document.getElementById('chapterDrawer');
@@ -105,17 +105,15 @@ window.openContact = function(e) {
     const overlay = document.getElementById('settingsOverlay');
     if (modal) {
         modal.classList.add('active');
-        modal.style.opacity = '1';
-        modal.style.pointerEvents = 'all';
+        modal.style.cssText = "position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 100000; opacity: 1 !important; pointer-events: all !important; display: flex !important; align-items: center; justify-content: center;";
     }
     if (overlay) {
         overlay.classList.add('active');
-        overlay.style.opacity = '1';
-        overlay.style.pointerEvents = 'all';
+        overlay.style.cssText = "position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 999998 !important; opacity: 1 !important; pointer-events: all !important;";
     }
 };
 
-// Theme, Font & Text Scaling Handlers inside Settings Panel
+// Theme, Font & Text Scaling Event Listeners
 document.addEventListener("click", (e) => {
     const themeBtn = e.target.closest("[data-theme]");
     if (themeBtn) {
@@ -140,13 +138,8 @@ document.addEventListener("click", (e) => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    loadSavedHomeHighlights();
-});
-
 // ==========================================
-// SECRET PASSWORD LOCK SYSTEM (Chapters 2 to 12)
-// Secret Password: kaif@431
+// SECRET PASSWORD LOCK SYSTEM
 // ==========================================
 const SECRET_NOVEL_PASSWORD = "kaif@431";
 
@@ -189,7 +182,7 @@ function promptNovelUnlock(targetHref) {
             const inputVal = document.getElementById("novelLockInput").value.trim();
             const errorMsg = document.getElementById("novelLockError");
 
-            if (inputVal.toLowerCase() === SECRET_NOVEL_PASSWORD.toLowerCase() || inputVal === SECRET_NOVEL_PASSWORD) {
+            if (inputVal.toLowerCase() === SECRET_NOVEL_PASSWORD.toLowerCase()) {
                 localStorage.setItem("novel_unlocked", "true");
                 lockModal.style.display = "none";
                 alert("🎉 Success! All Chapters are now Unlocked!");
@@ -228,7 +221,6 @@ window.closeLockModal = function() {
     if (lockModal) lockModal.style.display = "none";
 };
 
-// Check direct URL access to Chapters 2 to 12
 function enforcePageAccessLock() {
     const currentPath = window.location.pathname;
     const isLockedChapterPage = /chapter([2-9]|1[0-2])\.html$/i.test(currentPath);
@@ -242,7 +234,6 @@ function enforcePageAccessLock() {
 
 enforcePageAccessLock();
 
-// Update UI lock badges across home & drawer links
 function updateChapterLockBadges() {
     const unlocked = isNovelUnlocked();
 
@@ -269,7 +260,7 @@ function updateChapterLockBadges() {
     });
 }
 
-// Unstoppable Chapter Link Navigation
+// Fixed Global Click Listener for Chapter Navigation Only
 document.addEventListener("click", (e) => {
     const link = e.target.closest("a[href*='chapter'], .chapter-link");
     if (!link) return;
@@ -281,27 +272,19 @@ document.addEventListener("click", (e) => {
 
     if (isLockedChapter && !isNovelUnlocked()) {
         e.preventDefault();
-        e.stopPropagation();
         promptNovelUnlock(href);
-    } else {
-        e.preventDefault();
-        e.stopPropagation();
-        window.location.href = href;
     }
-}, true);
+});
 
 document.addEventListener("DOMContentLoaded", () => {
+    loadSavedHomeHighlights();
     updateChapterLockBadges();
-    
-    // 1. Storage se purane comments load karna
     loadComments();
 
-    // 2. Comment Form Submit Event Handle karna
     const commentForm = document.getElementById("commentForm");
-    
     if (commentForm) {
         commentForm.addEventListener("submit", function (e) {
-            e.preventDefault(); // Page refresh hone se rokna
+            e.preventDefault();
 
             const nameInput = document.getElementById("reviewerName");
             const emailInput = document.getElementById("reviewerEmail");
@@ -317,23 +300,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Button ko disable karke Loading text dikhana
             const originalBtnText = submitBtn.innerText;
             submitBtn.innerText = "Posting...";
             submitBtn.disabled = true;
 
-            // Naye Comment ka object
             const newComment = {
                 name: name,
                 message: message,
                 date: new Date().toLocaleDateString()
             };
 
-            // Instant LocalStorage & Screen par dikhana
             saveCommentToLocal(newComment);
             renderComment(newComment);
 
-            // Web3Forms API ko mail bhejna (Backend Sync)
             const formData = new FormData();
             formData.append("access_key", "78b08615-65ca-4c89-a320-b21b236bba26");
             formData.append("subject", "New Comment on Parda Aur Mijaz");
@@ -351,7 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     alert("Aapka comment successfully post ho gaya hai!");
                     commentForm.reset();
                 } else {
-                    alert("Screen par comment add ho gaya hai, lekin backend sync me issue aaya.");
+                    alert("Screen par comment add ho gaya hai!");
                 }
             })
             .catch(error => {
@@ -366,15 +345,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Helper Function: LocalStorage me save karne ke liye
 function saveCommentToLocal(commentObj) {
     let comments = JSON.parse(localStorage.getItem("parda_comments")) || [];
     comments.push(commentObj);
-    localStorage.getItem("parda_comments", JSON.stringify(comments));
     localStorage.setItem("parda_comments", JSON.stringify(comments));
 }
 
-// Helper Function: Screen par comment render karne ke liye
 function renderComment(commentObj) {
     const commentsList = document.getElementById("commentsList");
     if (!commentsList) return;
@@ -387,12 +363,9 @@ function renderComment(commentObj) {
         </div>
         <p>${escapeHTML(commentObj.message)}</p>
     `;
-    
-    // Naya comment list ke sabse upar dikhane ke liye prepend use kiya hai
     commentsList.prepend(commentDiv);
 }
 
-// Helper Function: LocalStorage se sare saved comments screen par load karne ke liye
 function loadComments() {
     let comments = JSON.parse(localStorage.getItem("parda_comments")) || [];
     comments.forEach(comment => {
@@ -400,7 +373,6 @@ function loadComments() {
     });
 }
 
-// XSS Protection ke liye Security Helper
 function escapeHTML(str) {
     return str.replace(/[&<>'"]/g, 
         tag => ({
