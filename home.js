@@ -141,139 +141,290 @@ document.addEventListener("click", (e) => {
 // ==========================================
 // SECRET PASSWORD LOCK SYSTEM
 // ==========================================
+
 const SECRET_NOVEL_PASSWORD = "kaif@431";
 
 function isNovelUnlocked() {
-    return localStorage.getItem("novel_unlocked") === "true";
+    return false;
 }
 
 function promptNovelUnlock(targetHref) {
-    if (isNovelUnlocked()) {
-        if (targetHref) window.location.href = targetHref;
-        return true;
-    }
 
     let lockModal = document.getElementById("novelLockModal");
+
     if (!lockModal) {
+
         lockModal = document.createElement("div");
         lockModal.id = "novelLockModal";
         lockModal.className = "novel-lock-modal active";
+
         lockModal.style.cssText = "position: fixed; inset: 0; background: rgba(12, 9, 7, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); display: flex; align-items: center; justify-content: center; z-index: 999999; padding: 1rem;";
+
         lockModal.innerHTML = `
             <div class="novel-lock-card" style="background: #16100c; border: 2px solid #e2b857; border-radius: 20px; padding: 2.5rem 1.8rem; width: 100%; max-width: 440px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.9), 0 0 30px rgba(226,184,87,0.3);">
+
                 <div class="novel-lock-icon" style="font-size: 3rem; margin-bottom: 0.8rem;">🔒</div>
-                <div class="novel-lock-title" style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #e2b857; margin-bottom: 0.4rem;">Chapters 02–12 Locked</div>
-                <div class="novel-lock-desc" style="font-family: 'Inter', sans-serif; font-size: 0.88rem; color: #a09585; margin-bottom: 1.5rem; line-height: 1.5;">
-                    Chapter 01 is Free to read! Aage ke baaki chapters padhne ke liye Secret Access Password enter karein:
+
+                <div class="novel-lock-title" style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #e2b857; margin-bottom: 0.4rem;">
+                    Chapter Locked
                 </div>
+
+                <div class="novel-lock-desc" style="font-family: 'Inter', sans-serif; font-size: 0.88rem; color: #a09585; margin-bottom: 0.8rem; line-height: 1.5;">
+                    This chapter is protected by a Secret Access Password.
+                </div>
+
+                <div style="font-family: 'Inter', sans-serif; font-size: 0.82rem; color: #e2b857; margin-bottom: 1.5rem; line-height: 1.5;">
+                    If you are important person for Kaif, you know the password.
+                </div>
+
                 <form id="novelLockForm" class="novel-lock-form" style="display: flex; flex-direction: column; gap: 1rem;">
-                    <input type="password" id="novelLockInput" class="novel-lock-input" placeholder="Enter Secret Password" required autocomplete="off" style="width: 100%; padding: 0.9rem 1.2rem; border-radius: 12px; border: 1px solid #3a2e22; background: #0c0907; color: #f4ede2; font-family: 'Inter', sans-serif; font-size: 0.95rem; text-align: center; letter-spacing: 2px; outline: none;">
-                    <button type="submit" class="novel-lock-btn" style="width: 100%; padding: 0.9rem; border-radius: 12px; border: none; background: #e2b857; color: #000000; font-family: 'Inter', sans-serif; font-weight: bold; font-size: 0.95rem; cursor: pointer;">Unlock All Chapters 🔓</button>
+
+                    <input
+                        type="password"
+                        id="novelLockInput"
+                        class="novel-lock-input"
+                        placeholder="Enter Secret Password"
+                        required
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="none"
+                        spellcheck="false"
+                        style="width: 100%; box-sizing: border-box; padding: 0.9rem 1.2rem; border-radius: 12px; border: 1px solid #3a2e22; background: #0c0907; color: #f4ede2; font-family: 'Inter', sans-serif; font-size: 16px; text-align: center; letter-spacing: 2px; outline: none;"
+                    >
+
+                    <button
+                        type="submit"
+                        class="novel-lock-btn"
+                        style="width: 100%; padding: 0.9rem; border-radius: 12px; border: none; background: #e2b857; color: #000000; font-family: 'Inter', sans-serif; font-weight: bold; font-size: 0.95rem; cursor: pointer; touch-action: manipulation;"
+                    >
+                        Unlock Chapter 🔓
+                    </button>
+
                 </form>
-                <div id="novelLockError" class="novel-lock-error" style="color: #ff6b6b; font-size: 0.82rem; font-family: 'Inter', sans-serif; margin-top: 0.8rem; display: none;">❌ Galat Password! Please enter valid password.</div>
-                <button type="button" onclick="closeLockModal()" style="background: none; border: none; color: #a09585; margin-top: 1rem; cursor: pointer; font-size: 0.8rem; text-decoration: underline;">Cancel / Return</button>
+
+                <div
+                    id="novelLockError"
+                    class="novel-lock-error"
+                    style="color: #ff6b6b; font-size: 0.82rem; font-family: 'Inter', sans-serif; margin-top: 0.8rem; display: none;"
+                >
+                    ❌ Incorrect Password! Try again.
+                </div>
+
+                <button
+                    type="button"
+                    onclick="closeLockModal()"
+                    style="background: none; border: none; color: #a09585; margin-top: 1rem; cursor: pointer; font-size: 0.8rem; text-decoration: underline; padding: 10px; touch-action: manipulation;"
+                >
+                    Cancel / Return
+                </button>
+
             </div>
         `;
+
         document.body.appendChild(lockModal);
 
         const lockForm = document.getElementById("novelLockForm");
-        lockForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const inputVal = document.getElementById("novelLockInput").value.trim();
-            const errorMsg = document.getElementById("novelLockError");
 
-            if (inputVal.toLowerCase() === SECRET_NOVEL_PASSWORD.toLowerCase()) {
-                localStorage.setItem("novel_unlocked", "true");
+        lockForm.addEventListener("submit", function(e) {
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            const inputField =
+                document.getElementById("novelLockInput");
+
+            const errorMsg =
+                document.getElementById("novelLockError");
+
+            const inputVal =
+                inputField.value.trim();
+
+            if (
+                inputVal.toLowerCase() ===
+                SECRET_NOVEL_PASSWORD.toLowerCase()
+            ) {
+
+                const pendingUrl =
+                    lockModal.getAttribute("data-pending-url");
+
                 lockModal.style.display = "none";
-                alert("🎉 Success! All Chapters are now Unlocked!");
-                updateChapterLockBadges();
-                
-                const pendingUrl = lockModal.getAttribute("data-pending-url");
+
                 if (pendingUrl) {
+
                     window.location.href = pendingUrl;
-                } else if (window.location.pathname.includes("chapter") && !window.location.pathname.includes("chapter1.html")) {
+
+                } else {
+
                     window.location.reload();
                 }
+
             } else {
+
                 if (errorMsg) {
                     errorMsg.style.display = "block";
-                    errorMsg.innerText = "❌ Incorrect Password! Try again.";
+                    errorMsg.innerText =
+                        "❌ Incorrect Password! Try again.";
                 }
+
+                inputField.value = "";
+                inputField.focus();
             }
+
         });
     }
 
     if (targetHref) {
         lockModal.setAttribute("data-pending-url", targetHref);
     }
-    
+
     lockModal.style.display = "flex";
-    const inputField = document.getElementById("novelLockInput");
+
+    const inputField =
+        document.getElementById("novelLockInput");
+
+    const errorMsg =
+        document.getElementById("novelLockError");
+
+    if (errorMsg) {
+        errorMsg.style.display = "none";
+    }
+
     if (inputField) {
         inputField.value = "";
         inputField.focus();
     }
+
     return false;
 }
 
 window.closeLockModal = function() {
-    const lockModal = document.getElementById("novelLockModal");
-    if (lockModal) lockModal.style.display = "none";
+
+    const lockModal =
+        document.getElementById("novelLockModal");
+
+    if (lockModal) {
+        lockModal.style.display = "none";
+    }
 };
 
-function enforcePageAccessLock() {
-    const currentPath = window.location.pathname;
-    const isLockedChapterPage = /chapter([2-9]|1[0-2])\.html$/i.test(currentPath);
 
-    if (isLockedChapterPage && !isNovelUnlocked()) {
-        document.addEventListener("DOMContentLoaded", () => {
+// ==========================================
+// LOCK DIRECT CHAPTER PAGES
+// ==========================================
+
+function enforcePageAccessLock() {
+
+    const currentPath =
+        window.location.pathname;
+
+    const isLockedChapterPage =
+        /chapter([2-9]|1[0-2])\.html$/i.test(
+            currentPath
+        );
+
+    if (isLockedChapterPage) {
+
+        if (document.readyState === "loading") {
+
+            document.addEventListener(
+                "DOMContentLoaded",
+                function() {
+                    promptNovelUnlock();
+                }
+            );
+
+        } else {
+
             promptNovelUnlock();
-        });
+        }
     }
 }
 
 enforcePageAccessLock();
 
+
+// ==========================================
+// CHAPTER LOCK BADGES
+// ==========================================
+
 function updateChapterLockBadges() {
-    const unlocked = isNovelUnlocked();
 
-    document.querySelectorAll(".chapter-link").forEach(link => {
-        const href = link.getAttribute("href") || "";
-        const isLockedChapter = /chapter([2-9]|1[0-2])\.html$/i.test(href);
+    document
+        .querySelectorAll(".chapter-link")
+        .forEach(function(link) {
 
-        if (isLockedChapter) {
-            let badge = link.querySelector(".lock-badge");
+            const href =
+                link.getAttribute("href") || "";
+
+            const isLockedChapter =
+                /chapter([2-9]|1[0-2])\.html$/i.test(
+                    href
+                );
+
+            if (!isLockedChapter) return;
+
+            let badge =
+                link.querySelector(".lock-badge");
+
             if (!badge) {
-                badge = document.createElement("span");
+
+                badge =
+                    document.createElement("span");
+
                 badge.className = "lock-badge";
-                badge.style.cssText = "margin-left: auto; font-size: 0.75rem; font-weight: bold;";
+
+                badge.style.cssText =
+                    "margin-left: auto; font-size: 0.75rem; font-weight: bold;";
+
                 link.appendChild(badge);
             }
-            if (unlocked) {
-                badge.style.color = "#52b788";
-                badge.textContent = "🔓 Unlocked";
-            } else {
-                badge.style.color = "var(--accent-gold)";
-                badge.textContent = "🔒 Locked";
-            }
-        }
-    });
+
+            badge.style.color =
+                "var(--accent-gold)";
+
+            badge.textContent =
+                "🔒 Locked";
+        });
 }
 
-// Fixed Global Click Listener for Chapter Navigation Only
-document.addEventListener("click", (e) => {
-    const link = e.target.closest("a[href*='chapter'], .chapter-link");
+
+// ==========================================
+// CHAPTER NAVIGATION LOCK
+// ==========================================
+
+document.addEventListener("click", function(e) {
+
+    const link =
+        e.target.closest(
+            "a[href*='chapter'], .chapter-link"
+        );
+
     if (!link) return;
 
-    const href = link.getAttribute("href") || "";
-    if (!href || href === "#" || href.startsWith("#")) return;
+    const href =
+        link.getAttribute("href") || "";
 
-    const isLockedChapter = /chapter([2-9]|1[0-2])\.html$/i.test(href);
+    if (
+        !href ||
+        href === "#" ||
+        href.startsWith("#")
+    ) {
+        return;
+    }
 
-    if (isLockedChapter && !isNovelUnlocked()) {
+    const isLockedChapter =
+        /chapter([2-9]|1[0-2])\.html$/i.test(
+            href
+        );
+
+    if (isLockedChapter) {
+
         e.preventDefault();
+        e.stopPropagation();
+
         promptNovelUnlock(href);
     }
+
 });
 
 document.addEventListener("DOMContentLoaded", () => {
